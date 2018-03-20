@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252b435398013e646b45e3f46e8d24f9, type: 3}
+  m_Name: Test of Temptation
+  m_EditorClassIdentifier: 
+  name: Test of temptation
+  image: {fileID: 21300000, guid: 3748eec536b4298419545800c9016103, type: 3}
+  bidPoints: 1
+  bonusBidPoints: 0
+  battlePoints: 0
+  bonusBattlePoints: 0
+  value: 0
+  merlin: 0
+  mordred: 0
+  type: Test
