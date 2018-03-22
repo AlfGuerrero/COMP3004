@@ -14,4 +14,4 @@ MonoBehaviour:
   name: Test of the Green Knight
   bonusFoe: Green Knight
   stages: 4
-  image: {fileID: 21300000, guid: 69daff4c51b184671a9f9852f97c83f2, type: 3}
+  image: {fileID: 21300000, guid: ec52c92dae207479589dc62376f8e521, type: 3}

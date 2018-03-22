@@ -13,4 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pox
   function: Pox
-  image: {fileID: 21300000, guid: b7bac0f4cb20e3a4893b1c1a342cf771, type: 3}
+  image: {fileID: 21300000, guid: e2ff434a983f64ce4b02a92b250d38a8, type: 3}

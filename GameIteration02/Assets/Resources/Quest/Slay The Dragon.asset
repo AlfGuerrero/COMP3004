@@ -14,4 +14,4 @@ MonoBehaviour:
   name: Slay The Dragon
   bonusFoe: Dragon
   stages: 3
-  image: {fileID: 21300000, guid: f4ef8adaee4c3405bb5fead3ab1cbb4b, type: 3}
+  image: {fileID: 21300000, guid: 5d49656d3fa574f3082d4c389bbc611e, type: 3}

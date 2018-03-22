@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 
 public class Draggable : NetworkBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
 		
-	Vector2 dragOffset = new Vector2(0f, 0f);
+//	Vector2 dragOffset = new Vector2(0f, 0f);
 	public Transform parentToReturnTo;
 
 	public void OnBeginDrag(PointerEventData eventData)    {
@@ -14,7 +14,7 @@ public class Draggable : NetworkBehaviour, IBeginDragHandler, IDragHandler, IEnd
 //		parentToReturnTo = this.transform.parent;
 //		this.transform.SetParent (this.transform.parent);
 //		dragOffset = eventData.position - (Vector2)this.transform.localPosition;
-		dragOffset = (Vector2)Input.mousePosition - (Vector2)this.transform.position;
+//		dragOffset = (Vector2)Input.mousePosition - (Vector2)this.transform.position;
 		Debug.Log ((Vector2)this.transform.position);
 		Debug.Log ((Vector2)Input.mousePosition);
 

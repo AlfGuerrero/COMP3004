@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Tournament at Camelot
   m_EditorClassIdentifier: 
   name: Tournament at Camelot
-  image: {fileID: 21300000, guid: 893b5452e9ba140cd8f2e81937e6e9ab, type: 3}
+  image: {fileID: 21300000, guid: bc6eea55e67264859ac4ffa8a7170259, type: 3}
   bonusShields: 3

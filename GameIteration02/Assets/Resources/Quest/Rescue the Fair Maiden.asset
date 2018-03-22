@@ -14,4 +14,4 @@ MonoBehaviour:
   name: Rescue the Fair Maiden
   bonusFoe: Black Knight
   stages: 3
-  image: {fileID: 21300000, guid: ed7f03a8ea4854becbf25448e4abea29, type: 3}
+  image: {fileID: 21300000, guid: a87c399135a3a49bba57513310b5fce1, type: 3}

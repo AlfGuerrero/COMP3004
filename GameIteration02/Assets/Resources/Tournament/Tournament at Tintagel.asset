@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: Tournament at Tintagel
   m_EditorClassIdentifier: 
   name: Tournament at Tintagel
-  image: {fileID: 21300000, guid: 9a2fd8319015c44fe96c597c5b3ac9cc, type: 3}
+  image: {fileID: 21300000, guid: 8586f48c2af844c23b2e3da7c58bf471, type: 3}
   bonusShields: 1

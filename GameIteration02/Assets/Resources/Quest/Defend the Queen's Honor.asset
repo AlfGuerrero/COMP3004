@@ -14,4 +14,4 @@ MonoBehaviour:
   name: Defend the Queen's Honor
   bonusFoe: All
   stages: 4
-  image: {fileID: 21300000, guid: b04716c6ed8884ea4beb13326a8b3616, type: 3}
+  image: {fileID: 21300000, guid: ff2715b9ce1c446e1b3569e0defc5180, type: 3}

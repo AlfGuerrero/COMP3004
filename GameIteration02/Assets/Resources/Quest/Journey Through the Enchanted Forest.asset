@@ -14,4 +14,4 @@ MonoBehaviour:
   name: Journey Through the Enchanted Forest
   bonusFoe: Evil Knight
   stages: 3
-  image: {fileID: 21300000, guid: 88a24ec73b74a486f8efef9162fd13ca, type: 3}
+  image: {fileID: 21300000, guid: e3ad37292f651492da9b5ec7762c39bd, type: 3}

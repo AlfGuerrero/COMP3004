@@ -14,4 +14,4 @@ MonoBehaviour:
   name: Repel the Saxon Raiders
   bonusFoe: All Saxons
   stages: 2
-  image: {fileID: 21300000, guid: 7d50034b06da943258bf639e0ee9e7ff, type: 3}
+  image: {fileID: 21300000, guid: 7ba7e716da3284d5b82e7a674be6fb6a, type: 3}

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A060C46D-BC6E-C1E7-A52E-2C96F2B64728}</ProjectGuid>
+    <ProjectGuid>{B601C910-654D-3F6C-5F01-79670C5D0E61}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -69,10 +69,12 @@
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\Quest.cs" />
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\QuestScriptObj.cs" />
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\StoryCard.cs" />
+     <Compile Include="Assets\Scripts\CardScripts\StoryCards\StoryDeck.cs" />
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\Tournament.cs" />
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\TournamentScriptObj.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Spawn.cs" />
      <Compile Include="Assets\Scripts\UIScripts\Draggable.cs" />
      <Compile Include="Assets\Scripts\UIScripts\MouseOver.cs" />
  <Reference Include="UnityEngine.UI">
