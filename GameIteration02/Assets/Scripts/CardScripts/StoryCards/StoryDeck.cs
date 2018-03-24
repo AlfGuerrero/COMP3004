@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
  // QuestGame;
 
 public class StoryDeck : MonoBehaviour {
@@ -25,41 +26,6 @@ public class StoryDeck : MonoBehaviour {
 
 	List<string> tournaments = new List<string>(){"Tournament at Camelot","Tournament at Orkney","Tournament at Tintagel","Tournament at York",};
 
-	void Start () {
-
-		//		populateDeck (storyDeck);
-		//		deckSize = getSizeOfDeck ();
-
-	}
-
-	void Update(){
-		//		if (Input.GetKeyDown (KeyCode.Space)) {
-		//			if(newCard != null){
-		//				Destroy (newCard);
-		//			}
-		//			newCard = Draw ();
-		//			//newCard.transform.SetParent (GameObject.Find ("Hand").transform);
-		//
-		//		}
-
-	}
-	public void populateEventsDeck(){
-		// logger.info ("StoryDeck.cs :: Populating Deck with Event Cards.");
-
-//		List<string> RList1 = new List<string> {
-//			"King's Recognition", "Queen's Favor"
-//		};
-//		List<string> RList4 = new List<string> {
-//			"Prosperity Throughout the Realm", "King's Call to Arms"
-//		};
-//		List<string> RList3 = new List<string> {
-//			"Court Called to Camelot", "Pox"
-//		};
-//		List<string> RList5 = new List<string> {
-//			"Plague", "Chivalrous Deed"
-//		};
-
-	}
 
 	public void populateDeck(){
 		// logger.info ("StoryDeck.cs :: Populating Deck with cards.");
@@ -182,29 +148,28 @@ public class StoryDeck : MonoBehaviour {
 		storyDeck.Add("Tournament at York",					1);	
 		*/
 
-
-	public GameObject Draw(){
-		// logger.info ("StoryDeck.cs :: Story Deck is drawing..." );
-		if (storyDeck.Count == 0) {
-			// logger.info ("StoryDeck.cs :: ." + storyDeck.Count + "Is empty.");
-			populateDeck ();
-		}
+	public string NewCard(){
+		if (storyDeck.Count == 0) { populateDeck (); }		
 		temp = storyDeck [0];
 		storyDeck.RemoveAt (0);
+		return temp;
+	}
+
+	public GameObject Draw(string name){
+		// logger.info ("StoryDeck.cs :: Story Deck is drawing..." );
+
 		GameObject tempCard = Instantiate ((Resources.Load ("Prefabs/CurrentStoryCard") as GameObject));   //DO NOT FORGET TO PARENT TO COORECT HAND, MIGHT NEED TO TAKE IN HAND OBJECTS
 
-		if (quests.Contains (temp)) {
+		if (quests.Contains (name)) {
 			tempCard.AddComponent<Quest> ();
-			tempCard.GetComponent<Quest> ().setCard (temp);
-			//					Debug.Log (	"StoryDeck.cs Quest name :: " + tempCard.GetComponent<Quest> ().getName());
-		} else if (events.Contains (temp)) {
+			tempCard.GetComponent<Quest> ().setCard (name);
+		} else if (events.Contains (name)) {
 			tempCard.AddComponent<Event> ();
-			tempCard.GetComponent<Event> ().setCard (temp);
-		} else if (tournaments.Contains (temp)) {
+			tempCard.GetComponent<Event> ().setCard (name);
+		} else if (tournaments.Contains (name)) {
 			tempCard.AddComponent<Tournament> ();
-			tempCard.GetComponent<Tournament> ().setCard (temp);
+			tempCard.GetComponent<Tournament> ().setCard (name);
 		}
-		// logger.info ("StoryDeck.cs :: Story Deck has drawn Card: " + temp);
 
 		return tempCard;
 

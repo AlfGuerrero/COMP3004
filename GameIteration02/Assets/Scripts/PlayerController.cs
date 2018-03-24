@@ -62,6 +62,7 @@ public class PlayerController : NetworkBehaviour{
 	public void CmdUpdatePosition(GameObject gObject, Vector3 cardLocation, int cardIndex){
 		RpcUpdatePosition (gObject, cardLocation, cardIndex);
 	}
+
 	[ClientRpc]
 	void RpcUpdatePosition(GameObject gObject, Vector3 cardPosition, int cardIndex){
 		GameObject cardObject = handCanvas.gameObject.transform.GetChild (cardIndex).gameObject;

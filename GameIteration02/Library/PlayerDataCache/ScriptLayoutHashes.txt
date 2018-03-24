@@ -122,6 +122,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 5e4c10c5de90e95cc70c01443031c8b7 Assembly-CSharp.dll:.StoryDeck
 793f0113221eecab8d8d969ec327024f Assembly-CSharp.dll:.QuestScriptObj
+471543aac595a86c46ea760661782b76 Assembly-CSharp.dll:.Spawn
 85428d1425a367fca79ad826587547f8 Assembly-CSharp.dll:.Quest
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
@@ -163,4 +164,3 @@ f4df338609bff07347bbfdb185caf66d Assembly-CSharp.dll:.Ally
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Foe
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StoryCard
 4866de1c5b0d1e1d441b4a7c6b6aed25 Assembly-CSharp.dll:.Test
-471543aac595a86c46ea760661782b76 Assembly-CSharp.dll:.Spawn

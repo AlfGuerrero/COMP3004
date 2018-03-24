@@ -70,22 +70,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 223
-    i1: 252
-    i2: 150
-    i3: 80
-    i4: 13
-    i5: 63
-    i6: 52
-    i7: 228
-    i8: 59
-    i9: 248
-    i10: 244
-    i11: 69
-    i12: 1
-    i13: 164
-    i14: 188
-    i15: 98
+    i0: 129
+    i1: 118
+    i2: 226
+    i3: 1
+    i4: 99
+    i5: 144
+    i6: 132
+    i7: 200
+    i8: 136
+    i9: 252
+    i10: 49
+    i11: 186
+    i12: 192
+    i13: 225
+    i14: 116
+    i15: 32
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!222 &222847295386687774
@@ -109,6 +109,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -352, y: 17}
   m_SizeDelta: {x: 1.5, y: 2}
   m_Pivot: {x: 0, y: 1}

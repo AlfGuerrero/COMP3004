@@ -28,33 +28,48 @@ public class GameManager : NetworkBehaviour {
 		if (!isLocalPlayer) {
 			return;
 		}
+		if (storyCard != null) {
+			DestroyObject (storyCard);
+		}
 
 
-	
-		CmdPickUpStoryCard ();
+//		storyCard = storyDeck.Draw();
 
+		string nameOfCard = storyDeck.NewCard ();
+		Debug.Log("[Local] " + nameOfCard);
+
+//		storyCard = storyDeck.Draw();
+//		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
+//		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
+		CmdPickUpStoryCard(this.gameObject, nameOfCard);
 	}
 
 	[Command]
-	public void CmdPickUpStoryCard(){
-//
-		GameObject card = storyDeck.Draw ();
+	public void CmdPickUpStoryCard(GameObject gObject, string name){
+		Debug.Log ("[Command]" + storyCard);
+		if (storyCard != null) {
+			DestroyObject (storyCard);
+		}
+		storyCard = storyDeck.Draw(name);
+		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
+		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
+//		NetworkServer.Spawn (storyCard); 
 
-		card.transform.SetParent (GameObject.Find ("GameCanvas").transform);
-		card.transform.localPosition = new Vector3 (-352f, 17f, 0f);
-		NetworkServer.Spawn (card);
-		Image image = card.GetComponent<Image> ();
-		Sprite myImage = image.sprite;
-		RpcPickUpStoryCard (card);		
-
+		RpcPickUpStoryCard(this.gameObject, name);
 	}
+
 	[ClientRpc]
-	public void RpcPickUpStoryCard(GameObject card){
-       	
-		// want to call the add image function here...! 
-		card.transform.SetParent (GameObject.Find ("GameCanvas").transform);
-		card.transform.localPosition = new Vector3 (-352f, 17f, 0f);
-//		NetworkServer.Spawn (card);
+	public void RpcPickUpStoryCard(GameObject gObject, string name){
+		if (storyCard != null) {
+			DestroyObject (storyCard);
+		}
+//		// want to call the add image function here...! 
+		Debug.Log ("[ClientRpc]" + storyCard);
+		storyCard = storyDeck.Draw(name);
+		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
+		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
+//		NetworkServer.Spawn (storyCard); 
+
 
 	}
 
