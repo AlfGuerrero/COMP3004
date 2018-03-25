@@ -473,8 +473,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114105233740749900}
-        m_MethodName: UpdateTurn
+      - m_Target: {fileID: 114962621118793494}
+        m_MethodName: ControlPlayerTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -696,7 +696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyDeck: {fileID: 114287320174111188, guid: 88dac31df6e3d495284793b789aff87e,
     type: 2}
-  player: {fileID: 1672854402560926}
   storyCard: {fileID: 0}
 --- !u!212 &212213748733203424
 SpriteRenderer:
