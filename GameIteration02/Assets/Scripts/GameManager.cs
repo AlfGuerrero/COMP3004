@@ -6,12 +6,9 @@ using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour {
 	public StoryDeck storyDeck;
-	public GameObject storyCard;
 	public GameObject player;
-	// Use this for initialization
-	void Start () {
-//		player = this.gameObject;
-	}
+	public GameObject storyCard;
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -25,52 +22,30 @@ public class GameManager : NetworkBehaviour {
 	}
 		
 	public void PickUpStoryCard(){
-		if (!isLocalPlayer) {
-			return;
-		}
-		if (storyCard != null) {
-			DestroyObject (storyCard);
-		}
-
-
-//		storyCard = storyDeck.Draw();
-
+		if (!isLocalPlayer) {return;}
+		if (storyCard != null) {DestroyObject (storyCard);}
 		string nameOfCard = storyDeck.NewCard ();
-		Debug.Log("[Local] " + nameOfCard);
-
-//		storyCard = storyDeck.Draw();
-//		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
-//		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
+		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = nameOfCard;
+		storyCard = storyDeck.Draw(nameOfCard);		
+		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
+		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
 		CmdPickUpStoryCard(this.gameObject, nameOfCard);
 	}
 
-	[Command]
+	[Command] // Server calls Clients...
 	public void CmdPickUpStoryCard(GameObject gObject, string name){
-		Debug.Log ("[Command]" + storyCard);
-		if (storyCard != null) {
-			DestroyObject (storyCard);
-		}
-		storyCard = storyDeck.Draw(name);
-		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
-		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
-//		NetworkServer.Spawn (storyCard); 
-
+		if (storyCard != null) {DestroyObject (storyCard);}
 		RpcPickUpStoryCard(this.gameObject, name);
 	}
 
-	[ClientRpc]
+	[ClientRpc] // Clients call Server... 
 	public void RpcPickUpStoryCard(GameObject gObject, string name){
-		if (storyCard != null) {
-			DestroyObject (storyCard);
-		}
-//		// want to call the add image function here...! 
-		Debug.Log ("[ClientRpc]" + storyCard);
+		if (storyCard != null) {DestroyObject (storyCard);}
+		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = name;
 		storyCard = storyDeck.Draw(name);
 		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
 		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
-//		NetworkServer.Spawn (storyCard); 
-
-
 	}
+
 
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Test of Morgan Le Fey
   m_EditorClassIdentifier: 
   name: Test of Morgan Le Fey
-  image: {fileID: 21300000, guid: d786ba41f38583f44b5bdf405729fb38, type: 3}
+  image: {fileID: 21300000, guid: 82b4046e852754132a021a82f7fc0eb0, type: 3}
   bidPoints: 1
   bonusBidPoints: 3
   battlePoints: 0

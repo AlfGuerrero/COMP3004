@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   name: Dagger
-  image: {fileID: 21300000, guid: b26eb2fb87e8eeb45b7df31703fde817, type: 3}
+  image: {fileID: 21300000, guid: 68d9187b8d98a4c8592b37c8a4815a4d, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 5

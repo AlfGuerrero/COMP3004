@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Test of Temptation
   m_EditorClassIdentifier: 
   name: Test of temptation
-  image: {fileID: 21300000, guid: 3748eec536b4298419545800c9016103, type: 3}
+  image: {fileID: 21300000, guid: 30797a2018eba4603a08a20e3a0ea2e9, type: 3}
   bidPoints: 1
   bonusBidPoints: 0
   battlePoints: 0

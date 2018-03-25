@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Battle-ax
   m_EditorClassIdentifier: 
   name: Battle-ax
-  image: {fileID: 21300000, guid: 93f697484908276419815cc09e1c62c7, type: 3}
+  image: {fileID: 21300000, guid: c8eb8df73894742f698bbb312c9800c7, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 15

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Excalibur
   m_EditorClassIdentifier: 
   name: Excalibur
-  image: {fileID: 21300000, guid: bcbf4c1fffed918458278d6d9643b78e, type: 3}
+  image: {fileID: 21300000, guid: 4294cd6f1c2d94a1b858d4c1bb9acc9e, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 30

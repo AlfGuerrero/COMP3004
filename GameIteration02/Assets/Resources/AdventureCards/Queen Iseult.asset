@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Queen Iseult
   m_EditorClassIdentifier: 
   name: Queen Iseult
-  image: {fileID: 21300000, guid: 53a38d3cb8a088b40851bf6171a6748d, type: 3}
+  image: {fileID: 21300000, guid: 77d2e7e94db4b49ca9ddec8eb3aa64ae, type: 3}
   bidPoints: 2
   bonusBidPoints: 4
   battlePoints: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Merlin
   m_EditorClassIdentifier: 
   name: Merlin
-  image: {fileID: 21300000, guid: 93fc4284084752c4c996f6221bc7fb37, type: 3}
+  image: {fileID: 21300000, guid: a6f92308471eb46c0872da0635244b30, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 0

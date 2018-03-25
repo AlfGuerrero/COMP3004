@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Sir Galahad
   m_EditorClassIdentifier: 
   name: Sir Galahad
-  image: {fileID: 21300000, guid: 722fef8132ff19942a76e835f75a4498, type: 3}
+  image: {fileID: 21300000, guid: eef4671b8c20342618e239fe10ed1c2e, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 15

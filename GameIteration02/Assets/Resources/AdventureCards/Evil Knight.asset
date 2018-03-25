@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Evil Knight
   m_EditorClassIdentifier: 
   name: Evil Knight
-  image: {fileID: 21300000, guid: f8eb0f92e51ca2445999bed29d519197, type: 3}
+  image: {fileID: 21300000, guid: 20e427fdebb14425c8d6e4e27d8bd4d2, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 20

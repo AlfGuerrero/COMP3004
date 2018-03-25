@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Boar
   m_EditorClassIdentifier: 
   name: Boar
-  image: {fileID: 21300000, guid: a9eea99c8b5bbcc42832bc1b6b4c5e2b, type: 3}
+  image: {fileID: 21300000, guid: a76408969faa24435af4fe58956f8fca, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 5

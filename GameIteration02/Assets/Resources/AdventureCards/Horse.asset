@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Horse
   m_EditorClassIdentifier: 
   name: Horse
-  image: {fileID: 21300000, guid: 8cd86bad21c15b640a9064ac523833ef, type: 3}
+  image: {fileID: 21300000, guid: d54584411841d42be885aaeac7c107d8, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 10

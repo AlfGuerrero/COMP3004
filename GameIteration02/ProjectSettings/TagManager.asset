@@ -7,6 +7,8 @@ TagManager:
   - NextTurnButton
   - Card
   - GameCanvas
+  - StoryCard
+  - StoryCardTextUI
   layers:
   - Default
   - TransparentFX

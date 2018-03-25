@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   name: Sword
-  image: {fileID: 21300000, guid: c923149019f70514a9afde511abd2986, type: 3}
+  image: {fileID: 21300000, guid: dd4957fc7bf3843b6a631e9b427976b4, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 10

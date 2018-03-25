@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Test of Valor
   m_EditorClassIdentifier: 
   name: Test of Valor
-  image: {fileID: 21300000, guid: 7fd5a75bebab08a49a5b15ca99094c1d, type: 3}
+  image: {fileID: 21300000, guid: f8b711562bc9a46d4af75ff958fb8d7f, type: 3}
   bidPoints: 1
   bonusBidPoints: 0
   battlePoints: 0

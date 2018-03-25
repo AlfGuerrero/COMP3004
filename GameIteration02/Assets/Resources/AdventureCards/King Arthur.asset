@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: King Arthur
   m_EditorClassIdentifier: 
   name: King Arthur
-  image: {fileID: 21300000, guid: 412e97b30c8816a48817e21510e64c01, type: 3}
+  image: {fileID: 21300000, guid: 64c8a057b19ab49b5a570d328663bfe3, type: 3}
   bidPoints: 0
   bonusBidPoints: 2
   battlePoints: 10

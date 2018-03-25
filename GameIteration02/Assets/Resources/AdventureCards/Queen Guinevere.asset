@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Queen Guinevere
   m_EditorClassIdentifier: 
   name: Queen Guinevere
-  image: {fileID: 21300000, guid: 648d70546b77900468ac809111d135fd, type: 3}
+  image: {fileID: 21300000, guid: 9965ff39f72fa4580b279a9006627525, type: 3}
   bidPoints: 3
   bonusBidPoints: 0
   battlePoints: 0

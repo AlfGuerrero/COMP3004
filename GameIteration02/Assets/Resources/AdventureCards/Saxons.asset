@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Saxons
   m_EditorClassIdentifier: 
   name: Saxons
-  image: {fileID: 21300000, guid: e9f8c2fbefe88e94080b6265f8e9a688, type: 3}
+  image: {fileID: 21300000, guid: 2081d85c1c5db4d069c63475bd671aba, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 10

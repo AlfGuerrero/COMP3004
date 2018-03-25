@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Test of The Questing Beast
   m_EditorClassIdentifier: 
   name: Test of the Questing Beast
-  image: {fileID: 21300000, guid: b5d263b13066a8f44809821bad249608, type: 3}
+  image: {fileID: 21300000, guid: b6cf608c334584b84bbd64c1780810d9, type: 3}
   bidPoints: 1
   bonusBidPoints: 4
   battlePoints: 0

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Mordred
   m_EditorClassIdentifier: 
   name: Mordred
-  image: {fileID: 21300000, guid: c758783a29e5b4749bb3ef0e293c501b, type: 3}
+  image: {fileID: 21300000, guid: 0b1a715c71c4040d4aeb107433a5ca64, type: 3}
   bidPoints: 0
   bonusBidPoints: 0
   battlePoints: 30
