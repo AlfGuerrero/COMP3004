@@ -19,7 +19,7 @@ public class AdventureCard : MonoBehaviour {
 	void Start(){
 
 		adventureCard = Resources.Load<ACScriptObj> ("AdventureCards/"+card);
-		name = adventureCard.name; 
+		name = adventureCard.name;
 		battlePoints = adventureCard.battlePoints;
 		bonusBattlePoints = adventureCard.bonusBattlePoints;
 		bidPoints = adventureCard.bidPoints;

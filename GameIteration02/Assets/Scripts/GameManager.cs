@@ -6,22 +6,24 @@ using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour {
 	public StoryDeck 	storyDeck;
+	public AdventureDeck advDeck;
 	public GameObject 	storyCard;
-	GameObject[] 		storyCardDelete; 
+	public GameObject   advCard;
+	GameObject[] 		storyCardDelete;
 
 
 	void Start(){
 //		CmdAddPlayer (playerSize);
 		Debug.Log ("Player: " + netId.Value + " has joined.");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (!isLocalPlayer) {
 			return;
 		}
 	}
-	
+
 	public void ControlPlayerTurn(){
 		if (!isLocalPlayer) {return;}
 		string playerTurnText = GameObject.FindGameObjectWithTag("PlayerTurnTextUI").GetComponent<Text>().text;
@@ -55,9 +57,12 @@ public class GameManager : NetworkBehaviour {
 		foreach (GameObject i in storyCardDelete){
 			DestroyObject (i);
 		}
+
 		string nameOfCard = storyDeck.NewCard ();
+
 		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = nameOfCard;
-		storyCard = storyDeck.Draw(nameOfCard);		
+
+		storyCard = storyDeck.Draw(nameOfCard);
 		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
 		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
 		CmdPickUpStoryCard(this.gameObject, nameOfCard);
@@ -70,7 +75,8 @@ public class GameManager : NetworkBehaviour {
 		}
 		RpcPickUpStoryCard(this.gameObject, name);
 	}
-	[ClientRpc] // Clients call Server... 
+
+	[ClientRpc] // Clients call Server...
 	public void RpcPickUpStoryCard(GameObject gObject, string name){
 		storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
 		foreach (GameObject i in storyCardDelete){
@@ -81,9 +87,13 @@ public class GameManager : NetworkBehaviour {
 		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
 
 		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = name;
-
-
 	}
 
+	public void PickUpAdventureCards(){
+		if (!isLocalPlayer) {return;}
+	   advCard = advDeck.Draw();
+		 advCard.transform.SetParent (GameObject.Find ("HandCanvas").transform);
+		 advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
+	}
 
 }

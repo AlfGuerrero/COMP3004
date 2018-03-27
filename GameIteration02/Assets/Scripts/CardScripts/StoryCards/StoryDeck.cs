@@ -19,9 +19,9 @@ public class StoryDeck : MonoBehaviour {
 	List<string> events = new List<string>(){"King's Recognition","Queen's Favor","Court Called to Camelot","Pox","Plague","Chivalrous Deed",
 		"Prosperity Throughout the Realm","King's Call to Arms"};
 
-	List<string> quests = new List<string>(){"Boar Hunt", "Search for the Holy Grail", "Test of the Green Knight", 
+	List<string> quests = new List<string>(){"Boar Hunt", "Search for the Holy Grail", "Test of the Green Knight",
 		"Search for the Questing Beast", "Defend the Queen's Honor", "Rescue the Fair Maiden",
-		"Journey Through the Enchanted Forest", "Vanquish King Arthur's Enemies", "Slay The Dragon", 
+		"Journey Through the Enchanted Forest", "Vanquish King Arthur's Enemies", "Slay The Dragon",
 		"Repel the Saxon Raiders"};
 
 	List<string> tournaments = new List<string>(){"Tournament at Camelot","Tournament at Orkney","Tournament at Tintagel","Tournament at York",};
@@ -80,7 +80,7 @@ public class StoryDeck : MonoBehaviour {
 					RList1.RemoveAt (Ran);
 				} else {
 					ranStart = 2;
-				}	
+				}
 			}
 			if (ranStart == 2) {
 				if (RList2.Count >= 1) {
@@ -141,15 +141,15 @@ public class StoryDeck : MonoBehaviour {
 		storyDeck.Add("Chivalrous Deed",						1);
 		storyDeck.Add("Prosperity Throughout the Realm",		1);
 		storyDeck.Add("King's Call to Arms",					1);
-		
+
 		storyDeck.Add("Tournament at Camelot", 				1);
 		storyDeck.Add("Tournament at Orkney",				1);
 		storyDeck.Add("Tournament at Tintagel",				1);
-		storyDeck.Add("Tournament at York",					1);	
+		storyDeck.Add("Tournament at York",					1);
 		*/
 
 	public string NewCard(){
-		if (storyDeck.Count == 0) { populateDeck (); }		
+		if (storyDeck.Count == 0) { populateDeck (); }
 		temp = storyDeck [0];
 		storyDeck.RemoveAt (0);
 		return temp;

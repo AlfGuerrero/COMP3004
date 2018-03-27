@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 222355419009789352}
   - component: {fileID: 114326158684509482}
   - component: {fileID: 114030476109136680}
+  - component: {fileID: 114263981237304974}
   m_Layer: 5
   m_Name: AdvCardPrefab
   m_TagString: Card
@@ -68,6 +69,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentToReturnTo: {fileID: 0}
+--- !u!114 &114263981237304974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838795611039302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 13
+    i1: 107
+    i2: 140
+    i3: 148
+    i4: 42
+    i5: 172
+    i6: 84
+    i7: 164
+    i8: 57
+    i9: 245
+    i10: 237
+    i11: 87
+    i12: 63
+    i13: 132
+    i14: 234
+    i15: 16
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114326158684509482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,14 +142,14 @@ RectTransform:
   m_GameObject: {fileID: 1838795611039302}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1.5, y: 2, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2.66, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &225345405584467862

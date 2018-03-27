@@ -10,6 +10,7 @@ TagManager:
   - StoryCard
   - StoryCardTextUI
   - PlayerTurnTextUI
+  - HandCanvas
   layers:
   - Default
   - TransparentFX

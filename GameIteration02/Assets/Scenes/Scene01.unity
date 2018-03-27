@@ -215,7 +215,7 @@ Prefab:
     - target: {fileID: 224418880761265490, guid: 1093d923542b0427788ab77737166da4,
         type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 224418880761265490, guid: 1093d923542b0427788ab77737166da4,
         type: 2}
@@ -289,7 +289,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4791384095396886, guid: 72ae1f1af79fe412789856a4b76d5280, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 4791384095396886, guid: 72ae1f1af79fe412789856a4b76d5280, type: 2}
       propertyPath: m_LocalPosition.y
@@ -317,7 +317,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4791384095396886, guid: 72ae1f1af79fe412789856a4b76d5280, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 72ae1f1af79fe412789856a4b76d5280, type: 2}
@@ -359,7 +359,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4874806096489222, guid: 9b902728e6a3c4c9c858e57e0777f101, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b902728e6a3c4c9c858e57e0777f101, type: 2}
@@ -509,7 +509,7 @@ Prefab:
     - target: {fileID: 224058663247113604, guid: 2157008da563b4c21b669d431205958a,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224058663247113604, guid: 2157008da563b4c21b669d431205958a,
         type: 2}
@@ -603,7 +603,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4106114052829872, guid: b22d3afb0c54f4128ac1aa9590a29d7a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 4106114052829872, guid: b22d3afb0c54f4128ac1aa9590a29d7a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -631,7 +631,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4106114052829872, guid: b22d3afb0c54f4128ac1aa9590a29d7a, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b22d3afb0c54f4128ac1aa9590a29d7a, type: 2}
@@ -645,7 +645,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4177401259415362, guid: b4fd09fa761c04734b8601666335f1d4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 4177401259415362, guid: b4fd09fa761c04734b8601666335f1d4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -673,7 +673,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4177401259415362, guid: b4fd09fa761c04734b8601666335f1d4, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4fd09fa761c04734b8601666335f1d4, type: 2}
@@ -687,7 +687,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4190781635996812, guid: d42244c1c08fd49b3a662fbefdc1af04, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -79
       objectReference: {fileID: 0}
     - target: {fileID: 4190781635996812, guid: d42244c1c08fd49b3a662fbefdc1af04, type: 2}
       propertyPath: m_LocalPosition.y
@@ -715,7 +715,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4190781635996812, guid: d42244c1c08fd49b3a662fbefdc1af04, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d42244c1c08fd49b3a662fbefdc1af04, type: 2}
@@ -780,6 +780,7 @@ MonoBehaviour:
   m_OnlineScene: 
   m_SpawnPrefabs:
   - {fileID: 1145171282179006, guid: 8176e201639084c888fc31bac0e17420, type: 2}
+  - {fileID: 1838795611039302, guid: 0d6b8c942aac54a439f5ed573f84ea10, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
