@@ -16,7 +16,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-5ac6cd05e2a53036add551f41be764e6 Assembly-CSharp.dll:.GameManager
+56f3abfcf3b236aab86171b8275844d4 Assembly-CSharp.dll:.GameManager
 aa26fdd7d918e1ad282947b6797e2436 Assembly-CSharp.dll:.AllyScriptObj
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -129,9 +129,10 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 220f15bc7c939c2b3745f446a3cf8865 Assembly-CSharp.dll:.MouseOver
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.HandManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Event
 7ed2279e8979d4b8e071d7f9ce4fe2fe Assembly-CSharp.dll:.WeaponScriptObj
-fda9aba8bb6f23a72a33d51f0dad14f3 Assembly-CSharp.dll:.AdventureDeck
+0ed86b3c1f6f96a7b38b426d2f3432f2 Assembly-CSharp.dll:.AdventureDeck
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Tournament
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour

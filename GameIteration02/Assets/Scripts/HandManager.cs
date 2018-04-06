@@ -30,7 +30,7 @@ public class HandManager : MonoBehaviour {
 		int handSize = this.transform.childCount;
 		if(handSize > 12){
 
-			Debug.Log ("YOU HAVE TOO MANY CARDS IN HAND");
+			// Debug.Log ("YOU HAVE TOO MANY CARDS IN HAND");
 		}
 
 		if (handSize <= 12) {

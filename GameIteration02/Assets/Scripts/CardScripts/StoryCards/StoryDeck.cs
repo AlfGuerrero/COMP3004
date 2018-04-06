@@ -29,7 +29,7 @@ public class StoryDeck : MonoBehaviour {
 
 	public void populateDeck(){
 		// logger.info ("StoryDeck.cs :: Populating Deck with cards.");
-
+		// Debug.Log("alf");
 		List<string> RList1 = new List<string> {
 			"Search for the Holy Grail",
 			"Rescue the Fair Maiden",
@@ -149,7 +149,9 @@ public class StoryDeck : MonoBehaviour {
 		*/
 
 	public string NewCard(){
-		if (storyDeck.Count == 0) { populateDeck (); }
+		Debug.Log(storyDeck.Count);
+		if (storyDeck.Count == 0) { populateDeck ();
+		}
 		temp = storyDeck [0];
 		storyDeck.RemoveAt (0);
 		return temp;

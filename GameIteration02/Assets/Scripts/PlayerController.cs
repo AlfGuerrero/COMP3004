@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class PlayerController : NetworkBehaviour{
-	
+
 	GameObject playerCanvas;
 	GameObject handCanvas;
 	GameObject storyCard;
@@ -58,7 +58,7 @@ public class PlayerController : NetworkBehaviour{
 			CmdUpdatePosition(this.gameObject, cardPosition, cardIndex);
 		}
 	}
-	[Command] 
+	[Command]
 	public void CmdUpdatePosition(GameObject gObject, Vector3 cardLocation, int cardIndex){
 		RpcUpdatePosition (gObject, cardLocation, cardIndex);
 	}
@@ -68,7 +68,7 @@ public class PlayerController : NetworkBehaviour{
 		GameObject cardObject = handCanvas.gameObject.transform.GetChild (cardIndex).gameObject;
 		cardObject.transform.position = cardPosition;
 	}
-		
+
 
 
 
@@ -79,7 +79,7 @@ public class PlayerController : NetworkBehaviour{
 //	[ClientRpc]
 //	public void RpcPickUpStoryCard(GameObject storyCard){
 //		if (storyCard != null) {
-//			
+//
 //			storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
 //			storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
 //		}

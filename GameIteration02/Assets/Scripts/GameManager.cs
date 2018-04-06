@@ -15,6 +15,7 @@ public class GameManager : NetworkBehaviour {
 	void Start(){
 //		CmdAddPlayer (playerSize);
 		Debug.Log ("Player: " + netId.Value + " has joined.");
+		PickUpAdventureCards(12);
 	}
 
 	// Update is called once per frame
@@ -37,10 +38,6 @@ public class GameManager : NetworkBehaviour {
 	}
 	[Command]
 	public void CmdControlPlayerTurn(GameObject gObject, string playerTurn){
-//		string playerTurnText = GameObject.FindGameObjectWithTag("PlayerTurnTextUI").GetComponent<Text>().text;
-//		int.TryParse (playerTurnText, out playerTurnInt);
-//		GameObject.FindGameObjectWithTag ("PlayerTurnTextUI").GetComponent<Text> ().text = playerTurnInt.ToString();
-//		Debug.Log ("CMD - Player: " + netId.Value + " " + playerTurnInt);
 		RpcControlPlayerTurn (this.gameObject, playerTurn);
 	}
 	[ClientRpc]
@@ -75,7 +72,6 @@ public class GameManager : NetworkBehaviour {
 		}
 		RpcPickUpStoryCard(this.gameObject, name);
 	}
-
 	[ClientRpc] // Clients call Server...
 	public void RpcPickUpStoryCard(GameObject gObject, string name){
 		storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
@@ -89,11 +85,13 @@ public class GameManager : NetworkBehaviour {
 		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = name;
 	}
 
-	public void PickUpAdventureCards(){
+	public void PickUpAdventureCards(int amount){
 		if (!isLocalPlayer) {return;}
-	   advCard = advDeck.Draw();
-		 advCard.transform.SetParent (GameObject.Find ("HandCanvas").transform);
-		 advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
+		for (int i = 0; i < amount; i++){
+			advCard = advDeck.Draw();
+			advCard.transform.SetParent (GameObject.Find ("HandCanvas").transform);
+			advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
+		}
 	}
 
 }
