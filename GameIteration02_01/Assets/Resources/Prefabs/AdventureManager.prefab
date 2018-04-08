@@ -84,7 +84,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b860f498da8e4b42bfddccb9975649c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adventureDeck: []
+  adventureDeck:
+  - Saxon Knight
+  - Thieves
+  - Saxons
+  - Robber Knight
+  - Sir Galahad
+  - Sword
+  - Horse
+  - Saxon Knight
+  - Lance
+  - Thieves
+  - Thieves
+  - King Arthur
+  - Sir Percival
+  - Evil Knight
+  - Battle-ax
+  - Sword
+  - Battle-ax
+  - Amour
+  - Evil Knight
+  - Sword
+  - Saxon Knight
+  - Thieves
+  - Dagger
+  - Mordred
+  - Sword
+  - Horse
+  - Excalibur
+  - Robber Knight
+  - Horse
+  - Green Knight
+  - Horse
+  - Sword
+  - Giant
+  - Test of Morgan Le Fey
+  - Thieves
+  - Sword
+  - Battle-ax
+  - Excalibur
+  - Boar
+  - Black Knight
+  - Green Knight
+  - Dagger
+  - Sword
+  - Battle-ax
+  - Test of Temptation
+  - Test of Morgan Le Fey
+  - Merlin
+  - Amour
+  - Saxons
+  - Saxons
+  - Amour
+  - King Pellinore
+  - Sir Lancelot
+  - Evil Knight
+  - Battle-ax
+  - Evil Knight
+  - Queen Guinevere
+  - Lance
+  - Thieves
+  - Sword
+  - Dagger
+  - Saxon Knight
+  - Sword
+  - Mordred
+  - Sir Gawain
   tempKey: Boar
   deckSize: 0
   index: 0

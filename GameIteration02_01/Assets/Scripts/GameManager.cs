@@ -121,7 +121,7 @@ public class GameManager : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcPopulateAdvDeck(){
 		advDeck.populateDeck();
-	}g
+	}
 
 	public void PopulateStoryDeck(){
 		if (!isLocalPlayer) {return;}
