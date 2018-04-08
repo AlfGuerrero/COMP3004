@@ -19,8 +19,9 @@ public class GameManager : NetworkBehaviour {
 	  	Debug.Log ("Player: " + netId.Value + " has joined.");
 			// advDeck = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>();
 
-			if (advDeck.adventureDeck.Count == 0)
+			if (isServer && advDeck.adventureDeck.Count == 0)
 			PopulateAdvDeck();
+
 
 			if (storyDeck.storyDeck.Count == 0)
 			PopulateStoryDeck();
@@ -116,7 +117,7 @@ public class GameManager : NetworkBehaviour {
 			else					{CmdPopulateAdvDeck();}	}
 	[Command]
 	public void CmdPopulateAdvDeck(){
-		// RpcPopulateAdvDeck();
+	  RpcPopulateAdvDeck();
 	}
 	[ClientRpc]
 	public void RpcPopulateAdvDeck(){
@@ -139,21 +140,20 @@ public class GameManager : NetworkBehaviour {
 
 	public void PickUpAdventureCards(){
 		if (!isLocalPlayer) {return;}
-			// string nameOfCard = advDeck.NewCard(); // changes array..
-		  // advCard = advDeck.Draw(nameOfCard); // creates prefab with name from that...
-			// advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
-			// advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
-			string nameOfCard = advDeck.NewCard();
+			string nameOfCard = advDeck.NewCard(); // changes array..
+		  advCard = advDeck.Draw(nameOfCard); // creates prefab with name from that...
+			advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
+			advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
 
 			if (isServer) {RpcPickUpAdventureCards(nameOfCard);}
 			else					{CmdPickUpAdventureCards(nameOfCard);}
 	}
 	[Command]
-	public void CmdPickUpAdventureCards( string nameOfCard){
+	public void CmdPickUpAdventureCards( nameOfCard){
 		RpcPickUpAdventureCards(nameOfCard);
 	}
 	[ClientRpc]
-	public void RpcPickUpAdventureCards( string nameOfCard){
+	public void RpcPickUpAdventureCards(string nameOfCard){
 	   advCard = advDeck.Draw(nameOfCard);
 	   advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
 		 advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
