@@ -140,20 +140,22 @@ public class GameManager : NetworkBehaviour {
 
 	public void PickUpAdventureCards(){
 		if (!isLocalPlayer) {return;}
-			string nameOfCard = advDeck.NewCard(); // changes array..
-		  advCard = advDeck.Draw(nameOfCard); // creates prefab with name from that...
-			advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
-			advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
+			// string nameOfCard = advDeck.NewCard(); // changes array..
+		  // advCard = advDeck.Draw(nameOfCard); // creates prefab with name from that...
+			// advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
+			// advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
 
-			if (isServer) {RpcPickUpAdventureCards(nameOfCard);}
-			else					{CmdPickUpAdventureCards(nameOfCard);}
+			if (isServer) {RpcPickUpAdventureCards();}
+			else					{CmdPickUpAdventureCards();}
 	}
 	[Command]
-	public void CmdPickUpAdventureCards( nameOfCard){
-		RpcPickUpAdventureCards(nameOfCard);
+	public void CmdPickUpAdventureCards(){
+		RpcPickUpAdventureCards();
 	}
 	[ClientRpc]
-	public void RpcPickUpAdventureCards(string nameOfCard){
+	public void RpcPickUpAdventureCards(){
+		 string nameOfCard = advDeck.NewCard();
+		 // Debug.Log(nameOfCard);
 	   advCard = advDeck.Draw(nameOfCard);
 	   advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
 		 advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
