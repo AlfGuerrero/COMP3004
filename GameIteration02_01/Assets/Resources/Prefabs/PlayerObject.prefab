@@ -755,7 +755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyDeck: {fileID: 114287320174111188, guid: 88dac31df6e3d495284793b789aff87e,
     type: 2}
-  advDeck: {fileID: 114974863258979360, guid: 75bad58830d2441af9dde0b859fc2eab, type: 2}
+  advDeck: {fileID: 0}
   storyCard: {fileID: 0}
   advCard: {fileID: 0}
 --- !u!212 &212213748733203424

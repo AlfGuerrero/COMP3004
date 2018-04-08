@@ -85,72 +85,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adventureDeck:
-  - Saxon Knight
-  - Thieves
-  - Saxons
-  - Robber Knight
-  - Sir Galahad
-  - Sword
-  - Horse
-  - Saxon Knight
   - Lance
-  - Thieves
-  - Thieves
+  - Amour
+  - Sir Gawain
+  - Sword
+  - Dagger
+  - Sword
+  - Saxon Knight
+  - Queen Guinevere
   - King Arthur
+  - Mordred
+  - Saxon Knight
+  - Queen Iseult
+  - Sword
   - Sir Percival
   - Evil Knight
-  - Battle-ax
-  - Sword
-  - Battle-ax
-  - Amour
-  - Evil Knight
-  - Sword
-  - Saxon Knight
+  - Saxons
+  - Boar
+  - Lance
+  - Robber Knight
+  - Robber Knight
   - Thieves
-  - Dagger
-  - Mordred
-  - Sword
+  - Battle-ax
   - Horse
   - Excalibur
+  - Test of Temptation
+  - Horse
+  - Dagger
+  - Horse
+  - Sword
+  - Robber Knight
+  - Battle-ax
+  - Giant
+  - Horse
+  - Thieves
+  - Amour
+  - Sword
+  - Sir Galahad
+  - King Pellinore
+  - Lance
+  - Battle-ax
   - Robber Knight
   - Horse
+  - Saxon Knight
+  - Evil Knight
+  - Amour
   - Green Knight
   - Horse
-  - Sword
-  - Giant
-  - Test of Morgan Le Fey
-  - Thieves
-  - Sword
-  - Battle-ax
-  - Excalibur
-  - Boar
-  - Black Knight
-  - Green Knight
-  - Dagger
-  - Sword
-  - Battle-ax
-  - Test of Temptation
-  - Test of Morgan Le Fey
-  - Merlin
   - Amour
-  - Saxons
-  - Saxons
-  - Amour
-  - King Pellinore
-  - Sir Lancelot
-  - Evil Knight
-  - Battle-ax
-  - Evil Knight
-  - Queen Guinevere
-  - Lance
-  - Thieves
-  - Sword
   - Dagger
+  - Evil Knight
   - Saxon Knight
   - Sword
   - Mordred
-  - Sir Gawain
-  tempKey: Boar
+  - Boar
+  - Test of Morgan Le Fey
+  - Saxons
+  - Horse
+  - Robber Knight
+  - Mordred
+  - Test of Temptation
+  - Saxon Knight
+  - Dagger
+  - Excalibur
+  - Saxon Knight
+  - Merlin
+  - Dagger
+  - Battle-ax
+  - Lance
+  - Horse
+  - Thieves
+  - Saxons
+  - Saxons
+  - Saxon Knight
+  - Saxons
+  - Black Knight
+  - Battle-ax
+  - Sword
+  tempKey: Battle-ax
   deckSize: 0
   index: 0
   randInt: 0

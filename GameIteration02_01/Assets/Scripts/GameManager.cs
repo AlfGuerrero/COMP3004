@@ -17,11 +17,14 @@ public class GameManager : NetworkBehaviour {
 		GameObject.Find("HandCanvas").name += netId.Value;
 //		CmdAddPlayer (playerSize);
 	  	Debug.Log ("Player: " + netId.Value + " has joined.");
-			// advDeck = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>();
+
+			if (isServer){
+				advDeck = Instantiate (Resources.Load ("Prefabs/AdventureManager") as GameObject).GetComponent<AdventureDeck>();
+			}
+			else {advDeck = GameObject.Find("AdventureManager(Clone)").GetComponent<AdventureDeck>();}
 
 			if (isServer && advDeck.adventureDeck.Count == 0)
 			PopulateAdvDeck();
-
 
 			if (storyDeck.storyDeck.Count == 0)
 			PopulateStoryDeck();
@@ -68,7 +71,6 @@ public class GameManager : NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void RpcControlPlayerTurn(){
-
 		string playerTurnText = GameObject.FindGameObjectWithTag("PlayerTurnTextUI").GetComponent<Text>().text;
 		int playerTurnInt;
 		int.TryParse (playerTurnText, out playerTurnInt);
@@ -131,7 +133,7 @@ public class GameManager : NetworkBehaviour {
 	}
 	[Command]
 	public void CmdPopulateStoryDeck(){
-	RpcPopulateStoryDeck();
+//	RpcPopulateStoryDeck();
 	}
 	[ClientRpc]
 	public void RpcPopulateStoryDeck(){

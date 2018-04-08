@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class AdventureDeck : MonoBehaviour {
+public class AdventureDeck : NetworkBehaviour {
 	/* ADVENTURE DECK
 	* Weapons 						= 49 Total
 	* Excalibur						= 2
@@ -169,7 +169,7 @@ public class AdventureDeck : MonoBehaviour {
 		// logger.test ("AdventureDeck.cs :: Adventure advDeck has been created. with sizes of " + getSizeOfDeck());
 	}
 	public string NewCard(){
-		if(adventureDeck.Count==0){ populateDeck (); }
+		if(isServer && adventureDeck.Count==0){ populateDeck (); }
 		tempKey = adventureDeck[0];
 		adventureDeck.RemoveAt (0);
 		return tempKey;
