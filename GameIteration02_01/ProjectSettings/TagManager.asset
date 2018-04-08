@@ -11,6 +11,7 @@ TagManager:
   - StoryCardTextUI
   - PlayerTurnTextUI
   - HandCanvas
+  - AdvCardTextUI
   layers:
   - Default
   - TransparentFX
