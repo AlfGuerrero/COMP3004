@@ -43,6 +43,7 @@ public class GameManager : NetworkBehaviour {
 		foreach (GameObject i in advCardDelete){
 			DestroyObject (i);
 		}
+
 	}
 
 	public void ControlPlayerTurn(){
@@ -80,21 +81,30 @@ public class GameManager : NetworkBehaviour {
 
 	public void PickUpStoryCard(){ // Local Button...
 		if (!isLocalPlayer) {return;}
-		if (isServer) {RpcPickUpStoryCard();}
-		else					{CmdPickUpStoryCard();}
-
-	}
-	[Command] // Server calls Clients...
-		public void CmdPickUpStoryCard(){
-		RpcPickUpStoryCard();
-	}
-	[ClientRpc] // Clients call Server...
-	public void RpcPickUpStoryCard(){
 		storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
 		foreach (GameObject i in storyCardDelete){
 			DestroyObject (i);
 		}
 		string nameOfCard = storyDeck.NewCard ();
+
+		if (isServer) {RpcPickUpStoryCard(nameOfCard);}
+		else					{CmdPickUpStoryCard(nameOfCard);}
+
+	}
+	[Command] // Server calls Clients...
+		public void CmdPickUpStoryCard(string nameOfCard){
+		storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
+		foreach (GameObject i in storyCardDelete){
+					DestroyObject (i);
+		}
+		RpcPickUpStoryCard(nameOfCard);
+	}
+	[ClientRpc] // Clients call Server...
+	public void RpcPickUpStoryCard(string nameOfCard){
+		storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
+		foreach (GameObject i in storyCardDelete){
+			DestroyObject (i);
+		}
 		storyCard = storyDeck.Draw(nameOfCard);
 		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
 		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);

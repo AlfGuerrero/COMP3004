@@ -84,8 +84,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd77e752bcd445f0b39db16838aaecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyDeck: []
-  temp: Queen's Favor
+  storyDeck:
+  - Defend the Queen's Honor
+  - Tournament at Orkney
+  - Tournament at Camelot
+  - Boar Hunt
+  - Slay The Dragon
+  - Tournament at Tintagel
+  - King's Recognition
+  - Rescue the Fair Maiden
+  - Queen's Favor
+  - Tournament at York
+  - Vanquish King Arthur's Enemies
+  - Plague
+  - Chivalrous Deed
+  temp: King's Recognition
   deckSize: 0
   index: 0
   randInt: 0
