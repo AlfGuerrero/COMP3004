@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adventureDeck: []
-  tempKey: Horse
+  tempKey: Boar
   deckSize: 0
   index: 0
   randInt: 0

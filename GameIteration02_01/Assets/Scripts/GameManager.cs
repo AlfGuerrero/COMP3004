@@ -25,8 +25,8 @@ public class GameManager : NetworkBehaviour {
 			if (storyDeck.storyDeck.Count == 0)
 			PopulateStoryDeck();
 
-			for (int i = 0; i < 12; i++)
-		  PickUpAdventureCards();
+			// for (int i = 0; i < 12; i++)
+		  // PickUpAdventureCards();
 	}
 	// CurrentPlayer = "PlayerObject(Clone)" + netId.Value;
 	// Update is called once per frame
@@ -86,7 +86,6 @@ public class GameManager : NetworkBehaviour {
 			DestroyObject (i);
 		}
 		string nameOfCard = storyDeck.NewCard ();
-
 		if (isServer) {RpcPickUpStoryCard(nameOfCard);}
 		else					{CmdPickUpStoryCard(nameOfCard);}
 
@@ -117,12 +116,12 @@ public class GameManager : NetworkBehaviour {
 			else					{CmdPopulateAdvDeck();}	}
 	[Command]
 	public void CmdPopulateAdvDeck(){
-		RpcPopulateAdvDeck();
+		// RpcPopulateAdvDeck();
 	}
 	[ClientRpc]
 	public void RpcPopulateAdvDeck(){
 		advDeck.populateDeck();
-	}
+	}g
 
 	public void PopulateStoryDeck(){
 		if (!isLocalPlayer) {return;}
@@ -131,7 +130,7 @@ public class GameManager : NetworkBehaviour {
 	}
 	[Command]
 	public void CmdPopulateStoryDeck(){
-		RpcPopulateStoryDeck();
+	RpcPopulateStoryDeck();
 	}
 	[ClientRpc]
 	public void RpcPopulateStoryDeck(){
@@ -144,17 +143,17 @@ public class GameManager : NetworkBehaviour {
 		  // advCard = advDeck.Draw(nameOfCard); // creates prefab with name from that...
 			// advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
 			// advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
+			string nameOfCard = advDeck.NewCard();
 
-			if (isServer) {RpcPickUpAdventureCards();}
-			else					{CmdPickUpAdventureCards();}
+			if (isServer) {RpcPickUpAdventureCards(nameOfCard);}
+			else					{CmdPickUpAdventureCards(nameOfCard);}
 	}
 	[Command]
-	public void CmdPickUpAdventureCards( ){
-		RpcPickUpAdventureCards();
+	public void CmdPickUpAdventureCards( string nameOfCard){
+		RpcPickUpAdventureCards(nameOfCard);
 	}
 	[ClientRpc]
-	public void RpcPickUpAdventureCards( ){
-		 string nameOfCard = advDeck.NewCard();
+	public void RpcPickUpAdventureCards( string nameOfCard){
 	   advCard = advDeck.Draw(nameOfCard);
 	   advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
 		 advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
