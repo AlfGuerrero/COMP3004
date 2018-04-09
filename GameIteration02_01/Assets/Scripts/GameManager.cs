@@ -13,6 +13,9 @@ public class GameManager : NetworkBehaviour {
   GameObject[]    advCardDelete;
 	StoryDeck sd;
 	AdventureDeck ad;
+	EventsManager eventsManager;
+	Text playerTurn;
+
 	void Start(){
 		this.gameObject.name += netId.Value;
 		GameObject.Find("HandCanvas").name += netId.Value;
@@ -20,7 +23,8 @@ public class GameManager : NetworkBehaviour {
 	  	Debug.Log ("Player: " + netId.Value + " has joined.");
 		 sd = GameObject.Find("StoryManager").GetComponent<StoryDeck>(); // GLOBAL OBJECT.
 		 ad = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>(); // GLOBAL OBJECT.
-
+		 playerTurn = GameObject.Find("PlayerTurnTextUI").GetComponent<Text>();
+		 eventsManager = GameObject.Find("EventsManager").GetComponent<EventsManager>(); // GLOBAL OBJECT.
 	}
 
 	void Update () {
@@ -49,13 +53,17 @@ public class GameManager : NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void RpcControlPlayerTurn(){
-		string playerTurnText = GameObject.FindGameObjectWithTag("PlayerTurnTextUI").GetComponent<Text>().text;
+		string playerTurnText = playerTurn.text;
 		int playerTurnInt;
-		int.TryParse (playerTurnText, out playerTurnInt);
-		// if (playerTurnInt % netId.Value == 0){
-			playerTurnInt++;
-			GameObject.FindGameObjectWithTag ("PlayerTurnTextUI").GetComponent<Text> ().text = playerTurnInt.ToString();
-		// }
+	  int.TryParse (playerTurnText, out playerTurnInt);
+		Debug.Log(NetworkServer.connections.Count);
+	 if (playerTurnInt == 4){
+		 playerTurnInt = 1;
+	 }
+	 else {
+		 playerTurnInt++;
+	 }
+	 playerTurn.text = playerTurnInt.ToString();
 
 	}
 
@@ -64,7 +72,6 @@ public class GameManager : NetworkBehaviour {
 		if (!isLocalPlayer) {return;}
 		if (isServer) {RpcPickUpStoryCard();}
 		else					{CmdPickUpStoryCard();}
-
 	}
 	[Command] // Server calls Clients...
 		public void CmdPickUpStoryCard(){
@@ -77,16 +84,31 @@ public class GameManager : NetworkBehaviour {
 		foreach (GameObject i in storyCardDelete){
 			DestroyObject (i);
 		}
-
-
-
 		if (sd.storyDeck.Count == 0) sd.populateDeck();
-
 		string nameOfCard = sd.NewCard ();
 		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = nameOfCard;
 		storyCard = sd.Draw(nameOfCard);
 		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
 		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
+
+	 	if (storyCard.GetComponent<Event>() != null){
+			Event eventCard = storyCard.GetComponent<Event>();
+			if (eventCard.getName() == "King's Recognition" ){
+				eventsManager.Kings_Recoginition(netId.Value);
+			}
+			if (eventCard.getName() == "Queen's Favor"){
+				PickUpAdventureCards();
+			}
+		}
+		else if (storyCard.GetComponent<Quest>() != null){
+			Quest questCard = storyCard.GetComponent<Quest>();
+			Debug.Log(questCard.getName());
+	  }
+		else  if (storyCard.GetComponent<Tournament>() != null){
+		 	Tournament tournamentCard = storyCard.GetComponent<Tournament>();
+		 	Debug.Log(tournamentCard.getName());
+		 }
+
 	}
 
 	public void PopulateAdvDeck(){

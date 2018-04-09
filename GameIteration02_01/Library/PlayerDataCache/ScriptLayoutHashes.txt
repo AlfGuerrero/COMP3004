@@ -125,6 +125,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 afd227efd5d45b77eae93ce6cb6ef3af Assembly-CSharp.dll:.StoryDeck
 793f0113221eecab8d8d969ec327024f Assembly-CSharp.dll:.QuestScriptObj
 471543aac595a86c46ea760661782b76 Assembly-CSharp.dll:.Spawn
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EventsManager
 85428d1425a367fca79ad826587547f8 Assembly-CSharp.dll:.Quest
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder

@@ -116,7 +116,7 @@ public class AdventureDeck : MonoBehaviour {
 				for (int i = 0; i < RList8.Count; i++)
 						adventureDeck.Add(RList8[i]);
 
-		int ranStart = 0;
+		// int ranStart = 0;
 // 		while(RList1.Count!=0&&RList2.Count!=0&&RList3.Count!=0&&RList4.Count!=0&&RList5.Count!=0&&RList6.Count!=0&&RList7.Count!=0&&RList8.Count!=0){
 //
 //

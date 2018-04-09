@@ -66,7 +66,7 @@ public class StoryDeck : MonoBehaviour {
 			"Prosperity Throughout the Realm"
 		};
 
-		int ranStart = 0;
+		// int ranStart = 0;
 		// while (RList1.Count != 0 && RList2.Count != 0 && RList3.Count != 0 && RList4.Count != 0) {
 
 			for (int i = 0; i < RList1.Count; i++)
@@ -80,9 +80,6 @@ public class StoryDeck : MonoBehaviour {
 
 			for (int i = 0; i < RList4.Count; i++)
 					storyDeck.Add(RList4[i]);
-
-
-
 			// ranStart = Random.Range (1, 4);
 			//
 			// if (ranStart == 1) {
