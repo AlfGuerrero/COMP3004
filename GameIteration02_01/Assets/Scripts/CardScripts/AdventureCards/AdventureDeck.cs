@@ -78,6 +78,10 @@ public class AdventureDeck : NetworkBehaviour {
 
 	}
 
+	// public void populateDeck(){
+	// 	adventureDeck.
+	// }
+
 
 	public void populateDeck(){
 		List<string> RList1 = new List<string>(){"Sword","Saxon Knight","Battle-ax","Dagger","Dragon","Sir Lancelot","Lance","Boar","Horse","Test of Valor", "Boar","Mordred","Black Knight","Horse","Amour","Sword","Robber Knight","Battle-ax","Thieves"};
@@ -106,7 +110,6 @@ public class AdventureDeck : NetworkBehaviour {
 					ranStart = 2;
 			}
 		}
-
 			if (ranStart == 2) {
 				if (RList2.Count >= 1) {
 					int Ran = Random.Range (0, RList2.Count);
@@ -169,7 +172,7 @@ public class AdventureDeck : NetworkBehaviour {
 		// logger.test ("AdventureDeck.cs :: Adventure advDeck has been created. with sizes of " + getSizeOfDeck());
 	}
 	public string NewCard(){
-		if(isServer && adventureDeck.Count==0){ populateDeck (); }
+		// if(adventureDeck.Count==0){ populateDeck (); }
 		tempKey = adventureDeck[0];
 		adventureDeck.RemoveAt (0);
 		return tempKey;

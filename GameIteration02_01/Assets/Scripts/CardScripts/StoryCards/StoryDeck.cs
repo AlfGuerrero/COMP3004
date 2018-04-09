@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
  // QuestGame;
 
-public class StoryDeck : MonoBehaviour {
+public class StoryDeck : NetworkBehaviour {
 
 	//Dictionary<string, int> storyDeck = new Dictionary<string, int>(){};
 	public List<string> storyDeck= new List<string>();
@@ -26,7 +26,7 @@ public class StoryDeck : MonoBehaviour {
 
 	List<string> tournaments = new List<string>(){"Tournament at Camelot","Tournament at Orkney","Tournament at Tintagel","Tournament at York",};
 
-
+	
 	public void populateDeck(){
 		// logger.info ("StoryDeck.cs :: Populating Deck with cards.");
 		// Debug.Log("alf");
@@ -149,8 +149,7 @@ public class StoryDeck : MonoBehaviour {
 		*/
 
 	public string NewCard(){
-		if (storyDeck.Count == 0) { populateDeck ();
-		}
+		// if (storyDeck.Count == 0) { populateDeck ();}
 		temp = storyDeck [0];
 		storyDeck.RemoveAt (0);
 		return temp;

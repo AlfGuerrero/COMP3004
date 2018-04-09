@@ -84,8 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd77e752bcd445f0b39db16838aaecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyDeck: []
-  temp: Tournament at Camelot
+  storyDeck:
+  - Tournament at Tintagel
+  temp: 
   deckSize: 0
   index: 0
   randInt: 0
