@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\StoryDeck.cs" />
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\Tournament.cs" />
      <Compile Include="Assets\Scripts\CardScripts\StoryCards\TournamentScriptObj.cs" />
+     <Compile Include="Assets\Scripts\EventsManager.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HandManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
