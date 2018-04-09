@@ -58,6 +58,7 @@ public class GameManager : NetworkBehaviour {
 
 	public void PickUpStoryCard(){ // Local Button...
 		if (!isLocalPlayer) {return;}
+		if (storyDeck.storyDeck.Count == 1) {	PopulateStoryDeck();}
 		if (isServer) {RpcPickUpStoryCard();}
 		else					{CmdPickUpStoryCard();}
 
@@ -73,10 +74,7 @@ public class GameManager : NetworkBehaviour {
 		foreach (GameObject i in storyCardDelete){
 			DestroyObject (i);
 		}
-
 		 // storyDeck = GameObject.Find("StoryManager").GetComponent<StoryDeck>();
-		 if (storyDeck.storyDeck.Count == 1) {	PopulateStoryDeck();}
-
 		string nameOfCard = storyDeck.NewCard ();
 		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = nameOfCard;
 		storyCard = storyDeck.Draw(nameOfCard);
@@ -99,19 +97,26 @@ public class GameManager : NetworkBehaviour {
 
 	public void PopulateStoryDeck(){
 		if (!isLocalPlayer) {return;}
-		if (isServer) {RpcPopulateStoryDeck(this.gameObject);}
-		else					{CmdPopulateStoryDeck(this.gameObject);}
+		if (isServer) {RpcPopulateStoryDeck(netId.Value);}
+		else					{CmdPopulateStoryDeck(netId.Value);}
 	}
 	[Command]
-	public void CmdPopulateStoryDeck(GameObject gameObject){
-    RpcPopulateStoryDeck(gameObject);
+	public void CmdPopulateStoryDeck(uint player){
+    RpcPopulateStoryDeck(player);
 	}
 	[ClientRpc]
-	public void RpcPopulateStoryDeck(GameObject gameObject){
-		 gameObject.GetComponent<GameManager>().storyDeck.populateDeck();
-		 this.storyDeck = gameObject.GetComponent<GameManager>().storyDeck;
-		 Debug.Log(this.storyDeck.storyDeck[1]);
-		 Debug.Log(gameObject.GetComponent<GameManager>().storyDeck.storyDeck[1]);
+	public void RpcPopulateStoryDeck(uint player){
+		GameObject.Find("PlayerObject(Clone)" + player).GetComponent<GameManager>().storyDeck.populateDeck();
+		this.storyDeck.storyDeck = GameObject.Find("PlayerObject(Clone)" + player).GetComponent<GameManager>().storyDeck.storyDeck;
+
+		for(int i =0; i < storyDeck.storyDeck.Count; i++){
+			Debug.Log(this.storyDeck.storyDeck[i]);
+			Debug.Log(GameObject.Find("PlayerObject(Clone)" + player).GetComponent<GameManager>().storyDeck.storyDeck[i]);
+		}
+
+
+		 // Debug.Log(this.storyDeck.storyDeck[1]);
+		 // Debug.Log(gameObject.GetComponent<GameManager>().storyDeck.storyDeck[1]);
 
 	}
 

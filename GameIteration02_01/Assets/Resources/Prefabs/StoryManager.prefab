@@ -85,8 +85,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyDeck:
-  - Tournament at Tintagel
-  temp: 
+  - Slay The Dragon
+  - Slay The Dragon
+  temp: Slay The Dragon
   deckSize: 0
   index: 0
   randInt: 0

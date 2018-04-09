@@ -85,84 +85,107 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   adventureDeck:
-  - Lance
-  - Amour
-  - Sir Gawain
   - Sword
-  - Dagger
   - Sword
-  - Saxon Knight
-  - Queen Guinevere
-  - King Arthur
-  - Mordred
-  - Saxon Knight
-  - Queen Iseult
   - Sword
-  - Sir Percival
-  - Evil Knight
-  - Saxons
-  - Boar
-  - Lance
-  - Robber Knight
-  - Robber Knight
-  - Thieves
-  - Battle-ax
-  - Horse
-  - Excalibur
-  - Test of Temptation
-  - Horse
-  - Dagger
-  - Horse
   - Sword
-  - Robber Knight
-  - Battle-ax
-  - Giant
-  - Horse
-  - Thieves
-  - Amour
   - Sword
-  - Sir Galahad
-  - King Pellinore
-  - Lance
-  - Battle-ax
-  - Robber Knight
-  - Horse
-  - Saxon Knight
-  - Evil Knight
-  - Amour
-  - Green Knight
-  - Horse
-  - Amour
-  - Dagger
-  - Evil Knight
-  - Saxon Knight
   - Sword
-  - Mordred
-  - Boar
-  - Test of Morgan Le Fey
-  - Saxons
-  - Horse
-  - Robber Knight
-  - Mordred
-  - Test of Temptation
-  - Saxon Knight
-  - Dagger
-  - Excalibur
-  - Saxon Knight
-  - Merlin
-  - Dagger
-  - Battle-ax
-  - Lance
-  - Horse
-  - Thieves
-  - Saxons
-  - Saxons
-  - Saxon Knight
-  - Saxons
-  - Black Knight
-  - Battle-ax
   - Sword
-  tempKey: Battle-ax
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  - Sword
+  tempKey: Sword
   deckSize: 0
   index: 0
   randInt: 0
