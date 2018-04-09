@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ac31147718ad24baf57c518f63d6b1, type: 3}
+  m_Name: Mordred
+  m_EditorClassIdentifier: 
+  name: Mordred
+  image: {fileID: 21300000, guid: c758783a29e5b4749bb3ef0e293c501b, type: 3}
+  battlePoints: 30
+  bonusBattlePoints: 0
+  mordred: 1
