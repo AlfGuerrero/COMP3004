@@ -70,3 +70,5 @@ C:\Users\Brandon\Desktop\GameIteration02_01\Temp\bin\Debug\UnityEngine.SpatialTr
 C:\Users\Brandon\Desktop\GameIteration02_01\Temp\bin\Debug\UnityEditor.VR.xml
 C:\Users\Brandon\Desktop\GameIteration02_01\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.xml
 C:\Users\Brandon\Desktop\GameIteration02_01\obj\Debug\Assembly-CSharp.pdb
+C:\Users\dgrib\Documents\GitHub\COMP3004_TEAM3\GameIteration02_Nico\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\dgrib\Documents\GitHub\COMP3004_TEAM3\GameIteration02_Nico\obj\Debug\Assembly-CSharp.dll

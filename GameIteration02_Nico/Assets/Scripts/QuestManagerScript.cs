@@ -11,7 +11,7 @@ using UnityEngine.Networking;
 
 	public List<int> participants = new List<int>();
 
-	int currentPlayerTurn;
+	int currentPlayerTurn; 
 
  	//Variables for Initialize Stages
  	public int spacing = 200;

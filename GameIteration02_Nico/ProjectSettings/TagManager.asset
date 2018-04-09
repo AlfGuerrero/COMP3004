@@ -12,6 +12,8 @@ TagManager:
   - PlayerTurnTextUI
   - HandCanvas
   - sponsorButton
+  - Stage
+  - tourni
   layers:
   - Default
   - TransparentFX

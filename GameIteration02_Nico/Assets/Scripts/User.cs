@@ -12,6 +12,8 @@ public class User : NetworkBehaviour {
 	public string rank;
 	public string username;
 	public List<AdventureCard> AlliesInHand;
+	public List<AdventureCard> TournmanetCards;
+	public int TourniBP;
 
 
 	protected Sprite Squire;
@@ -28,6 +30,7 @@ public class User : NetworkBehaviour {
 		this.baseAttack			  = 0;
 		this.AllyBattlePoints	  = 0;
 		this.shields			  = 0;
+		this.totalBP 			  = 0;
 		//Debug.Log ("username : " + username);
 
 	}
@@ -119,7 +122,8 @@ public class User : NetworkBehaviour {
 			//logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
 		}
 
-		//this.gameObject.transform.GetChild(4).GetComponent<Text>().text =  ("Rank: " + this.rank);		
+		//this.gameObject.transform.GetChild(4).GetComponent<Text>().text =  ("Rank: " + this.rank);
+		
 
 	}//end of updating rank
 	
@@ -135,10 +139,18 @@ public class User : NetworkBehaviour {
 */
 		return -1;
 	}
+	public List<AdventureCard> GetTournmanetCards(){
+		return TournmanetCards;
+	}public void SetTourni(AdventureCard Temp){
+		TournmanetCards.Add(Temp);
+	}
 
-
-
-
+	public int getTourniBP(){
+		return TourniBP;
+	}
+	public void setTourniBP(int points){
+		TourniBP=points;
+	}
 
 
 
