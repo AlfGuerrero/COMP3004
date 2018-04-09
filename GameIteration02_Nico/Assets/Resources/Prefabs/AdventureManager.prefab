@@ -1,0 +1,156 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1798771898839376}
+  m_IsPrefabParent: 1
+--- !u!1 &1798771898839376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4231719026829298}
+  - component: {fileID: 114974863258979360}
+  - component: {fileID: 114707082926840856}
+  m_Layer: 0
+  m_Name: AdventureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4231719026829298
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798771898839376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2646192, y: 0.4662825, z: 200.03166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114707082926840856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798771898839376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 117
+    i1: 186
+    i2: 213
+    i3: 136
+    i4: 48
+    i5: 210
+    i6: 68
+    i7: 26
+    i8: 249
+    i9: 221
+    i10: 224
+    i11: 184
+    i12: 89
+    i13: 252
+    i14: 46
+    i15: 171
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114974863258979360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798771898839376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b860f498da8e4b42bfddccb9975649c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adventureDeck:
+  - Saxon Knight
+  - Thieves
+  - Saxons
+  - Robber Knight
+  - Sir Galahad
+  - Sword
+  - Horse
+  - Saxon Knight
+  - Lance
+  - Thieves
+  - Thieves
+  - King Arthur
+  - Sir Percival
+  - Evil Knight
+  - Battle-ax
+  - Sword
+  - Battle-ax
+  - Amour
+  - Evil Knight
+  - Sword
+  - Saxon Knight
+  - Thieves
+  - Dagger
+  - Mordred
+  - Sword
+  - Horse
+  - Excalibur
+  - Robber Knight
+  - Horse
+  - Green Knight
+  - Horse
+  - Sword
+  - Giant
+  - Test of Morgan Le Fey
+  - Thieves
+  - Sword
+  - Battle-ax
+  - Excalibur
+  - Boar
+  - Black Knight
+  - Green Knight
+  - Dagger
+  - Sword
+  - Battle-ax
+  - Test of Temptation
+  - Test of Morgan Le Fey
+  - Merlin
+  - Amour
+  - Saxons
+  - Saxons
+  - Amour
+  - King Pellinore
+  - Sir Lancelot
+  - Evil Knight
+  - Battle-ax
+  - Evil Knight
+  - Queen Guinevere
+  - Lance
+  - Thieves
+  - Sword
+  - Dagger
+  - Saxon Knight
+  - Sword
+  - Mordred
+  - Sir Gawain
+  tempKey: Boar
+  deckSize: 0
+  index: 0
+  randInt: 0
