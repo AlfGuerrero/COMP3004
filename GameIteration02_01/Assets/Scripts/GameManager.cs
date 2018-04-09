@@ -5,18 +5,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : NetworkBehaviour {
-	public StoryDeck 	storyDeck;
-  public AdventureDeck advDeck;
+	// private StoryDeck 	storyDeck;
+  // public AdventureDeck advDeck;
 	public GameObject 	storyCard;
 	public GameObject   advCard;
 	GameObject[] 		storyCardDelete;
   GameObject[]    advCardDelete;
+	StoryDeck sd;
+	AdventureDeck ad;
+	EventsManager eventsManager;
+	Text playerTurn;
 
 	void Start(){
 		this.gameObject.name += netId.Value;
 		GameObject.Find("HandCanvas").name += netId.Value;
 //		CmdAddPlayer (playerSize);
 	  	Debug.Log ("Player: " + netId.Value + " has joined.");
+		 sd = GameObject.Find("StoryManager").GetComponent<StoryDeck>(); // GLOBAL OBJECT.
+		 ad = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>(); // GLOBAL OBJECT.
+		 playerTurn = GameObject.Find("PlayerTurnTextUI").GetComponent<Text>();
+		 eventsManager = GameObject.Find("EventsManager").GetComponent<EventsManager>(); // GLOBAL OBJECT.
 	}
 
 	void Update () {
@@ -45,27 +53,29 @@ public class GameManager : NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void RpcControlPlayerTurn(){
-		string playerTurnText = GameObject.FindGameObjectWithTag("PlayerTurnTextUI").GetComponent<Text>().text;
+		string playerTurnText = playerTurn.text;
 		int playerTurnInt;
-		int.TryParse (playerTurnText, out playerTurnInt);
-		// if (playerTurnInt % netId.Value == 0){
-			playerTurnInt++;
-			GameObject.FindGameObjectWithTag ("PlayerTurnTextUI").GetComponent<Text> ().text = playerTurnInt.ToString();
-		// }
+	  int.TryParse (playerTurnText, out playerTurnInt);
+		Debug.Log(NetworkServer.connections.Count);
+	 if (playerTurnInt == 4){
+		 playerTurnInt = 1;
+	 }
+	 else {
+		 playerTurnInt++;
+	 }
+	 playerTurn.text = playerTurnInt.ToString();
 
 	}
 
 
 	public void PickUpStoryCard(){ // Local Button...
 		if (!isLocalPlayer) {return;}
-		if (storyDeck.storyDeck.Count == 1) {	PopulateStoryDeck();}
 		if (isServer) {RpcPickUpStoryCard();}
 		else					{CmdPickUpStoryCard();}
-
 	}
 	[Command] // Server calls Clients...
 		public void CmdPickUpStoryCard(){
-		storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
+		// storyCardDelete = GameObject.FindGameObjectsWithTag("StoryCard");
 		RpcPickUpStoryCard();
 	}
 	[ClientRpc] // Clients call Server...
@@ -74,12 +84,31 @@ public class GameManager : NetworkBehaviour {
 		foreach (GameObject i in storyCardDelete){
 			DestroyObject (i);
 		}
-		 // storyDeck = GameObject.Find("StoryManager").GetComponent<StoryDeck>();
-		string nameOfCard = storyDeck.NewCard ();
+		if (sd.storyDeck.Count == 0) sd.populateDeck();
+		string nameOfCard = sd.NewCard ();
 		GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text = nameOfCard;
-		storyCard = storyDeck.Draw(nameOfCard);
+		storyCard = sd.Draw(nameOfCard);
 		storyCard.transform.SetParent (GameObject.Find ("GameCanvas").transform);
 		storyCard.transform.localPosition = new Vector3 (-352f, 17f, 0f);
+
+	 	if (storyCard.GetComponent<Event>() != null){
+			Event eventCard = storyCard.GetComponent<Event>();
+			if (eventCard.getName() == "King's Recognition" ){
+				eventsManager.Kings_Recoginition(netId.Value);
+			}
+			if (eventCard.getName() == "Queen's Favor"){
+				PickUpAdventureCards();
+			}
+		}
+		else if (storyCard.GetComponent<Quest>() != null){
+			Quest questCard = storyCard.GetComponent<Quest>();
+			Debug.Log(questCard.getName());
+	  }
+		else  if (storyCard.GetComponent<Tournament>() != null){
+		 	Tournament tournamentCard = storyCard.GetComponent<Tournament>();
+		 	Debug.Log(tournamentCard.getName());
+		 }
+
 	}
 
 	public void PopulateAdvDeck(){
@@ -92,7 +121,7 @@ public class GameManager : NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void RpcPopulateAdvDeck(){
-		advDeck.populateDeck();
+		// advDeck.populateDeck();
 	}
 
 	public void PopulateStoryDeck(){
@@ -106,18 +135,6 @@ public class GameManager : NetworkBehaviour {
 	}
 	[ClientRpc]
 	public void RpcPopulateStoryDeck(uint player){
-		GameObject.Find("PlayerObject(Clone)" + player).GetComponent<GameManager>().storyDeck.populateDeck();
-		this.storyDeck.storyDeck = GameObject.Find("PlayerObject(Clone)" + player).GetComponent<GameManager>().storyDeck.storyDeck;
-
-		for(int i =0; i < storyDeck.storyDeck.Count; i++){
-			Debug.Log(this.storyDeck.storyDeck[i]);
-			Debug.Log(GameObject.Find("PlayerObject(Clone)" + player).GetComponent<GameManager>().storyDeck.storyDeck[i]);
-		}
-
-
-		 // Debug.Log(this.storyDeck.storyDeck[1]);
-		 // Debug.Log(gameObject.GetComponent<GameManager>().storyDeck.storyDeck[1]);
-
 	}
 
 
@@ -133,10 +150,10 @@ public class GameManager : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcPickUpAdventureCards(){
 		 // advDeck = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>();
-		 // if (advDeck.adventureDeck.Count == 1) 	{ PopulateAdvDeck();}
-		 string nameOfCard = advDeck.NewCard();
+		 if (ad.adventureDeck	.Count == 0) 	{ ad.populateDeck();}
+		 string nameOfCard = ad.NewCard();
 		 GameObject.FindGameObjectWithTag("AdvCardTextUI").GetComponent<Text>().text = nameOfCard;
-	   advCard = advDeck.Draw(nameOfCard);
+	   advCard = ad.Draw(nameOfCard);
 	   advCard.transform.SetParent (GameObject.Find ("HandCanvas"+ netId.Value).transform);
 		 advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
 	}

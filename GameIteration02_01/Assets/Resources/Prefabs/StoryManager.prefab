@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4820654225363494}
   - component: {fileID: 114287320174111188}
-  - component: {fileID: 114067858192529122}
   m_Layer: 0
   m_Name: StoryManager
   m_TagString: Untagged
@@ -41,38 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114067858192529122
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1159401083340764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 136
-    i1: 218
-    i2: 195
-    i3: 29
-    i4: 246
-    i5: 227
-    i6: 212
-    i7: 149
-    i8: 40
-    i9: 71
-    i10: 147
-    i11: 183
-    i12: 137
-    i13: 175
-    i14: 248
-    i15: 126
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
 --- !u!114 &114287320174111188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,9 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storyDeck:
-  - Slay The Dragon
-  - Slay The Dragon
-  temp: Slay The Dragon
+  - King's Call to Arms
+  - Search for the Holy Grail
+  - Rescue the Fair Maiden
+  temp: Tournament at Camelot
   deckSize: 0
   index: 0
   randInt: 0

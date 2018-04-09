@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
-
-public class AdventureDeck : NetworkBehaviour {
+public class AdventureDeck : MonoBehaviour {
 	/* ADVENTURE DECK
 	* Weapons 						= 49 Total
 	* Excalibur						= 2
@@ -94,81 +92,105 @@ public class AdventureDeck : NetworkBehaviour {
 		List<string> RList8 = new List<string>(){"Sir Tristan","Test of Valor",	"Lance", "Evil Knight","Thieves","Test of the Questing Beast","Test of the Questing Beast","Sword","Saxon Knight","Lance","Black Knight","Horse","Amour","Robber Knight"};
 
 		// logger.info ("AdventureDeck.cs :: Populating Deck with cards.");
+		for (int i = 0; i < RList1.Count; i++)
+		adventureDeck.Add(RList1[i]);
 
-		int ranStart = 0;
-		while(RList1.Count!=0&&RList2.Count!=0&&RList3.Count!=0&&RList4.Count!=0&&RList5.Count!=0&&RList6.Count!=0&&RList7.Count!=0&&RList8.Count!=0){
+		for (int i = 0; i < RList2.Count; i++)
+		adventureDeck.Add(RList2[i]);
 
-			ranStart = Random.Range (1,8);
+		for (int i = 0; i < RList3.Count; i++)
+			adventureDeck.Add(RList3[i]);
 
-			if (ranStart == 1) {
-			if (RList1.Count >= 1) {
-				int Ran = Random.Range (0, RList1.Count);
-//					Debug.Log (RList1[Ran]);
-				adventureDeck.Add (RList1[Ran]);
-				RList1.RemoveAt (Ran);
-			} else {
-					ranStart = 2;
-			}
-		}
-			if (ranStart == 2) {
-				if (RList2.Count >= 1) {
-					int Ran = Random.Range (0, RList2.Count);
-//					Debug.Log (RList2[Ran]);
-					adventureDeck.Add (RList2[Ran]);
-					RList2.RemoveAt (Ran);
-				} else {
-					ranStart = 3;
-				}
-			}  if (ranStart == 3) {
-				if (RList3.Count >= 1) {
-					int Ran = Random.Range (0, RList3.Count);
-					adventureDeck.Add (RList3[Ran]);
-					RList3.RemoveAt (Ran);
-				} else {
-					ranStart = 4;
-				}
-			}  if (ranStart == 4) {
-				if (RList4.Count >= 1) {
-					int Ran = Random.Range (0, RList4.Count);
-					adventureDeck.Add (RList4[Ran]);
-					RList4.RemoveAt (Ran);
-				} else {
-					ranStart = 5;
-				}
-			}  if (ranStart == 5) {
-				if (RList1.Count >= 1) {
-					int Ran = Random.Range (0, RList5.Count);
-					adventureDeck.Add (RList5[Ran]);
-					RList5.RemoveAt (Ran);
-				} else {
-					ranStart = 6;
-				}
-			}  if (ranStart == 6) {
-				if (RList6.Count >= 1) {
-					int Ran = Random.Range (0, RList6.Count);
-					adventureDeck.Add (RList6[Ran]);
-					RList6.RemoveAt (Ran);
-			} else {
-					ranStart = 7;
-			}
-			}  if (ranStart == 7) {
-				if (RList7.Count >= 1) {
-					int Ran = Random.Range (0, RList7.Count);
-					adventureDeck.Add (RList7[Ran]);
-					RList7.RemoveAt (Ran);
-				} else {
-					ranStart = 8;
-				}
-			} if (ranStart == 8) {
-				if (RList8.Count >= 1) {
-					int Ran = Random.Range (0, RList8.Count);
-					adventureDeck.Add (RList8[Ran]);
-					RList8.RemoveAt (Ran);
-				} else {
-					break;
-			}
-			}
-	}
+		for (int i = 0; i < RList4.Count; i++)
+				adventureDeck.Add(RList4[i]);
+
+				for (int i = 0; i < RList5.Count; i++)
+				adventureDeck.Add(RList5[i]);
+
+				for (int i = 0; i < RList6.Count; i++)
+				adventureDeck.Add(RList6[i]);
+
+				for (int i = 0; i < RList7.Count; i++)
+					adventureDeck.Add(RList7[i]);
+
+				for (int i = 0; i < RList8.Count; i++)
+						adventureDeck.Add(RList8[i]);
+
+		// int ranStart = 0;
+// 		while(RList1.Count!=0&&RList2.Count!=0&&RList3.Count!=0&&RList4.Count!=0&&RList5.Count!=0&&RList6.Count!=0&&RList7.Count!=0&&RList8.Count!=0){
+//
+//
+// 			ranStart = Random.Range (1,8);
+//
+// 			if (ranStart == 1) {
+// 			if (RList1.Count >= 1) {
+// 				int Ran = Random.Range (0, RList1.Count);
+// //					Debug.Log (RList1[Ran]);
+// 				adventureDeck.Add (RList1[Ran]);
+// 				RList1.RemoveAt (Ran);
+// 			} else {
+// 					ranStart = 2;
+// 			}
+// 		}
+// 			if (ranStart == 2) {
+// 				if (RList2.Count >= 1) {
+// 					int Ran = Random.Range (0, RList2.Count);
+// //					Debug.Log (RList2[Ran]);
+// 					adventureDeck.Add (RList2[Ran]);
+// 					RList2.RemoveAt (Ran);
+// 				} else {
+// 					ranStart = 3;
+// 				}
+// 			}  if (ranStart == 3) {
+// 				if (RList3.Count >= 1) {
+// 					int Ran = Random.Range (0, RList3.Count);
+// 					adventureDeck.Add (RList3[Ran]);
+// 					RList3.RemoveAt (Ran);
+// 				} else {
+// 					ranStart = 4;
+// 				}
+// 			}  if (ranStart == 4) {
+// 				if (RList4.Count >= 1) {
+// 					int Ran = Random.Range (0, RList4.Count);
+// 					adventureDeck.Add (RList4[Ran]);
+// 					RList4.RemoveAt (Ran);
+// 				} else {
+// 					ranStart = 5;
+// 				}
+// 			}  if (ranStart == 5) {
+// 				if (RList1.Count >= 1) {
+// 					int Ran = Random.Range (0, RList5.Count);
+// 					adventureDeck.Add (RList5[Ran]);
+// 					RList5.RemoveAt (Ran);
+// 				} else {
+// 					ranStart = 6;
+// 				}
+// 			}  if (ranStart == 6) {
+// 				if (RList6.Count >= 1) {
+// 					int Ran = Random.Range (0, RList6.Count);
+// 					adventureDeck.Add (RList6[Ran]);
+// 					RList6.RemoveAt (Ran);
+// 			} else {
+// 					ranStart = 7;
+// 			}
+// 			}  if (ranStart == 7) {
+// 				if (RList7.Count >= 1) {
+// 					int Ran = Random.Range (0, RList7.Count);
+// 					adventureDeck.Add (RList7[Ran]);
+// 					RList7.RemoveAt (Ran);
+// 				} else {
+// 					ranStart = 8;
+// 				}
+// 			} if (ranStart == 8) {
+// 				if (RList8.Count >= 1) {
+// 					int Ran = Random.Range (0, RList8.Count);
+// 					adventureDeck.Add (RList8[Ran]);
+// 					RList8.RemoveAt (Ran);
+// 				} else {
+// 					break;
+// 			}
+// 			}
+
 		// logger.test ("AdventureDeck.cs :: Adventure advDeck has been created. with sizes of " + getSizeOfDeck());
 	}
 	public string NewCard(){

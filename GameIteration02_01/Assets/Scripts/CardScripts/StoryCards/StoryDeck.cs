@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
  // QuestGame;
 
-public class StoryDeck : NetworkBehaviour {
+public class StoryDeck : MonoBehaviour {
 
 	//Dictionary<string, int> storyDeck = new Dictionary<string, int>(){};
 	public List<string> storyDeck= new List<string>();
@@ -26,7 +25,7 @@ public class StoryDeck : NetworkBehaviour {
 
 	List<string> tournaments = new List<string>(){"Tournament at Camelot","Tournament at Orkney","Tournament at Tintagel","Tournament at York",};
 
-	
+
 	public void populateDeck(){
 		// logger.info ("StoryDeck.cs :: Populating Deck with cards.");
 		// Debug.Log("alf");
@@ -67,52 +66,63 @@ public class StoryDeck : NetworkBehaviour {
 			"Prosperity Throughout the Realm"
 		};
 
-		int ranStart = 0;
-		while (RList1.Count != 0 && RList2.Count != 0 && RList3.Count != 0 && RList4.Count != 0) {
+		// int ranStart = 0;
+		// while (RList1.Count != 0 && RList2.Count != 0 && RList3.Count != 0 && RList4.Count != 0) {
 
-			ranStart = Random.Range (1, 4);
+			for (int i = 0; i < RList1.Count; i++)
+			storyDeck.Add(RList1[i]);
 
-			if (ranStart == 1) {
-				if (RList1.Count >= 1) {
-					int Ran = Random.Range (0, RList1.Count);
-					//					Debug.Log (RList1 [Ran]);
-					storyDeck.Add (RList1 [Ran]);
-					RList1.RemoveAt (Ran);
-				} else {
-					ranStart = 2;
-				}
-			}
-			if (ranStart == 2) {
-				if (RList2.Count >= 1) {
-					int Ran = Random.Range (0, RList2.Count);
-					//					Debug.Log (RList2 [Ran]);
-					storyDeck.Add (RList2 [Ran]);
-					RList2.RemoveAt (Ran);
-				} else {
-					ranStart = 3;
-				}
-			}
-			if (ranStart == 3) {
-				if (RList3.Count >= 1) {
-					int Ran = Random.Range (0, RList3.Count);
-					//					Debug.Log (RList3 [Ran]);
-					storyDeck.Add (RList3 [Ran]);
-					RList3.RemoveAt (Ran);
-				} else {
-					ranStart = 4;
-				}
-			}
-			if (ranStart == 4) {
-				if (RList4.Count >= 1) {
-					int Ran = Random.Range (0, RList4.Count);
-					//					Debug.Log (RList4 [Ran]);
-					storyDeck.Add (RList4 [Ran]);
-					RList4.RemoveAt (Ran);
-				} else {
-					break;
-				}
-			}
-		}
+			for (int i = 0; i < RList2.Count; i++)
+			storyDeck.Add(RList2[i]);
+
+			for (int i = 0; i < RList3.Count; i++)
+				storyDeck.Add(RList3[i]);
+
+			for (int i = 0; i < RList4.Count; i++)
+					storyDeck.Add(RList4[i]);
+			// ranStart = Random.Range (1, 4);
+			//
+			// if (ranStart == 1) {
+			// 	if (RList1.Count >= 1) {
+			// 		int Ran = Random.Range (0, RList1.Count);
+			// 		//					Debug.Log (RList1 [Ran]);
+			// 		storyDeck.Add (RList1 [Ran]);
+			// 		RList1.RemoveAt (Ran);
+			// 	} else {
+			// 		ranStart = 2;
+			// 	}
+			// }
+			// if (ranStart == 2) {
+			// 	if (RList2.Count >= 1) {
+			// 		int Ran = Random.Range (0, RList2.Count);
+			// 		//					Debug.Log (RList2 [Ran]);
+			// 		storyDeck.Add (RList2 [Ran]);
+			// 		RList2.RemoveAt (Ran);
+			// 	} else {
+			// 		ranStart = 3;
+			// 	}
+			// }
+			// if (ranStart == 3) {
+			// 	if (RList3.Count >= 1) {
+			// 		int Ran = Random.Range (0, RList3.Count);
+			// 		//					Debug.Log (RList3 [Ran]);
+			// 		storyDeck.Add (RList3 [Ran]);
+			// 		RList3.RemoveAt (Ran);
+			// 	} else {
+			// 		ranStart = 4;
+			// 	}
+			// }
+			// if (ranStart == 4) {
+			// 	if (RList4.Count >= 1) {
+			// 		int Ran = Random.Range (0, RList4.Count);
+			// 		//					Debug.Log (RList4 [Ran]);
+			// 		storyDeck.Add (RList4 [Ran]);
+			// 		RList4.RemoveAt (Ran);
+			// 	} else {
+			// 		break;
+			// 	}
+			// }
+		// }
 		// logger.info ("StoryDeck.cs :: StoryDeck storyDeck has been created. with sizes of " + getSizeOfDeck());
 
 	}
