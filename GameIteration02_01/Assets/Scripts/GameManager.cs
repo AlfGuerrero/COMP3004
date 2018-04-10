@@ -24,7 +24,7 @@ public class GameManager : NetworkBehaviour {
 		 ad = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>(); // GLOBAL OBJECT.
 		 playerTurn = GameObject.Find("PlayerTurnTextUI").GetComponent<Text>();
 		 eventsManager = GameObject.Find("EventsManager").GetComponent<EventsManager>(); // GLOBAL OBJECT.
-		 // 
+		 //
 		 // for(int i = 0; i < 12; i++)
 		 // PickUpAdventureCards();
 

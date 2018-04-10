@@ -8,10 +8,12 @@ public class Draggable : NetworkBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
 //	Vector2 dragOffset = new Vector2(0f, 0f);
 	public Transform parentToReturnTo;
+	public Vector2 positionToReturnTo;
 
 	public void OnBeginDrag(PointerEventData eventData)    {
 
-//		parentToReturnTo = this.transform.parent;
+		parentToReturnTo = this.transform.parent;
+		positionToReturnTo = this.transform.position;
 //		this.transform.SetParent (this.transform.parent);
 //		dragOffset = eventData.position - (Vector2)this.transform.localPosition;
 //		dragOffset = (Vector2)Input.mousePosition - (Vector2)this.transform.position;
@@ -32,7 +34,8 @@ public class Draggable : NetworkBehaviour, IBeginDragHandler, IDragHandler, IEnd
 	}
 
 	public void OnEndDrag(PointerEventData eventData) {
-//		this.transform.SetParent (parentToReturnTo);
+		this.transform.SetParent (parentToReturnTo);
+		this.transform.position = positionToReturnTo;
 		this.GetComponent<BoxCollider2D> ().enabled = true;
 		this.GetComponent<CanvasGroup> ().blocksRaycasts = true;
 	}

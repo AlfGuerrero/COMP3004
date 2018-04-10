@@ -12,6 +12,9 @@ TagManager:
   - PlayerTurnTextUI
   - HandCanvas
   - AdvCardTextUI
+  - Stage
+  - sponsorButton
+  - participateButton
   layers:
   - Default
   - TransparentFX

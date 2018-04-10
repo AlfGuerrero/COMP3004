@@ -10,6 +10,8 @@ public class PlayerController : NetworkBehaviour{
 	GameObject playerCanvas;
 	GameObject handCanvas;
 	GameObject storyCard;
+	Info i;
+
 	public override void OnStartLocalPlayer(){
 	}
 
@@ -17,7 +19,7 @@ public class PlayerController : NetworkBehaviour{
 	void Start () {
 		 playerCanvas = this.gameObject.transform.GetChild (0).gameObject;
 		 handCanvas = playerCanvas.gameObject.transform.GetChild (0).gameObject;
-
+		 i = GameObject.Find("InfoHolder").GetComponent<Info>();
 
 	}
 
@@ -72,6 +74,33 @@ public class PlayerController : NetworkBehaviour{
 	}
 
 
+	public void SubmitCards(){
+			if (!isLocalPlayer) {
+				return;
+			}
+			if (isServer) {RpcSubmitCards();}
+			else					{CmdSubmitCards();}
+			// Check if this person is sponsor
+			//if(netId.Value == q.sponsor){
+				// if they are then check their stages
+
+			//}
+
+			// Check if this person is participating in tournament or quest
+
+
+		}
+		[Command]
+		public void CmdSubmitCards(){
+			RpcSubmitCards ();
+		}
+
+		[ClientRpc]
+		void RpcSubmitCards(){
+			QuestManagerScript q = this.GetComponent<QuestManagerScript> ();
+			Debug.Log("Sponsor Setting stages!");
+			i.SetStages(GameObject.FindGameObjectsWithTag("Stage"));
+		}
 
 
 //	[Command]
