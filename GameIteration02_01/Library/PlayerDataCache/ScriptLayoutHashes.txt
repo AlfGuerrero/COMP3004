@@ -174,4 +174,4 @@ f4df338609bff07347bbfdb185caf66d Assembly-CSharp.dll:.Ally
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Foe
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StoryCard
 4866de1c5b0d1e1d441b4a7c6b6aed25 Assembly-CSharp.dll:.Test
-beebd27373f44c3c16a556aaeb2b6ea4 Assembly-CSharp.dll:.User
+702b53cc8fc57e793488d44c6c32e3c2 Assembly-CSharp.dll:.User

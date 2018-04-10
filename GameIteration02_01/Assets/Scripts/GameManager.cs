@@ -10,7 +10,6 @@ public class GameManager : NetworkBehaviour {
 	public GameObject 	storyCard;
 	public GameObject   advCard;
 	GameObject[] 		storyCardDelete;
-  GameObject[]    advCardDelete;
 	StoryDeck sd;
 	AdventureDeck ad;
 	EventsManager eventsManager;
@@ -25,6 +24,10 @@ public class GameManager : NetworkBehaviour {
 		 ad = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>(); // GLOBAL OBJECT.
 		 playerTurn = GameObject.Find("PlayerTurnTextUI").GetComponent<Text>();
 		 eventsManager = GameObject.Find("EventsManager").GetComponent<EventsManager>(); // GLOBAL OBJECT.
+		 // 
+		 // for(int i = 0; i < 12; i++)
+		 // PickUpAdventureCards();
+
 	}
 
 	void Update () {
@@ -33,13 +36,6 @@ public class GameManager : NetworkBehaviour {
 		}
 	}
 
-	void OnApplicationQuit(){
-		Debug.Log("Exiting...");
-		advCardDelete = GameObject.FindGameObjectsWithTag("Card");
-		foreach (GameObject i in advCardDelete){
-			DestroyObject (i);
-		}
-	}
 
 	public void ControlPlayerTurn(){
 		if (!isLocalPlayer) {return;}
@@ -96,9 +92,28 @@ public class GameManager : NetworkBehaviour {
 			if (eventCard.getName() == "King's Recognition" ){
 				eventsManager.Kings_Recoginition(netId.Value);
 			}
-			if (eventCard.getName() == "Queen's Favor"){
-				PickUpAdventureCards();
+			else if (eventCard.getName() == "Queen's Favor"){
+				// Debug.Log();
 			}
+			else if (eventCard.getName() == "Court Called to Camelot"){
+				// Debug.Log();
+			}
+			else if (eventCard.getName() == "Pox"){
+				// Debug.Log();
+			}
+			else if (eventCard.getName() == "Plague"){
+				// Debug.Log();
+			}
+			else if (eventCard.getName() == "Chivalrous Deed"){
+				// Debug.Log();
+			}
+			else if (eventCard.getName() == "Prosperity Throughout the Realm"){
+				// Debug.Log();
+			}
+			else if (eventCard.getName() == "King's Call to Arms"){
+				// Debug.Log();
+			}
+
 		}
 		else if (storyCard.GetComponent<Quest>() != null){
 			Quest questCard = storyCard.GetComponent<Quest>();
@@ -108,7 +123,6 @@ public class GameManager : NetworkBehaviour {
 		 	Tournament tournamentCard = storyCard.GetComponent<Tournament>();
 		 	Debug.Log(tournamentCard.getName());
 		 }
-
 	}
 
 	public void PopulateAdvDeck(){

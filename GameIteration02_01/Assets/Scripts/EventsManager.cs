@@ -28,9 +28,41 @@ public class EventsManager : MonoBehaviour {
 	 * Weapon Cards
 	 * 2 Foe Cards
 	*/
+
 	// - This next player(s) to complete a Quest will receive 2 extra shields.
 	public void Kings_Recoginition(uint id){
-		Debug.Log("Kings Recognition has been called..." + id);
+		Debug.Log("EventsManager:: Kings_Recoginition :: setting shields for " + id);
+		User user = GameObject.Find("PlayerObject(Clone)" + id).GetComponent<User>();
+		int shields = user.getShields() + 2;
+		user.setShields(shields);
+	}
+
+	public void Queens_Favor(){
+		Debug.Log("Queens Favor has been called " );
+	}
+
+	public void Court_Called_To_Camelot(){
+
+	}
+
+	public void Pox(){
+
+	}
+
+	public void Plague(){
+
+	}
+
+	public void Chivalrous_Deed(){
+
+	}
+
+	public void Prosperity_Throughout_The_Realm(){
+
+	}
+
+	public void Kings_Call_To_Arms(){
+
 	}
 
 
