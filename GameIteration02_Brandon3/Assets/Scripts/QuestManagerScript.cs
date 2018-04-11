@@ -10,8 +10,8 @@ using UnityEngine.Networking;
 	public int sponsor = 0;
 
 
-
-	Info i;
+	List<List<AdventureCard>> listOfStages = new List<List<AdventureCard>> ();
+	//Info i;
 	Info info;
 
 	int currentPlayerTurn = 1;
@@ -49,9 +49,9 @@ using UnityEngine.Networking;
  	void Start () {
 		stage = (GameObject)Resources.Load("PreFabs/QuestStage");
 		submitButton = (GameObject)Resources.Load("PreFabs/SubmitButton");
-		i = GameObject.Find("InfoHolder").GetComponent<Info>();
-		info = i;
-		OnQuest ();
+		info = GameObject.Find("InfoHolder").GetComponent<Info>();
+		//info = i;
+		//OnQuest ();
  	}
 
  	// Update is called once per frame
@@ -62,7 +62,7 @@ using UnityEngine.Networking;
 		currentPlayerTurn = (temp+1) - temp2*4;
 		Debug.Log (currentPlayerTurn);
 
-		Debug.Log (i.stages.Length);
+		Debug.Log (info.stages.Length);
 
 		/*if(info.startParticipantQuest){
 			info.startParticipantQuest = false;
@@ -71,7 +71,7 @@ using UnityEngine.Networking;
 	}
 
 	public void OnQuest(){
-		i.ResetQuestValues (currentPlayerTurn);
+		info.ResetQuestValues (currentPlayerTurn);
 	}
 
 //	[Command]
@@ -81,8 +81,8 @@ using UnityEngine.Networking;
 //	[ClientRpc]
 //	public void RpcChooseSponsor(int playerTurn){
 //		if(netId.Value == playerTurn){
-//			i.sponsor = (int)netId.Value;
-//			Debug.Log ("Sponsor ID: " + i.sponsor);
+//			info.sponsor = (int)netId.Value;
+//			Debug.Log ("Sponsor ID: " + info.sponsor);
 //		}
 //	}
 	public void SpawnStagesForParticipants(){
@@ -97,16 +97,16 @@ using UnityEngine.Networking;
  	public void InitializeStages(GameObject theSponsor){
  		//spawn stages for sponsor
 		if(isLocalPlayer){
-	 		i.currentQuestCard = GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text;
-	 		i.numStages = FindNumberOfStages (i.currentQuestCard);
-	 		i.stages = new GameObject[i.numStages];
-	 		for(int j = 0; j < i.numStages; j++){
-	 			i.stages[j] = Instantiate (stage, theSponsor.transform);
-				i.stages[j].transform.position = new Vector2((i.stages [j].transform.position.x + 2*j) /*+ 140*i) - spacing*/, i.stages[j].transform.position.y);
+			info.currentQuestCard = GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text;
+			info.numStages = FindNumberOfStages (info.currentQuestCard);
+			info.stages = new GameObject[info.numStages];
+			for(int j = 0; j < info.numStages; j++){
+				info.stages[j] = Instantiate (stage, theSponsor.transform);
+				info.stages[j].transform.position = new Vector2((info.stages [j].transform.position.x + 2*j) /*+ 140*i) - spacing*/, info.stages[j].transform.position.y);
 	 		}
 		}
 
- 		//then wait till submit button is pressed to continue to submissions for participants. i.e do nothing
+ 		//then wait till submit button is pressed to continue to submissions for participants. info.e do nothing
 
  	}
 
@@ -134,26 +134,26 @@ using UnityEngine.Networking;
 	}
 	[ClientRpc]
 	public void RpcPass(){
-		if(i.sponsorRound){
-			if(i.trySponsor == netId.Value){
+		if(info.sponsorRound){
+			if(info.trySponsor == netId.Value){
 				Debug.Log ("CurrentPLayerTurn Skipped Sponsoring");
-				i.trySponsor++;
-				if(i.trySponsor > GameObject.Find("UsersManager").GetComponent<Users>().totalUsers ){
-					i.trySponsor = 1;
+				info.trySponsor++;
+				if(info.trySponsor > GameObject.Find("UsersManager").GetComponent<Users>().totalUsers ){
+					info.trySponsor = 1;
 				}
-				i.sponsorPasses++;
-				if (i.sponsorPasses == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers) {
+				info.sponsorPasses++;
+				if (info.sponsorPasses == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers) {
 					Debug.Log ("All Players Skipped Sponsoring");
 					//resetQuestvalues
 					//then skip quest and next card/turn
 				}
 			}
-		}else if(i.participateRound){
+		}else if(info.participateRound){
 			Debug.Log ("Player Passed Participating");
-			i.participantPasses++;
+			info.participantPasses++;
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
 			this.gameObject.transform.GetChild(0).GetChild(6).GetComponent<Button>().interactable = false;
-			if(i.participantPasses == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers-1){
+			if(info.participantPasses == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers-1){
 				Debug.Log ("All Players Passed Participating");
 				//SPONSORDRAWS CARDS
 				//resetQuestvalues
@@ -177,20 +177,20 @@ using UnityEngine.Networking;
 	[ClientRpc]
 	public void RpcSponsorCurrentQuest(){
 		Debug.Log ("called");
-		if(netId.Value == i.trySponsor && i.sponsorRound){
-			i.sponsor = (int)netId.Value;
-			Debug.Log ("The sponsor is: " + i.sponsor);
+		if(netId.Value == info.trySponsor && info.sponsorRound){
+			info.sponsor = (int)netId.Value;
+			Debug.Log ("The sponsor is: " + info.sponsor);
 			GameObject[] sponsorbuttons = GameObject.FindGameObjectsWithTag ("sponsorButton");
 			ChangeActive (sponsorbuttons, false);
 			this.gameObject.transform.GetChild(0).GetChild(5).GetComponent<Button>().interactable = false;
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
 			this.gameObject.transform.GetChild(0).GetChild(6).GetComponent<Button>().interactable = false;
 			Debug.Log ("initializing stages");
-			InitializeStages (GameObject.Find ("PlayerObject(Clone)" + i.sponsor.ToString ()).transform.GetChild (0).gameObject);
+			InitializeStages (GameObject.Find ("PlayerObject(Clone)" + info.sponsor.ToString ()).transform.GetChild (0).gameObject);
 			Debug.Log ("stages initialized");
-			//i.questInProgress = true;
-			i.sponsorRound = false;
-			i.participateRound = true;
+			//info.questInProgress = true;
+			info.sponsorRound = false;
+			info.participateRound = true;
 		}
 	}
 
@@ -208,11 +208,11 @@ using UnityEngine.Networking;
 	[ClientRpc]
 	public void RpcParticipateInCurrentQuest(){
 		Debug.Log ("called1");
-		if(i.participateRound){
-			i.participants.Add((int)netId.Value);
+		if(info.participateRound){
+			info.participants.Add((int)netId.Value);
 			Debug.Log ("Player "+ (int)netId.Value +"is participating.");
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
-			if(i.participants.Count + i.participantPasses + 1 == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers){
+			if(info.participants.Count + info.participantPasses + 1 == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers){
 				Debug.Log ("STARTING THE QUEST");
 				info.startParticipantQuest = true;
 
@@ -239,7 +239,8 @@ using UnityEngine.Networking;
 	}
 	[ClientRpc]
 	public void RpcSetStages(){
-		i.SetStages (GameObject.FindGameObjectsWithTag ("Stage"));
+		info.SetStages (GameObject.FindGameObjectsWithTag ("Stage"));
+		info.SetStages (listOfStages);
 		Debug.Log ("Setting stages!");
 	}
 
@@ -265,7 +266,7 @@ using UnityEngine.Networking;
 
 	[ClientRpc]
 	public void RpcSubmitWeaponsQuest(){
-		if(info.questInProgress == false){
+		if(info.questInProgress == true){
 		GameObject submissionZone = GameObject.FindGameObjectWithTag ("Stage");
 		//make a list of children (cards)
 		List<AdventureCard> weaponsToSubmit = new List<AdventureCard>();
@@ -304,7 +305,7 @@ using UnityEngine.Networking;
 
 		//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setToggle (true);
 		//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setWeaponsSubmit (weaponsToSubmit);
-		if(i.participants.Contains((int)netId.Value)){
+		if(info.participants.Contains((int)netId.Value)){
 
 
 			User participant = this.GetComponent<User> ();
@@ -378,11 +379,12 @@ using UnityEngine.Networking;
 	}
 
 
-	[Client]
+	[ClientRpc]
 	public void RpcSubmitCardsQuest(){
 		if(info.questInProgress == false){	
+			Debug.Log ("Submitting stages for review");
 		//logger.info ("SubmitCards.cs :: Checking the current submission of cards for a quest");
-		List<List<AdventureCard>> listOfStages = new List<List<AdventureCard>> ();
+		listOfStages = new List<List<AdventureCard>> ();
 		//get num stages and stage objects
 		bool test = false;
 		Quest storycard = GameObject.FindGameObjectWithTag ("StoryCard").GetComponent<Quest> ();
@@ -491,7 +493,7 @@ using UnityEngine.Networking;
 			}
 			Debug.Log ("bpps = " + bpps [listOfStages.IndexOf (k)]);
 		}
-			info.battlePointsPerStage = bpps;
+
 		for (int t = 1; t < numStages + 1; t++) {
 
 			if (bpps [t - 1] != 0) {
@@ -509,12 +511,26 @@ using UnityEngine.Networking;
 		//				GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameManager> ().advDeck.GetComponent<AdventureDeck> ().adventureDeck.Add (a.getName ());
 		//			}
 		//		}
-		info.SetStages (listOfStages);
+		SetStages ();
 		foreach (GameObject k in stages) {
 			Destroy (k);
 		}
 			info.questInProgress = true;
 			info.participateRound = true;
+			SetBpps (bpps);
+
 		}
+	}
+
+	public void SetBpps(int[] bpps){
+		CmdSetBpps (bpps);
+	}
+	[Command]
+	public void CmdSetBpps(int[] bpps){
+		RpcSetBpps (bpps);
+	}
+	[ClientRpc]
+	public void RpcSetBpps(int[] bpps){
+		info.battlePointsPerStage = bpps;
 	}
  }

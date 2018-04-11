@@ -15,7 +15,7 @@ public class GameManager : NetworkBehaviour {
 	EventsManager eventsManager;
 	Users users;
 	Text playerTurn;
-
+	Info i;
 	public Text names;
 	public Text ranks;
 	public Text shields;
@@ -34,7 +34,7 @@ public class GameManager : NetworkBehaviour {
 		 ad = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>(); // GLOBAL OBJECT.
 		 playerTurn = GameObject.Find("PlayerTurnTextUI").GetComponent<Text>();
 		 eventsManager = GameObject.Find("EventsManager").GetComponent<EventsManager>(); // GLOBAL OBJECT.
-
+		i = GameObject.Find("InfoHolder").GetComponent<Info>();
 		 users = GameObject.Find("UsersManager").GetComponent<Users>();
 		 users.AddUser("PlayerObject(Clone)" + netId.Value);
 
@@ -185,6 +185,7 @@ public class GameManager : NetworkBehaviour {
 		}
 		else if (storyCard.GetComponent<Quest>() != null){
 			Quest questCard = storyCard.GetComponent<Quest>();
+			i.ResetQuestValues ((int)netId.Value);
 			Debug.Log(questCard.getName());
 	  }
 		else  if (storyCard.GetComponent<Tournament>() != null){
@@ -237,11 +238,11 @@ public class GameManager : NetworkBehaviour {
 		}
 		string nameOfCard = ad.NewCard ();
 		GameObject.FindGameObjectWithTag ("AdvCardTextUI").GetComponent<Text> ().text = nameOfCard;
-		if (isLocalPlayer) {
+	//	if (isLocalPlayer) {
 		advCard = ad.Draw (nameOfCard);
 		advCard.transform.SetParent (GameObject.Find ("HandCanvas" + netId.Value).transform);
 		advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
-	}
+	//}
 	}
 
 	public void PickUpAdventureCardss(uint n){
@@ -261,11 +262,11 @@ public class GameManager : NetworkBehaviour {
 		}
 		string nameOfCard = ad.NewCard ();
 		GameObject.FindGameObjectWithTag ("AdvCardTextUI").GetComponent<Text> ().text = nameOfCard;
-		if (!isLocalPlayer) {
+	//	if (!isLocalPlayer) {
 			advCard = ad.Draw (nameOfCard);
 			advCard.transform.SetParent (GameObject.Find ("HandCanvas" + n).transform);
 			advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
 	
-		}
+	//	}
 	}
 }

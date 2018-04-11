@@ -19,7 +19,7 @@ public class Info : MonoBehaviour {
 	public int participantPasses = 0;
 	public int sponsor = 0;
 	public int sponsorPasses = 0;
-	public int trySponsor = 0;
+	public int trySponsor = 1;
 
 	// Use this for initialization
 	void Start () {
