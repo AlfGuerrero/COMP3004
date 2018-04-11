@@ -7,6 +7,7 @@ public class Info : MonoBehaviour {
 	public bool sponsorRound = false;
 	public bool participateRound = false;
 	public bool startParticipantQuest = false;
+	public bool endPlayerSubmit = false;
 
 	public List<List<AdventureCard>> listOfStages = new List<List<AdventureCard>> ();
 	public List<AdventureCard> currentStage = new List<AdventureCard> ();
@@ -20,6 +21,8 @@ public class Info : MonoBehaviour {
 	public int sponsor = 0;
 	public int sponsorPasses = 0;
 	public int trySponsor = 1;
+	public int submitsForStage = 0;
+	public int currentStageInt = 0;
 
 	// Use this for initialization
 	void Start () {

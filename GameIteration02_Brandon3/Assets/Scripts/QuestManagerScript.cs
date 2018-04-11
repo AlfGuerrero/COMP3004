@@ -70,6 +70,96 @@ using UnityEngine.Networking;
 		}*/
 	}
 
+	public void PlaythroughFoe(){
+		if (!isLocalPlayer) {return;}
+		if (isServer) {RpcPlaythroughFoe();}
+		else					{CmdPlaythroughFoe();}
+	}
+
+	[Command]
+	public void CmdPlaythroughFoe(){
+		RpcPlaythroughFoe ();
+	}
+
+	[Client]
+	public void RpcPlaythroughFoe(){
+		foreach(int f in info.participants){
+			if(isLocalPlayer && netId.Value == f){
+				Instantiate (stage, this.transform.GetChild (0));
+			}
+		}
+		info.endPlayerSubmit = false;
+	}
+
+
+
+
+
+
+
+
+
+
+	public void PlaythroughQuest(){
+		if (!isLocalPlayer) {return;}
+		if (isServer) {RpcPlaythroughQuest();}
+		else					{CmdPlaythroughQuest();}
+	}
+
+	[Command]
+	public void CmdPlaythroughQuest(){
+		RpcPlaythroughQuest();
+	}
+
+	[Client]
+	public void RpcPlaythroughQuest(){
+		if(info.battlePointsPerStage.Length < info.currentStageInt){
+			//quest is done
+
+		}
+		 else if (info.battlePointsPerStage [info.currentStageInt] == 0) {
+			//test
+
+		} else if (info.battlePointsPerStage [info.currentStageInt] > 0) {
+			//foe
+			PlaythroughFoe();
+		}
+		/*if(isLocalPlayer(){
+		  	Instantiate(stage, GameObject.Find())
+		  }
+		*/
+
+		//get participants
+
+		//IF FOE THEN
+
+		//spawn stages to submit for them
+
+		//once submit is pressed #of participants, see if passed or failed
+
+		//remove participants
+
+		//IF TEST THEN
+
+		//keep track of highest bid and who bid them
+
+		//give submission box to sponsor +1 (record number of cards submit and hand them back
+
+		//go to next participant (sponsor +2)
+
+		//if submit number of cards is less than max, remove them from participate list
+
+		//continue until participate list is length 1
+
+		//END OF FOE AND TEST CHECKS
+
+		//if is end of quest, dish out rewards
+
+		//if not, runthrough again with stage number increase;
+
+
+	}
+
 	public void OnQuest(){
 		info.ResetQuestValues (currentPlayerTurn);
 	}
@@ -212,15 +302,12 @@ using UnityEngine.Networking;
 			info.participants.Add((int)netId.Value);
 			Debug.Log ("Player "+ (int)netId.Value +"is participating.");
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
+
 			if(info.participants.Count + info.participantPasses + 1 == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers){
 				Debug.Log ("STARTING THE QUEST");
+				info.participateRound = false;
 				info.startParticipantQuest = true;
-
-				foreach(int f in info.participants){
-					if(isLocalPlayer){
-						Instantiate (stage, GameObject.Find ("PlayerObject(Clone)" + f).transform.GetChild(0));
-					}
-				}
+				PlaythroughQuest ();
 			}
 		}
 	}
@@ -306,7 +393,7 @@ using UnityEngine.Networking;
 		//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setToggle (true);
 		//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setWeaponsSubmit (weaponsToSubmit);
 		if(info.participants.Contains((int)netId.Value)){
-
+				info.submitsForStage++;
 
 			User participant = this.GetComponent<User> ();
 			int userBP = participant.getBaseAttack ();
@@ -319,27 +406,27 @@ using UnityEngine.Networking;
 			List<List<AdventureCard>> currentQuest = info.listOfStages;
 			List<AdventureCard> Stage = info.currentStage;
 
-			Debug.Log ("Foe BP: " + foeBattlePoints (Stage));
+				Debug.Log ("Foe BP: " + info.battlePointsPerStage[info.currentStageInt]);
 
-			if (foeBattlePoints (Stage) > userBP) {
-				Debug.Log("Player has too little BP to pass");
+				if (info.battlePointsPerStage[info.currentStageInt] > userBP) {
+					Debug.Log("Player: "+netId.Value+" has too little BP to pass");
 				info.participants.Remove ((int)netId.Value);
 
 			}else{
-				Debug.Log("Player passed the stage");
+					Debug.Log("Player: "+netId.Value+" passed the stage");
 			}
 
 			//NEED TO DESTROY SUB ZONE AND BUTTON
 			Debug.Log("Destroying zones");
-			//gm.keepPlaying = true;
-			//		gm.playerTurn++;
-			//		if(gm.playerTurn>4){
-			//			gm.playerTurn = 0;
-			//		}
-			//gm.togglePlayerCanvas (gm.playerTurn);
-			//gm.Quests.Playthrough (gm.currentUser.gameObject, gm.stageInt);
-			Destroy (GameObject.FindGameObjectWithTag ("Stage"));
-			//Destroy (GameObject.FindGameObjectWithTag ("Submit"));
+			
+				Destroy (this.transform.GetChild (0).GetChild (7));
+
+			//if all participants have submit something
+				if(info.submitsForStage == info.participants.Count){
+					info.endPlayerSubmit = true;
+					info.currentStageInt++;
+					//playthrough next questthing
+				}
 		}
 		}
 		//GameObject.Find ("GameManager").GetComponent<GameManager> ().keepPlaying = true;
