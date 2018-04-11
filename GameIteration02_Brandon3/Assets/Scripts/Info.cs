@@ -23,7 +23,7 @@ public class Info : MonoBehaviour {
 	public int trySponsor = 1;
 	public int submitsForStage = 0;
 	public int currentStageInt = 0;
-
+	public int tempNumParticipants = 0;
 	// Use this for initialization
 	void Start () {
 		

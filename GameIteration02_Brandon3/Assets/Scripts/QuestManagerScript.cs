@@ -81,7 +81,7 @@ using UnityEngine.Networking;
 		RpcPlaythroughFoe ();
 	}
 
-	[Client]
+	[ClientRpc]
 	public void RpcPlaythroughFoe(){
 		foreach(int f in info.participants){
 			if(isLocalPlayer && netId.Value == f){
@@ -111,11 +111,16 @@ using UnityEngine.Networking;
 		RpcPlaythroughQuest();
 	}
 
-	[Client]
+	[ClientRpc]
 	public void RpcPlaythroughQuest(){
+		if(info.participants.Count == 0){
+			//quest is done
+			Debug.Log("quest is done");
+		}
+
 		if(info.battlePointsPerStage.Length < info.currentStageInt){
 			//quest is done
-
+			Debug.Log("quest is done");
 		}
 		 else if (info.battlePointsPerStage [info.currentStageInt] == 0) {
 			//test
@@ -307,6 +312,7 @@ using UnityEngine.Networking;
 				Debug.Log ("STARTING THE QUEST");
 				info.participateRound = false;
 				info.startParticipantQuest = true;
+				info.tempNumParticipants = info.participants.Count;
 				PlaythroughQuest ();
 			}
 		}
@@ -353,7 +359,7 @@ using UnityEngine.Networking;
 
 	[ClientRpc]
 	public void RpcSubmitWeaponsQuest(){
-		if(info.questInProgress == true){
+		if(info.questInProgress == true && info.participants.Contains((int)netId.Value)){
 		GameObject submissionZone = GameObject.FindGameObjectWithTag ("Stage");
 		//make a list of children (cards)
 		List<AdventureCard> weaponsToSubmit = new List<AdventureCard>();
@@ -410,7 +416,8 @@ using UnityEngine.Networking;
 
 				if (info.battlePointsPerStage[info.currentStageInt] > userBP) {
 					Debug.Log("Player: "+netId.Value+" has too little BP to pass");
-				info.participants.Remove ((int)netId.Value);
+
+					RemoveParticipant((int)netId.Value);
 
 			}else{
 					Debug.Log("Player: "+netId.Value+" passed the stage");
@@ -419,10 +426,11 @@ using UnityEngine.Networking;
 			//NEED TO DESTROY SUB ZONE AND BUTTON
 			Debug.Log("Destroying zones");
 			
-				Destroy (this.transform.GetChild (0).GetChild (7));
+				Destroy (this.transform.GetChild (0).GetChild (7).gameObject);
 
 			//if all participants have submit something
-				if(info.submitsForStage == info.participants.Count){
+				if(info.submitsForStage == info.tempNumParticipants){
+					info.tempNumParticipants = info.participants.Count;
 					info.endPlayerSubmit = true;
 					info.currentStageInt++;
 					//playthrough next questthing
@@ -619,5 +627,17 @@ using UnityEngine.Networking;
 	[ClientRpc]
 	public void RpcSetBpps(int[] bpps){
 		info.battlePointsPerStage = bpps;
+	}
+
+	public void RemoveParticipant(int i){
+		CmdRemoveParticipant (i);
+	}
+	[Command]
+	public void CmdRemoveParticipant(int i){
+		RpcRemoveParticipant (i);
+	}
+	[ClientRpc]
+	public void RpcRemoveParticipant(int i){
+		info.participants.Remove (i);
 	}
  }
