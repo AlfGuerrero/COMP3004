@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ac31147718ad24baf57c518f63d6b1, type: 3}
+  m_Name: Saxons
+  m_EditorClassIdentifier: 
+  name: Saxons
+  image: {fileID: 21300000, guid: e9f8c2fbefe88e94080b6265f8e9a688, type: 3}
+  battlePoints: 10
+  bonusBattlePoints: 20
+  mordred: 0
