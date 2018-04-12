@@ -307,13 +307,13 @@ using UnityEngine.Networking;
 			info.participants.Add((int)netId.Value);
 			Debug.Log ("Player "+ (int)netId.Value +"is participating.");
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
-
+			Instantiate (stage, this.transform.GetChild (0));
 			if(info.participants.Count + info.participantPasses + 1 == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers){
 				Debug.Log ("STARTING THE QUEST");
 				info.participateRound = false;
 				info.startParticipantQuest = true;
 				info.tempNumParticipants = info.participants.Count;
-				PlaythroughQuest ();
+				//PlaythroughQuest ();
 			}
 		}
 	}
@@ -359,83 +359,91 @@ using UnityEngine.Networking;
 
 	[ClientRpc]
 	public void RpcSubmitWeaponsQuest(){
-		if(info.questInProgress == true && info.participants.Contains((int)netId.Value)){
-		GameObject submissionZone = GameObject.FindGameObjectWithTag ("Stage");
-		//make a list of children (cards)
-		List<AdventureCard> weaponsToSubmit = new List<AdventureCard>();
-		foreach (Transform j in submissionZone.transform) {
-			//if contains a weapon
-			Debug.Log(j.gameObject.GetComponent<AdventureCard> ().getType ());
-			if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Weapon") {
+	//	if(info.questInProgress == true && (int)netId.Value!=info.sponsor){
+		foreach (int f in info.participants) {
+			if (isLocalPlayer && (int)netId.Value == f) {
+				GameObject submissionZone = GameObject.FindGameObjectWithTag ("Stage");
+				//make a list of children (cards)
+				List<AdventureCard> weaponsToSubmit = new List<AdventureCard> ();
+				foreach (Transform j in submissionZone.transform) {
+					//if contains a weapon
+					Debug.Log (j.gameObject.GetComponent<AdventureCard> ().getType ());
+					if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Weapon") {
 
-				//check if duplicates of weapons
-				if (sameName (j.gameObject.GetComponent<AdventureCard> ().getName (), weaponsToSubmit)) {
-					Debug.Log ("Weapons of same name");
-					return;
-				}
+						//check if duplicates of weapons
+						if (sameName (j.gameObject.GetComponent<AdventureCard> ().getName (), weaponsToSubmit)) {
+							Debug.Log ("Weapons of same name");
+							return;
+						}
 
-			}
+					}
 
-			//if contains an ally then return
-			if(j.gameObject.GetComponent<AdventureCard> ().getType () == "Ally"){
-				Debug.Log ("Theres an ally");
-				return;
-			}
+					//if contains an ally then return
+					if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Ally") {
+						Debug.Log ("Theres an ally");
+						return;
+					}
 			//if contains a foe then return
-			else if(j.gameObject.GetComponent<AdventureCard> ().getType () == "Foe"){
-				Debug.Log ("Theres a Foe");
-				return;
-			}
+			else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Foe") {
+						Debug.Log ("Theres a Foe");
+						return;
+					}
 			//if contains a test then return
-			else if(j.gameObject.GetComponent<AdventureCard> ().getType () == "Test"){
-				Debug.Log ("Theres a Test");
-				return;
-			}
+			else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Test") {
+						Debug.Log ("Theres a Test");
+						return;
+					}
 
-			weaponsToSubmit.Add (j.gameObject.GetComponent<AdventureCard>());
-			//Debug.Log (j.gameObject.GetComponent<AdventureCard>().getName());
-		}
-
-		//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setToggle (true);
-		//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setWeaponsSubmit (weaponsToSubmit);
-		if(info.participants.Contains((int)netId.Value)){
-				info.submitsForStage++;
-
-			User participant = this.GetComponent<User> ();
-			int userBP = participant.getBaseAttack ();
-
-			foreach (AdventureCard bp in weaponsToSubmit) {
-				userBP += bp.getBattlePoints ();
-			}
-			Debug.Log(participant.GetComponent<User>().GetUsername() + "BP: " + userBP);
-
-			List<List<AdventureCard>> currentQuest = info.listOfStages;
-			List<AdventureCard> Stage = info.currentStage;
-
-				Debug.Log ("Foe BP: " + info.battlePointsPerStage[info.currentStageInt]);
-
-				if (info.battlePointsPerStage[info.currentStageInt] > userBP) {
-					Debug.Log("Player: "+netId.Value+" has too little BP to pass");
-
-					RemoveParticipant((int)netId.Value);
-
-			}else{
-					Debug.Log("Player: "+netId.Value+" passed the stage");
-			}
-
-			//NEED TO DESTROY SUB ZONE AND BUTTON
-			Debug.Log("Destroying zones");
-			
-				Destroy (this.transform.GetChild (0).GetChild (7).gameObject);
-
-			//if all participants have submit something
-				if(info.submitsForStage == info.tempNumParticipants){
-					info.tempNumParticipants = info.participants.Count;
-					info.endPlayerSubmit = true;
-					info.currentStageInt++;
-					//playthrough next questthing
+					weaponsToSubmit.Add (j.gameObject.GetComponent<AdventureCard> ());
+					//Debug.Log (j.gameObject.GetComponent<AdventureCard>().getName());
 				}
-		}
+				IncreaseSubmites ();
+				//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setToggle (true);
+				//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setWeaponsSubmit (weaponsToSubmit);
+				if (info.participants.Contains ((int)netId.Value)) {
+					
+
+					User participant = this.GetComponent<User> ();
+					int userBP = participant.getBaseAttack ();
+
+					foreach (AdventureCard bp in weaponsToSubmit) {
+						userBP += bp.getBattlePoints ();
+					}
+					Debug.Log (participant.GetComponent<User> ().GetUsername () + "BP: " + userBP);
+
+					List<List<AdventureCard>> currentQuest = info.listOfStages;
+					List<AdventureCard> Stage = info.currentStage;
+
+					Debug.Log ("Foe BP: " + info.battlePointsPerStage [info.currentStageInt]);
+
+					if (info.battlePointsPerStage [info.currentStageInt] > userBP) {
+						Debug.Log ("Player: " + netId.Value + " has too little BP to pass");
+
+						RemoveParticipant ((int)netId.Value);
+
+					} else {
+						Debug.Log ("Player: " + netId.Value + " passed the stage");
+					}
+
+					//NEED TO DESTROY SUB ZONE AND BUTTON
+					Debug.Log ("Destroying zones");
+			
+
+
+					//if all participants have submit something
+					if (info.submitsForStage == info.tempNumParticipants) {
+						Debug.Log ("hereos");
+						foreach (GameObject g in GameObject.FindGameObjectsWithTag("Stage")) {
+							Destroy (g);
+							Debug.Log ("destroyed a stagerino");
+						}
+						info.tempNumParticipants = info.participants.Count;
+						info.endPlayerSubmit = true;
+						info.currentStageInt++;
+						//playthrough next questthing
+					}
+				}
+			}
 		}
 		//GameObject.Find ("GameManager").GetComponent<GameManager> ().keepPlaying = true;
 	}
@@ -639,5 +647,17 @@ using UnityEngine.Networking;
 	[ClientRpc]
 	public void RpcRemoveParticipant(int i){
 		info.participants.Remove (i);
+	}
+
+	public void IncreaseSubmites(){
+		CmdIncreaseSubmites ();
+	}
+	[Command]
+	public void CmdIncreaseSubmites(){
+		RpcIncreaseSubmites ();
+	}
+	[ClientRpc]
+	public void RpcIncreaseSubmites(){
+		info.submitsForStage++;
 	}
  }

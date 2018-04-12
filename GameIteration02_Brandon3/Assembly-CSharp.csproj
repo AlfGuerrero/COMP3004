@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HandManager.cs" />
      <Compile Include="Assets\Scripts\Info.cs" />
+     <Compile Include="Assets\Scripts\Logger.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\QuestManagerScript.cs" />
      <Compile Include="Assets\Scripts\Spawn.cs" />
