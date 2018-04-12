@@ -144,6 +144,8 @@ public class TournamentManager : NetworkBehaviour {
 			// CLear everything here
 			Destroy(GameObject.Find("QuestStage(Clone)"));
 			tournamentHolder.tournamentParticipants.Clear();
+			tournamentHolder.highestAmount.Clear();
+
 			tournamentHolder.tournamentInProgress = false;
 			return tournamentHolder.highestAmount;
 		}
