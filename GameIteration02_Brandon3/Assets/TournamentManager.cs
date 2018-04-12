@@ -24,7 +24,7 @@ public class TournamentManager : NetworkBehaviour {
 		////logger.info ("TournamentManager.cs:: Loading PreFabs/Tourni");
 		////logger.info ("TournamentManager.cs:: Loadinag PreFabs/SubmitButton");
 		Tourni = (GameObject)Resources.Load("PreFabs/tourni");
-		submitButton = (GameObject)Resources.Load("PreFabs/SubmitButton");
+		submitButton = (GameObject)Resources.Load("Prefabs/QuestStage");
 		tournamentHolder = GameObject.Find("TournamentHolder").GetComponent<TournamentHolder>();
 	}
 
@@ -64,46 +64,67 @@ public class TournamentManager : NetworkBehaviour {
 		}
 		[ClientRpc]
 		public void RpcJoining(){
+			if (tournamentHolder.tournamentParticipants.Contains((int)netId.Value)) {return;}
+
 			tournamentHolder.tournamentParticipants.Add((int)netId.Value);
 
 			//Sends a request to all players to see if they will join.
 			//Add the number of plays to the number of total shields for the tourni.
 			//Remove the buttons for the players who are not being part of the tourni.
+			toggleZone();
 		}
+		public void toggleZone(){
+			if (!isLocalPlayer) {return;}
+			Instantiate (submitButton, this.transform.GetChild (0));
+		}
+
 		public void SubmitCards(){
 			if (!isLocalPlayer) {return;}
-			// if (isServer) {RpcsubmitCards();}
-			// else{CmdSubmitCards(PlayInTourni,Players);}
+			Debug.Log("I am here");
+			int tempScore = 0;
+				foreach (Transform j in GameObject.Find("QuestStage(Clone)").transform) {
+					Debug.Log("Cards: " + j.GetComponent<AdventureCard>());
+					this.GetComponent<User>().SetTourni(j.GetComponent<AdventureCard>());
+						tempScore += j.GetComponent<AdventureCard>().getBattlePoints();
+				}
+				this.GetComponent<User>().setTourniBP(tempScore + this.GetComponent<User>().getBaseAttack());
+
+
+			if (isServer) {RpcSubmitCards(netId.Value, this.GetComponent<User>().getTourniBP());}
+			else{CmdSubmitCards(netId.Value, this.GetComponent<User>().getTourniBP());}
 		}
 
 
 		[Command]
-		public void CmdSubmitCards(){
-			// RpcsubmitCards(PlayInTourni,Players);
+		public void CmdSubmitCards(uint id, int score){
+			RpcSubmitCards(id, score);
 		}
 
 
 		[ClientRpc]
-		public void RpcsubmitCards(){
+		public void RpcSubmitCards(uint id, int score){
+			GameObject.Find("PlayerObject(Clone)"+id).GetComponent<User>().setTourniBP(score);
 
+			// CheckHighestBattlePoints(tournamentHolder.tournamentParticipants);
 		}
 
 
-		public List<uint> CheckHighestBattlePoints(List<uint> PlayersInTourni){
-			List<uint> highestAmount= new List<uint>();
+		public List<int> CheckHighestBattlePoints(List<int> PlayersInTourni){
+			List<int> highestAmount= new List<int>();
 			//check the players totals and then send back the winning player, and add their newly gained shields to them.
-			foreach(uint CurrentPlayer in PlayersInTourni){
-				List<AdventureCard> Addition = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().GetTournmanetCards();
-				int Tempcalc = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().getTourniBP ();
-				foreach (AdventureCard CurrentCard in Addition) {
-					////logger.info ("TournamentManager.cs::Calculating the total battle points of each player in tournament");
-					Tempcalc += CurrentCard.getBattlePoints ();
-				}
-			}
+			// foreach(int CurrentPlayer in PlayersInTourni){
+			// 	List<AdventureCard> Addition = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().GetTournmanetCards();
+			// 	int Tempcalc = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().getTourniBP ();
+			// 	foreach (AdventureCard CurrentCard in Addition) {
+			// 		////logger.info ("TournamentManager.cs::Calculating the total battle points of each player in tournament");
+			// 		Tempcalc += CurrentCard.getBattlePoints ();
+			// 	}
+			// }
 			highestAmount.Add(0);
-			foreach (uint CurrentPlayer in PlayersInTourni) {
+			foreach (int CurrentPlayer in PlayersInTourni) {
 				////logger.info ("TournamentManager.cs::Checking to see which player has the highest Tournament battle pointsg ");
 				int Tempvarint=GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().getTourniBP();
+
 				if (Tempvarint > GameObject.Find ("PlayerObject(Clone)" + highestAmount[0]).GetComponent<User> ().getTourniBP ()){
 					highestAmount.Clear();
 					highestAmount.Add(CurrentPlayer);
@@ -127,6 +148,7 @@ public class TournamentManager : NetworkBehaviour {
 
 
 		public void SubmitWeaponsTourni(){
+
 			if (!isLocalPlayer) {return;}
 			if (isServer) {RpcSubmitWeaponsTourni();}
 			else					{CmdSubmitWeaponsTourni();}

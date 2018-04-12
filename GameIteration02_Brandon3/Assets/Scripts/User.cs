@@ -31,7 +31,7 @@ public class User : NetworkBehaviour {
 		this.username 			  = "player_" + netId.Value;
 		this.rank 				  = "Squire";
 		this.totalBP 		 	  = 0;
-		this.baseAttack			  = 0;
+		this.baseAttack			  = 5;
 		this.AllyBattlePoints	  = 0;
 		this.shields			  = 3;
 		this.totalBP 			  = 0;

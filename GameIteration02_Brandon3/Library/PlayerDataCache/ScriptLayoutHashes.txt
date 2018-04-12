@@ -4,6 +4,7 @@ PlayerPath?
 SceneListBegin?
 Assets/Scenes/Scene01.unity
 SceneListEnd?
+b6cc7591db3128ca679202671f19e3c7 Assembly-CSharp.dll:.TournamentHolder
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -101,6 +102,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 2f2b3773568b3ce531a17c7e3c736216 Assembly-CSharp.dll:.ACScriptObj
+db43cf7f72afdbafd13c0cd91dc2b2f7 Assembly-CSharp.dll:.TournamentManager
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -180,5 +182,3 @@ f4df338609bff07347bbfdb185caf66d Assembly-CSharp.dll:.Ally
 4866de1c5b0d1e1d441b4a7c6b6aed25 Assembly-CSharp.dll:.Test
 583f7258e033376bf3d64b2d44ced965 Assembly-CSharp.dll:.User
 11f4506b6cd0e56e7cee1ea778da475f Assembly-CSharp.dll:.Users
-db43cf7f72afdbafd13c0cd91dc2b2f7 Assembly-CSharp.dll:.TournamentManager
-b6cc7591db3128ca679202671f19e3c7 Assembly-CSharp.dll:.TournamentHolder
