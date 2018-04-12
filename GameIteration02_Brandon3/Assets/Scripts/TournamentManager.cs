@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class TournamentManager : NetworkBehaviour {
@@ -11,6 +12,11 @@ public class TournamentManager : NetworkBehaviour {
 	GameObject Tourni;
 	List<GameObject> Temp = new List<GameObject> ();
 	GameObject submitButton;
+	Text textUI;
+	[SyncVar]
+	public int numberofpeople;
+	[SyncVar]
+	public int counter;
 	TournamentHolder tournamentHolder;
 	public void tourniP(){
 	}
@@ -23,6 +29,7 @@ public class TournamentManager : NetworkBehaviour {
 
 		////logger.info ("TournamentManager.cs:: Loading PreFabs/Tourni");
 		////logger.info ("TournamentManager.cs:: Loadinag PreFabs/SubmitButton");
+		textUI = GameObject.Find("AdvCardTextUI").GetComponent<Text>();
 		Tourni = (GameObject)Resources.Load("PreFabs/tourni");
 		submitButton = (GameObject)Resources.Load("Prefabs/QuestStage");
 		tournamentHolder = GameObject.Find("TournamentHolder").GetComponent<TournamentHolder>();
@@ -40,14 +47,8 @@ public class TournamentManager : NetworkBehaviour {
 		tournamentHolder.tournamentInProgress = true;
 
 		////logger.info ("TournamentManager.cs::Checking to see if there was a single winner or a tie");
-		List<uint>Winner= new List<uint>();
-		if (Winner.Count > 1) {
-			////logger.info ("TournamentManager.cs::There was a tie");
-			//call tourni again but with the list of the two players.
-		} else {
+		// GameObject.Find ("PlayerObject(Clone)" + Winner [0]).GetComponent<User> ().setShields (shieldNumber);
 
-			// GameObject.Find ("PlayerObject(Clone)" + Winner [0]).GetComponent<User> ().setShields (shieldNumber);
-		}
 	}//End of tourniSetup
 
 	public void Joining(){  //local Button
@@ -67,6 +68,7 @@ public class TournamentManager : NetworkBehaviour {
 			if (tournamentHolder.tournamentParticipants.Contains((int)netId.Value)) {return;}
 
 			tournamentHolder.tournamentParticipants.Add((int)netId.Value);
+			tournamentHolder.tournamentParticipantsLeft.Add((int)netId.Value);
 
 			//Sends a request to all players to see if they will join.
 			//Add the number of plays to the number of total shields for the tourni.
@@ -80,10 +82,11 @@ public class TournamentManager : NetworkBehaviour {
 
 		public void SubmitCards(){
 			if (!isLocalPlayer) {return;}
-			Debug.Log("I am here");
+
+			counter++;
 			int tempScore = 0;
 				foreach (Transform j in GameObject.Find("QuestStage(Clone)").transform) {
-					Debug.Log("Cards: " + j.GetComponent<AdventureCard>());
+					// Debug.Log("Cards: " + j.GetComponent<AdventureCard>());
 					this.GetComponent<User>().SetTourni(j.GetComponent<AdventureCard>());
 						tempScore += j.GetComponent<AdventureCard>().getBattlePoints();
 				}
@@ -103,35 +106,46 @@ public class TournamentManager : NetworkBehaviour {
 
 		[ClientRpc]
 		public void RpcSubmitCards(uint id, int score){
-			GameObject.Find("PlayerObject(Clone)"+id).GetComponent<User>().setTourniBP(score);
 
-			// CheckHighestBattlePoints(tournamentHolder.tournamentParticipants);
+			GameObject.Find("PlayerObject(Clone)"+id).GetComponent<User>().setTourniBP(score);
+			// Debug.Log(counter);
+			tournamentHolder.tournamentParticipantsLeft.Remove((int)id);
+
+
+
+			if ((tournamentHolder.tournamentParticipantsLeft.Count == 0 ))
+				CheckHighestBattlePoints(tournamentHolder.tournamentParticipants);
+
+
+
 		}
 
 
 		public List<int> CheckHighestBattlePoints(List<int> PlayersInTourni){
-			List<int> highestAmount= new List<int>();
-			//check the players totals and then send back the winning player, and add their newly gained shields to them.
-			// foreach(int CurrentPlayer in PlayersInTourni){
-			// 	List<AdventureCard> Addition = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().GetTournmanetCards();
-			// 	int Tempcalc = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().getTourniBP ();
-			// 	foreach (AdventureCard CurrentCard in Addition) {
-			// 		////logger.info ("TournamentManager.cs::Calculating the total battle points of each player in tournament");
-			// 		Tempcalc += CurrentCard.getBattlePoints ();
-			// 	}
-			// }
-			highestAmount.Add(0);
+			// List<int> highestAmount= new List<int>();
+		  tournamentHolder.highestAmount.Add(PlayersInTourni[0]);
+			int	Tempvarint = 0;
+
 			foreach (int CurrentPlayer in PlayersInTourni) {
 				////logger.info ("TournamentManager.cs::Checking to see which player has the highest Tournament battle pointsg ");
-				int Tempvarint=GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().getTourniBP();
-
-				if (Tempvarint > GameObject.Find ("PlayerObject(Clone)" + highestAmount[0]).GetComponent<User> ().getTourniBP ()){
-					highestAmount.Clear();
-					highestAmount.Add(CurrentPlayer);
+				 Tempvarint = GameObject.Find ("PlayerObject(Clone)" + CurrentPlayer).GetComponent<User> ().getTourniBP();
+				if (Tempvarint > GameObject.Find ("PlayerObject(Clone)" + tournamentHolder.highestAmount[0]).GetComponent<User> ().getTourniBP ()){
+					tournamentHolder.highestAmount.Clear();
+					tournamentHolder.highestAmount.Add(CurrentPlayer);
 				}
 
 			}
-			return highestAmount;
+
+			User Temp = GameObject.Find("PlayerObject(Clone)"+ tournamentHolder.highestAmount[0]).GetComponent<User>();
+
+			Temp.setShields(Temp.getShields()+PlayersInTourni.Count+shieldNumber);
+			// numberofpeople = PlayersInTourni.Count;
+			textUI.text = "We have a winner! Player " + tournamentHolder.highestAmount[0].ToString() ;
+			// CLear everything here
+			Destroy(GameObject.Find("QuestStage(Clone)"));
+			tournamentHolder.tournamentParticipants.Clear();
+			tournamentHolder.tournamentInProgress = false;
+			return tournamentHolder.highestAmount;
 		}
 
 
@@ -143,57 +157,6 @@ public class TournamentManager : NetworkBehaviour {
 			}
 			return false;
 		}
-
-
-
-
-		public void SubmitWeaponsTourni(){
-
-			if (!isLocalPlayer) {return;}
-			if (isServer) {RpcSubmitWeaponsTourni();}
-			else					{CmdSubmitWeaponsTourni();}
-
-		}
-
-		[Command]
-		public void CmdSubmitWeaponsTourni(){
-			RpcSubmitWeaponsTourni ();
-		}
-
-
-
-		[ClientRpc]
-		public void RpcSubmitWeaponsTourni(){
-		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
