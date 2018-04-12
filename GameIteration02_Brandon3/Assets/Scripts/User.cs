@@ -129,16 +129,14 @@ public class User : NetworkBehaviour {
 
 		}//end of updating rank
 		public int getAllyBattlePoints(){
-		/*int returnPoints = 0;
-			foreach (AdventureCard CurrentCard int this.AlliesInHand){
-				//returnPoints+= CurrentCa
-				}
+			int returnPoints = 0;
+			foreach (AdventureCard CurrentCard in this.AlliesInHand){
+				returnPoints+= CurrentCard.getBattlePoints();
+			}
 			//logger.info ("User.cs :: getAllyBattlePoints function has been called for Player:  " + this.user_name + " BattlePoints: " + totalBattlePoints);
 			//	logger.info ("User.cs :: getAllyBattlePoints function has been called for Player:  " + this.user_name + " New BattlePoints: " + totalBattlePoints);
 
-			return null;//return returnPoints;
-		*/
-			return -1;
+			return returnPoints;
 		}
 		public List<AdventureCard> GetTournmanetCards(){
 			return TournmanetCards;
@@ -175,19 +173,47 @@ public class User : NetworkBehaviour {
 		}
 
 		public void setTotalBattlePoints(){
-			this.totalBP=(getAllyBattlePoints()+baseAttack);
+
+		this.totalBP = getAllyBattlePoints()+ baseAttack;
+			//if (isServer) 	{RpcSetBP ((int)netId.Value,getAllyBattlePoints()+baseAttack);}
+			//else 	{CmdSetBP((int)netId.Value,getAllyBattlePoints()+baseAttack));}
 		}//end of Setting total battle points
 
 
+
+		// [Command]
+		// public void CmdSetBP(int id, int score){
+		// 	RpcSetBP(id, score);
+		// }
+		//
+		// [ClientRpc]
+		// public void RpcSetBP(int id,int score){
+		// 	GameObject.Find("PlayerObject(Clone)"+id).GetComponent<User>().setTotalBattlePointstotalBP(score);
+		// }
 
 
 		//***********************************************************************************************//
 				// Remove and Add Allies//
 		public void PlayAllies(AdventureCard CurrentAlly){
 		AlliesInHand.Add(CurrentAlly);
+			setTotalBattlePoints();
 		//	logger.info ("User.cs :: addAlly function has been called for Player:  " + this.user_name + " Adding Ally: " + Ally.getName());
 		//logger.info ("User.cs :: addAlly function has been called for Player:  " + this.user_name + " Ally Battle Points: " + Ally.getBonusBattlePoints());
 		}//End of playallies
+		// public void SetOtherBP(){
+		// 	if (isServer) 	{RpcSetBP ((int)netId.Value,getAllyBattlePoints()+baseAttack);}
+		// 	else 	{CmdSetBP((int)netId.Value,getAllyBattlePoints()+baseAttack));}
+		// }
+		//
+		// [Command]
+		// public void CmdSetOtherBP(){
+		//
+		// }
+		//
+		// [ClientRpc]
+		// public void RpcSetOtherBP(){
+		//
+		// }
 		/*
 		public void removeAllies(AdventureCard AllyToBeRemoved){
 			foreach(AdventureCard CurrentCard int AlliesInHand){

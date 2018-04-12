@@ -485,7 +485,7 @@ using UnityEngine.Networking;
 	[ClientRpc]
 	public void RpcSubmitCardsQuest(){
 		if(info.questInProgress == false){
-			Debug.Log ("Submitting stages for review");
+		Debug.Log ("Submitting stages for review");
 		//logger.info ("SubmitCards.cs :: Checking the current submission of cards for a quest");
 		listOfStages = new List<List<AdventureCard>> ();
 		//get num stages and stage objects

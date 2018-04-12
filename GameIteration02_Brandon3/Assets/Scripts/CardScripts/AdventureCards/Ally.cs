@@ -18,7 +18,7 @@ public class Ally : MonoBehaviour, Card {
 	public AllyScriptObj ally;
 
 	void Start(){
-		
+
 		ally = Resources.Load<AllyScriptObj> ("Ally/"+card);
 		name = ally.name;
 		battlePoints = ally.battlePoints;

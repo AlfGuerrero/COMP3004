@@ -1,6 +1,6 @@
 OSXStandalone
 PlayerPath?
-/Users/AlfrancisStudent/Desktop/Networking TEst.app
+/Users/AlfrancisStudent/Desktop/Debugging Test/Debugging Test.app
 SceneListBegin?
 Assets/Scenes/Scene01.unity
 SceneListEnd?
@@ -17,7 +17,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
-a8877c52876306d86587b7be64c1990e Assembly-CSharp.dll:.GameManager
+71669bec5839ee6132cee2c82a39e78c Assembly-CSharp.dll:.GameManager
 aa26fdd7d918e1ad282947b6797e2436 Assembly-CSharp.dll:.AllyScriptObj
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -102,7 +102,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 31aaf521b3ef8699466676591ea0efd4 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 df374c01140c2d578bf70cbd60073d1d UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 2f2b3773568b3ce531a17c7e3c736216 Assembly-CSharp.dll:.ACScriptObj
-e421317e14c5b7b7a05ea2d12705d0dd Assembly-CSharp.dll:.TournamentManager
+d6a3d873d543f6b3c0d2552112807b83 Assembly-CSharp.dll:.TournamentManager
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 60b2bb652410a5867a5ab9a01cd38461 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -119,7 +119,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 105c05970c52f99997f2d8763ceba180 Assembly-CSharp.dll:.FoeScriptObj
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:QuestGame.Logger
+1b66599c4e0421aac84e794056c268c6 Assembly-CSharp.dll:.Logger
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
@@ -130,9 +130,10 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 afd227efd5d45b77eae93ce6cb6ef3af Assembly-CSharp.dll:.StoryDeck
 793f0113221eecab8d8d969ec327024f Assembly-CSharp.dll:.QuestScriptObj
 471543aac595a86c46ea760661782b76 Assembly-CSharp.dll:.Spawn
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EventsManager
+1b66599c4e0421aac84e794056c268c6 Assembly-CSharp.dll:.EventsManager
 85428d1425a367fca79ad826587547f8 Assembly-CSharp.dll:.Quest
 2097bed951252f925fd25037adbd86a3 Assembly-CSharp.dll:.QuestManagerScript
+3571bb714aa158e86cc8550a8759b34d Assembly-CSharp.dll:.QuestInfo
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 220f15bc7c939c2b3745f446a3cf8865 Assembly-CSharp.dll:.MouseOver
@@ -155,6 +156,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.allyzone
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Weapon
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -179,6 +181,8 @@ f4df338609bff07347bbfdb185caf66d Assembly-CSharp.dll:.Ally
 0fbdf9a814fbe9f71328e3110025ffdf Assembly-CSharp.dll:.EventScriptObj
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Foe
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.StoryCard
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.discardzone
 4866de1c5b0d1e1d441b4a7c6b6aed25 Assembly-CSharp.dll:.Test
+b33a4e8c83731785247686862664657b Assembly-CSharp.dll:.QuestManager
 583f7258e033376bf3d64b2d44ced965 Assembly-CSharp.dll:.User
 11f4506b6cd0e56e7cee1ea778da475f Assembly-CSharp.dll:.Users

@@ -9,14 +9,13 @@ using UnityEngine;
  * Provided by Tuesday, 13 February 2018, 11:43 AM
  * Written in C#
 */
-namespace QuestGame {
 	public class Logger : MonoBehaviour{
-		protected QuestGame.Logger	logger;
+		public Logger	logger;
 
 		// Use this for initialization
 		void Start () {
-			logger = new QuestGame.Logger ();
-
+			// logger = new QuestGame.Logger ();
+			logger = new Logger();
 		}
 
 		//This constructor will call the init function
@@ -69,4 +68,3 @@ namespace QuestGame {
 			return DateTime.Now.ToString("O");
 		}
 	}
-}

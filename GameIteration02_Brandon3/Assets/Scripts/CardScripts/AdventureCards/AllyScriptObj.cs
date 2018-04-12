@@ -18,4 +18,3 @@ public class AllyScriptObj : ScriptableObject {
 	public bool merlin;
 
 }
-
