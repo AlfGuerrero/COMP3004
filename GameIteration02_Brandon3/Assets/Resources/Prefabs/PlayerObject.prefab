@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 114962621118793494}
   - component: {fileID: 114219810572967362}
   - component: {fileID: 114822664150361914}
+  - component: {fileID: 114190578079045452}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -545,6 +546,20 @@ MonoBehaviour:
 
 
 '
+--- !u!114 &114190578079045452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672854402560926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3c69a30b72b49d79566dfdc293ab0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TournamentInProgress: 0
+  shieldNumber: 0
+  PlayInTourni: 
 --- !u!114 &114213945720862252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -760,6 +775,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114822664150361914}
         m_MethodName: ParticipateInCurrentQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114190578079045452}
+        m_MethodName: Joining
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

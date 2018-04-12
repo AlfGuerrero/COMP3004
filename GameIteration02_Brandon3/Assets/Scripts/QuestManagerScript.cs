@@ -401,7 +401,7 @@ using UnityEngine.Networking;
 				//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setToggle (true);
 				//		GameObject.Find ("QuestManager").GetComponent<QuestManager> ().setWeaponsSubmit (weaponsToSubmit);
 				if (info.participants.Contains ((int)netId.Value)) {
-					
+
 
 					User participant = this.GetComponent<User> ();
 					int userBP = participant.getBaseAttack ();
@@ -427,7 +427,7 @@ using UnityEngine.Networking;
 
 					//NEED TO DESTROY SUB ZONE AND BUTTON
 					Debug.Log ("Destroying zones");
-			
+
 
 
 					//if all participants have submit something
@@ -484,7 +484,7 @@ using UnityEngine.Networking;
 
 	[ClientRpc]
 	public void RpcSubmitCardsQuest(){
-		if(info.questInProgress == false){	
+		if(info.questInProgress == false){
 			Debug.Log ("Submitting stages for review");
 		//logger.info ("SubmitCards.cs :: Checking the current submission of cards for a quest");
 		listOfStages = new List<List<AdventureCard>> ();
@@ -501,7 +501,7 @@ using UnityEngine.Networking;
 			bool foe = false;
 			bool testCurrentStage = false;
 			bool weapons = false;
-			
+
 			//make a list of children (cards)
 			List<AdventureCard> cards = new List<AdventureCard> ();
 			foreach (Transform j in stages[i].transform) {

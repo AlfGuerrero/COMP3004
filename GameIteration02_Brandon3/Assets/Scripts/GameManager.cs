@@ -13,6 +13,7 @@ public class GameManager : NetworkBehaviour {
 	StoryDeck sd;
 	AdventureDeck ad;
 	EventsManager eventsManager;
+	TournamentHolder tournamentHolder;
 	Users users;
 	Text playerTurn;
 	Info i;
@@ -34,7 +35,8 @@ public class GameManager : NetworkBehaviour {
 		 ad = GameObject.Find("AdventureManager").GetComponent<AdventureDeck>(); // GLOBAL OBJECT.
 		 playerTurn = GameObject.Find("PlayerTurnTextUI").GetComponent<Text>();
 		 eventsManager = GameObject.Find("EventsManager").GetComponent<EventsManager>(); // GLOBAL OBJECT.
-		i = GameObject.Find("InfoHolder").GetComponent<Info>();
+		 tournamentHolder = GameObject.Find("TournamentHolder").GetComponent<TournamentHolder>();
+		 i = GameObject.Find("InfoHolder").GetComponent<Info>();
 		 users = GameObject.Find("UsersManager").GetComponent<Users>();
 		 users.AddUser("PlayerObject(Clone)" + netId.Value);
 
@@ -188,9 +190,11 @@ public class GameManager : NetworkBehaviour {
 			i.ResetQuestValues ((int)netId.Value);
 			Debug.Log(questCard.getName());
 	  }
-		else  if (storyCard.GetComponent<Tournament>() != null){
+		else if (storyCard.GetComponent<Tournament>() != null){
 		 	Tournament tournamentCard = storyCard.GetComponent<Tournament>();
+			this.GetComponent<TournamentManager>().tourniSetUp(tournamentCard);
 		 	Debug.Log(tournamentCard.getName());
+
 		 }
 	}
 
@@ -266,7 +270,7 @@ public class GameManager : NetworkBehaviour {
 			advCard = ad.Draw (nameOfCard);
 			advCard.transform.SetParent (GameObject.Find ("HandCanvas" + n).transform);
 			advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
-	
+
 	//	}
 	}
 }

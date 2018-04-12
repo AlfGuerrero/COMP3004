@@ -3,7 +3,7 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-/* Logger provided by: 
+/* Logger provided by:
  * Lachlan Campbell Student Carleton University (COMP3004)
  * C#Logger for Unity
  * Provided by Tuesday, 13 February 2018, 11:43 AM
