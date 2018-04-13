@@ -156,7 +156,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 3f32f08a64daf40b09ed864d96fe3840 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.allyzone
+1b66599c4e0421aac84e794056c268c6 Assembly-CSharp.dll:.allyzone
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Weapon
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -184,5 +184,5 @@ f4df338609bff07347bbfdb185caf66d Assembly-CSharp.dll:.Ally
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.discardzone
 4866de1c5b0d1e1d441b4a7c6b6aed25 Assembly-CSharp.dll:.Test
 e0428c9d749803ba446a8cc35a7d9d85 Assembly-CSharp.dll:.QuestManager
-583f7258e033376bf3d64b2d44ced965 Assembly-CSharp.dll:.User
+484a9ce756838f0a27a0c0719871436e Assembly-CSharp.dll:.User
 11f4506b6cd0e56e7cee1ea778da475f Assembly-CSharp.dll:.Users

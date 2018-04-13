@@ -87,6 +87,7 @@
 
 	[ClientRpc]
 	public void RpcPlaythroughFoe(){
+    logger.info ("QuestManager.cs :: RpcplaythroughFoe :: SpawnStagesForParticipants() :: Spawning stages for Participants.");
 		foreach(int f in info.participants){
 			if(isLocalPlayer && netId.Value == f){
 				Instantiate (stage, this.transform.GetChild (0));
@@ -124,6 +125,7 @@
 
 		} else if (info.battlePointsPerStage [info.currentStageInt] > 0) {
 			//foe
+      logger.info ("QuestManager.cs :: RpcPlaythroughQuest :: the stage is a foe. running through a foe stage");
 			PlaythroughFoe();
 		}
 		/*if(isLocalPlayer(){
@@ -192,6 +194,7 @@
  	public void InitializeStages(GameObject theSponsor){
  		//spawn stages for sponsor
 		if(isLocalPlayer){
+        logger.info ("QuestManager.cs :: Spawning stages for sponsor to submit.");
 			info.currentQuestCard = GameObject.FindGameObjectWithTag("StoryCardTextUI").GetComponent<Text>().text;
 			info.numStages = FindNumberOfStages (info.currentQuestCard);
 			info.stages = new GameObject[info.numStages];
@@ -368,6 +371,7 @@
 
 	[ClientRpc]
 	public void RpcSubmitWeaponsQuest(){
+    logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission ");
 	//	if(info.questInProgress == true && (int)netId.Value!=info.sponsor){
 		foreach (int f in info.participants) {
 			if (isLocalPlayer && (int)netId.Value == f) {
@@ -483,6 +487,7 @@ logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Weapon of same name 
 
 	int foeBattlePoints(List<AdventureCard> stage){
 		int bp = 0;
+    logger.info ("QuestManager.cs :: foeBattlePoints :: calculating the battlepoints required to beat the foe of the stage");
 		Quest currentQuest = GameObject.FindGameObjectWithTag ("StoryCard").GetComponent<Quest> ();
 		foreach(AdventureCard c in stage){
 			if (c.getType () == "Foe" && c.getName () == currentQuest.getBonusFoe ()) {
@@ -522,7 +527,7 @@ logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Weapon of same name 
 
 		//check each stage submit is correct
 		for (int i = 0; i < numStages; i++) {
-			//logger.info ("SubmitCards.cs :: Checking if stage "+ i + " is eligible for submission");
+			logger.info ("SubmitCards.cs :: Checking if stage "+ i + " is eligible for submission");
 			//Debug.Log(stages[i].GetComponent<RectTransform>().position.x);  <-----------Goes negative to positive
 			bool foe = false;
 			bool testCurrentStage = false;
@@ -537,60 +542,60 @@ logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Weapon of same name 
 		//		Debug.Log (j.gameObject.GetComponent<AdventureCard> ().getType ());
 				if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Weapon") {
 					//check if duplicates of weapons
-					//	logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
+						logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
 					weapons = true;
 					if (sameName (j.gameObject.GetComponent<AdventureCard> ().getName (), cards)) {
-						//		logger.warn ("SubmitCards.cs :: There are weapons of the same name. This submission is not eligible");
+								logger.warn ("SubmitCards.cs :: There are weapons of the same name. This submission is not eligible");
 						return;
 					}
 				}
 				//check if multiple tests in one stage and across all stages
 				if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Test" && testCurrentStage == true) {
-					//	logger.warn ("SubmitCards.cs :: There are multiple 'Test' cards in this stage. This submission is not eligible");
+						logger.warn ("SubmitCards.cs :: There are multiple 'Test' cards in this stage. This submission is not eligible");
 					return;
 				} else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Test" && test == true) {
-					//	logger.warn ("SubmitCards.cs :: There are multiple 'Test' cards among all stages. This submission is not eligible");
+						logger.warn ("SubmitCards.cs :: There are multiple 'Test' cards among all stages. This submission is not eligible");
 					return;
 				} else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Test" && test == false) {
 					test = true;
 					testCurrentStage = true;
-					//	logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
+						logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
 				}
 
 				//check if multiple foes are in single stage
 				if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Foe" && foe == true) {
-					//	logger.warn ("SubmitCards.cs :: There are multiple 'Foe' cards in this stage. This submission is not eligible");
+						logger.warn ("SubmitCards.cs :: There are multiple 'Foe' cards in this stage. This submission is not eligible");
 					return;
 				} else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Foe" && foe == false) {
-					//	logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
+						logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
 					foe = true;
 				}
 
 				//if contains an ally then return
 				if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Ally") {
-					//	logger.info ("SubmitCards.cs :: This stage contains an 'Ally'. This submission is not eligible");
+						logger.info ("SubmitCards.cs :: This stage contains an 'Ally'. This submission is not eligible");
 					return;
 				}
 
 				cards.Add (j.gameObject.GetComponent<AdventureCard> ());
-				//logger.info ("SubmitCards.cs :: Adding the card "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" to the current stage");
+				logger.info ("SubmitCards.cs :: Adding the card "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" to the current stage");
 				//Debug.Log (j.gameObject.GetComponent<AdventureCard>().getName());
 			}
 			//return if both a foe and test are present or neither are present
 			if (testCurrentStage && foe) {
-				//	logger.warn ("SubmitCards.cs :: This stage contains a 'Foe' and a 'Test' card. This submission is not elligible");
+					logger.warn ("SubmitCards.cs :: This stage contains a 'Foe' and a 'Test' card. This submission is not elligible");
 				return;
 			} else if (!testCurrentStage && !foe) {
-				//	logger.warn ("SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible");
+					logger.warn ("SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible");
 				return;
 			}
 
 			if (testCurrentStage && weapons) {
-				//	logger.warn ("SubmitCards.cs :: This stage contains a 'Test' and a 'Weapon' card. This submission is not eligible");
+					logger.warn ("SubmitCards.cs :: This stage contains a 'Test' and a 'Weapon' card. This submission is not eligible");
 				return;
 			}
 
-			//	logger.info ("SubmitCards.cs :: Adding the current stage to the quest");
+				logger.info ("SubmitCards.cs :: Adding the current stage to the quest");
 			listOfStages.Insert (i, cards);
 
 

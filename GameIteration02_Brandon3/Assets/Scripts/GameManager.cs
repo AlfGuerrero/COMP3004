@@ -75,7 +75,7 @@ public class GameManager : NetworkBehaviour {
 			names.text += i.GetComponent<User>().GetUsername() + "\n";
 			ranks.text += i.GetComponent<User>().getRank() + "\n";
 			shields.text += i.GetComponent<User>().getShields() + "\n";
-			battlePoints.text += i.GetComponent<User>().getTotalBattlePoints() + "\n";
+			battlePoints.text += i.transform.GetChild(0).GetChild(0).childCount + "\n";
 		}
 	}
 	public void ControlPlayerTurn(){
@@ -279,7 +279,11 @@ public class GameManager : NetworkBehaviour {
 		logger.info ("GameManager.cs :: RpcPickUpAdventureCards() :: Connection " + netId.Value + " :: Draws :: " + nameOfCard );
 
 		advCard.transform.SetParent (GameObject.Find ("HandCanvas" + netId.Value).transform);
+
 		advCard.transform.localPosition = new Vector3 (0f, 0f, 0f);
+		if (GameObject.Find ("HandCanvas" + netId.Value).transform.childCount > 12)
+		logger.info ("GameManager.cs :: RpcPickUpAdventureCards() :: Connection " + netId.Value + " :: has too many cards!" );
+
 	//}
 	}
 

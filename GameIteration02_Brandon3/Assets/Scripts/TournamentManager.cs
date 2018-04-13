@@ -181,8 +181,8 @@ public class TournamentManager : NetworkBehaviour {
 		textUI.text = "We have a winner! Player " + tournamentHolder.highestAmount[0].ToString() ;
 
 		Destroy(GameObject.Find("QuestStage(Clone)"));
-		tournamentHolder.tournamentParticipants.Clear();
-		tournamentHolder.highestAmount.Clear();
+		// tournamentHolder.tournamentParticipants.Clear();
+		// tournamentHolder.highestAmount.Clear();
 		tournamentHolder.tournamentInProgress = false;
 		logger.info ("TournamentManager.cs :: CheckHighestBattlePoints() :: Calculated a winner... ");
 		logger.info ("TournamentManager.cs :: CheckHighestBattlePoints() :: Player " + tournamentHolder.highestAmount[0]);

@@ -22,11 +22,13 @@ public class User : NetworkBehaviour {
 	protected Sprite Squire;
 	protected Sprite Knight;
 	protected Sprite ChampionKnight;
-
+	// public // logger // logger;
 
 
 	// Use this for initialization
 	void Start () {
+		// logger = GameObject.Find("// loggerManager").GetComponent<// logger>().// logger;
+
 		this.id = netId.Value;
 		this.username 			  = "player_" + netId.Value;
 		this.rank 				  = "Squire";
@@ -36,6 +38,7 @@ public class User : NetworkBehaviour {
 		this.shields			  = 3;
 		this.totalBP 			  = 0;
 		Debug.Log ("username : " + username);
+		// logger.info ("User.cs :: Start() :: Creating player " + username);
 
 	}
 
@@ -45,7 +48,7 @@ public class User : NetworkBehaviour {
 	}
 	public void CheckCardInHand(){
 		if (GameObject.Find("HandCanvas").transform.childCount > 12) {
-			Debug.Log ("Too Many Cards In Hand");
+			// Debug.Log ("Too Many Cards In Hand");
 		}
 	}
 
@@ -89,52 +92,60 @@ public class User : NetworkBehaviour {
 		}//End of Get username
 
 		public int getShields(){
+			// logger.info ("User.cs :: getShields() :: " + this.shields);
 			return this.shields;
 		}// End of get shields
 
 		public int getBaseAttack(){
+			// logger.info ("User.cs :: getBaseAttack() :: " + this.baseAttack);
+
 			return this.baseAttack;
 		}//End of Get Base Attack
 
 		public string getRank(){
+
 			return this.rank;
 		}
 		public int getTotalBattlePoints(){
+			// logger.info ("User.cs :: getTotalBattlePoints() :: " + this.totalBP);
+
 			return this.totalBP;
 		}
 		public void UpdateRank(){
 
 			if (12 > this.shields && this.shields >= 5) {
-				//logger.info ("User.cs :: Ranking Up: " + this.username);
+				//// logger.info ("User.cs :: Ranking Up: " + this.username);
 				this.rank = "Knight";
 				this.baseAttack = 5;
-				//logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
+				//// logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
 				this.gameObject.transform.GetChild (1).GetComponent<Image> ().sprite = Knight;
 
 			} else if (22 > this.shields && this.shields >= 12) {
-				//logger.info ("User.cs :: Ranking Up: " + this.username);
+				//// logger.info ("User.cs :: Ranking Up: " + this.username);
 				this.gameObject.transform.GetChild (1).GetComponent<Image> ().sprite = ChampionKnight;
 				this.baseAttack = 10;
-				//logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
+				//// logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
 				this.rank = "Champion Knight";
 
 			} else if (this.shields >= 22) {
-				//	logger.info ("User.cs :: Ranking Up: " + this.username);
+				//	// logger.info ("User.cs :: Ranking Up: " + this.username);
 				this.rank = "Knight Of the Round Table";
 				this.baseAttack = 20;
-				//logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
+				//// logger.info("User.cs :: BaseATTACK:" + this.baseAttack);
 			}
 
 			//this.gameObject.transform.GetChild(4).GetComponent<Text>().text =  ("Rank: " + this.rank);
 
 		}//end of updating rank
 		public int getAllyBattlePoints(){
+
 			int returnPoints = 0;
 			foreach (AdventureCard CurrentCard in this.AlliesInHand){
 				returnPoints+= CurrentCard.getBattlePoints();
 			}
-			//logger.info ("User.cs :: getAllyBattlePoints function has been called for Player:  " + this.user_name + " BattlePoints: " + totalBattlePoints);
-			//	logger.info ("User.cs :: getAllyBattlePoints function has been called for Player:  " + this.user_name + " New BattlePoints: " + totalBattlePoints);
+			//// logger.info ("User.cs :: getAllyBattlePoints function has been called for Player:  " + this.user_name + " BattlePoints: " + totalBattlePoints);
+			//	// logger.info ("User.cs :: getAllyBattlePoints function has been called for Player:  " + this.user_name + " New BattlePoints: " + totalBattlePoints);
+			// logger.info ("User.cs :: getAllyBattlePoints() :: " + returnPoints);
 
 			return returnPoints;
 		}
@@ -144,13 +155,19 @@ public class User : NetworkBehaviour {
 		}
 
 		public void SetTourni(AdventureCard Temp){
+			// logger.info ("User.cs :: SetTourni() :: " + Temp.getName());
+
 			TournmanetCards.Add(Temp);
 		}
 
 		public int getTourniBP(){
+			// logger.info ("User.cs :: getTourniBP() :: " + TourniBP);
+
 			return TourniBP;
 		}
 		public void setTourniBP(int points){
+			// logger.info ("User.cs :: setTourniBP() :: " + points);
+
 			TourniBP = points;
 		}
 
@@ -168,6 +185,8 @@ public class User : NetworkBehaviour {
 
 
 		public void setShields(int NewShieldAmount){
+			// logger.info ("User.cs :: setShields() :: " + NewShieldAmount);
+
 			//this.gameObject.transform.GetChild(5).GetComponent<Text>().text =  ("Shields: " + this.shields);
 			this.shields = NewShieldAmount;
 		}
@@ -175,6 +194,8 @@ public class User : NetworkBehaviour {
 		public void setTotalBattlePoints(){
 
 		this.totalBP = getAllyBattlePoints()+ baseAttack;
+		// logger.info ("User.cs :: setTotalBattlePoints() :: " + this.totalBP);
+
 			//if (isServer) 	{RpcSetBP ((int)netId.Value,getAllyBattlePoints()+baseAttack);}
 			//else 	{CmdSetBP((int)netId.Value,getAllyBattlePoints()+baseAttack));}
 		}//end of Setting total battle points
@@ -202,8 +223,8 @@ public class User : NetworkBehaviour {
 		public void PlayAllies(AdventureCard CurrentAlly){
 		AlliesInHand.Add(CurrentAlly);
 			setTotalBattlePoints();
-		//	logger.info ("User.cs :: addAlly function has been called for Player:  " + this.user_name + " Adding Ally: " + Ally.getName());
-		//logger.info ("User.cs :: addAlly function has been called for Player:  " + this.user_name + " Ally Battle Points: " + Ally.getBonusBattlePoints());
+		//	// logger.info ("User.cs :: addAlly function has been called for Player:  " + this.user_name + " Adding Ally: " + Ally.getName());
+		//// logger.info ("User.cs :: addAlly function has been called for Player:  " + this.user_name + " Ally Battle Points: " + Ally.getBonusBattlePoints());
 		}//End of playallies
 		// public void SetOtherBP(){
 		// 	if (isServer) 	{RpcSetBP ((int)netId.Value,getAllyBattlePoints()+baseAttack);}

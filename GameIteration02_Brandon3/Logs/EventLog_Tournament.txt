@@ -1,0 +1,91 @@
+2018-04-12T23:17:24.0692640-04:00 [INFO]: GameManager.cs :: Initialzing Game Manager.
+2018-04-12T23:17:24.0844070-04:00 [INFO]: TournamentManager.cs :: Initialzing Tournament Manager.
+2018-04-12T23:17:24.0875550-04:00 [INFO]: QuestManager.cs :: Initialzing Quest Manager.
+2018-04-12T23:17:27.0424000-04:00 [INFO]: GameManager.cs :: Initialzing Game Manager.
+2018-04-12T23:17:27.0716000-04:00 [INFO]: TournamentManager.cs :: Initialzing Tournament Manager.
+2018-04-12T23:17:27.0721530-04:00 [INFO]: QuestManager.cs :: Initialzing Quest Manager.
+2018-04-12T23:17:28.8615760-04:00 [INFO]: GameManager.cs :: Initialzing Game Manager.
+2018-04-12T23:17:28.8627000-04:00 [INFO]: TournamentManager.cs :: Initialzing Tournament Manager.
+2018-04-12T23:17:28.8631390-04:00 [INFO]: QuestManager.cs :: Initialzing Quest Manager.
+2018-04-12T23:17:30.5293160-04:00 [INFO]: GameManager.cs :: Initialzing Game Manager.
+2018-04-12T23:17:30.5306440-04:00 [INFO]: TournamentManager.cs :: Initialzing Tournament Manager.
+2018-04-12T23:17:30.5361860-04:00 [INFO]: QuestManager.cs :: Initialzing Quest Manager.
+2018-04-12T23:17:32.7309220-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Sword
+2018-04-12T23:17:32.8987050-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Sword
+2018-04-12T23:17:33.0599020-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Saxon Knight
+2018-04-12T23:17:33.1603420-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Battle-ax
+2018-04-12T23:17:33.3263920-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Dagger
+2018-04-12T23:17:33.4930760-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Dragon
+2018-04-12T23:17:33.6102770-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Sir Lancelot
+2018-04-12T23:17:33.7488390-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Lance
+2018-04-12T23:17:33.8981110-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Boar
+2018-04-12T23:17:34.1363270-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Horse
+2018-04-12T23:17:35.0587200-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Test of Valor
+2018-04-12T23:17:37.8118200-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Boar
+2018-04-12T23:17:38.0102320-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Mordred
+2018-04-12T23:17:38.0788690-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Black Knight
+2018-04-12T23:17:38.2466140-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Horse
+2018-04-12T23:17:38.3583390-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Amour
+2018-04-12T23:17:38.5256530-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Sword
+2018-04-12T23:17:38.6618670-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Robber Knight
+2018-04-12T23:17:38.7920060-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Battle-ax
+2018-04-12T23:17:38.9346580-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Thieves
+2018-04-12T23:17:39.1264640-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Horse
+2018-04-12T23:17:41.2265110-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Boar
+2018-04-12T23:17:41.4344560-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Sword
+2018-04-12T23:17:41.5231200-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Saxon Knight
+2018-04-12T23:17:41.6591650-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Horse
+2018-04-12T23:17:41.8265270-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Dagger
+2018-04-12T23:17:41.9480530-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: King Pellinore
+2018-04-12T23:17:42.0916930-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Dagger
+2018-04-12T23:17:42.1929170-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Sir Percival
+2018-04-12T23:17:42.3598230-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Giant
+2018-04-12T23:17:42.5275290-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Amour
+2018-04-12T23:17:45.4191720-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Dagger
+2018-04-12T23:17:45.6481940-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Robber Knight
+2018-04-12T23:17:45.8833070-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Sword
+2018-04-12T23:17:46.1915010-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Evil Knight
+2018-04-12T23:17:46.4922000-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Thieves
+2018-04-12T23:17:46.7967520-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Sword
+2018-04-12T23:17:47.1799900-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Queen Iseult
+2018-04-12T23:17:47.4938180-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Saxon Knight
+2018-04-12T23:17:47.8116250-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Sword
+2018-04-12T23:17:48.1599290-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Merlin
+2018-04-12T23:17:48.5840320-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Giant
+2018-04-12T23:17:49.3528110-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 4 :: Draws :: Thieves
+2018-04-12T23:17:51.5210000-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 3 :: Draws :: Mordred
+2018-04-12T23:17:53.1473580-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 2 :: Draws :: Horse
+2018-04-12T23:17:55.2668590-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Saxons
+2018-04-12T23:17:56.3163760-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:17:56.3350200-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Search for the Holy Grail
+2018-04-12T23:17:56.3359130-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 1 :: Calling Quest Manager... 
+2018-04-12T23:17:58.9599680-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:17:58.9710970-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Rescue the Fair Maiden
+2018-04-12T23:17:58.9721740-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 2 :: Calling Quest Manager... 
+2018-04-12T23:18:01.0352890-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:18:01.0410740-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Slay The Dragon
+2018-04-12T23:18:01.0418830-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 3 :: Calling Quest Manager... 
+2018-04-12T23:18:02.7667470-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:18:02.7740590-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Event Card :: King's Recognition
+2018-04-12T23:18:02.7752080-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 4 :: Calling Event Manager...
+2018-04-12T23:18:07.5173110-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:18:07.5223030-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Event Card :: King's Call to Arms
+2018-04-12T23:18:10.7663180-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:18:10.7738370-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Tournament Card :: Tournament at Camelot
+2018-04-12T23:18:10.7746770-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 2 :: Calling Tournament Manager... 
+2018-04-12T23:18:10.7759520-04:00 [INFO]: TournamentManager.cs :: tourniSetUp() :: Setting up tournament
+2018-04-12T23:18:10.7771940-04:00 [INFO]: TournamentManager.cs :: tourniSetUp() ::CurrentStoryCard(Clone) (Tournament)
+2018-04-12T23:18:36.2305580-04:00 [INFO]: TournamentManager.cs :: RpcJoining() :: 1 is joining tournament.
+2018-04-12T23:18:39.9855710-04:00 [INFO]: TournamentManager.cs :: RpcJoining() :: 2 is joining tournament.
+2018-04-12T23:18:42.1323370-04:00 [INFO]: TournamentManager.cs :: RpcJoining() :: 4 is joining tournament.
+2018-04-12T23:18:58.9860260-04:00 [INFO]: TournamentManager.cs :: CmdSubmitCards() :: 1 has submitted cards.
+2018-04-12T23:18:58.9920510-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-12T23:18:58.9934470-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest() ::  Adding Stages
+2018-04-12T23:18:59.0404190-04:00 [INFO]: QuestManager.cs :: RpcSetStages() ::Setting Stages! 
+2018-04-12T23:19:02.2079110-04:00 [INFO]: TournamentManager.cs :: CmdSubmitCards() :: 2 has submitted cards.
+2018-04-12T23:19:04.2246690-04:00 [INFO]: TournamentManager.cs :: CmdSubmitCards() :: 4 has submitted cards.
+2018-04-12T23:19:04.2276290-04:00 [INFO]: TournamentManager.cs :: CheckHighestBattlePoints() :: Calculated a winner... 
+2018-04-12T23:19:04.2283900-04:00 [INFO]: TournamentManager.cs :: CheckHighestBattlePoints() :: Player 1
+2018-04-12T23:19:12.6015000-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-12T23:19:12.6114300-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Test of the Green Knight
+2018-04-12T23:19:12.6122010-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 4 :: Calling Quest Manager... 

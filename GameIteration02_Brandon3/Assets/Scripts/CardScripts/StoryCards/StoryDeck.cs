@@ -30,12 +30,12 @@ public class StoryDeck : MonoBehaviour {
 		// logger.info ("StoryDeck.cs :: Populating Deck with cards.");
 		// Debug.Log("alf");
 		List<string> RList1 = new List<string> {
-			"Search for the Holy Grail",
-			"Rescue the Fair Maiden",
+			"Boar Hunt",
+			"Chivalrous Deed",
+			"Prosperity Throughout the Realm",
+			"Tournament at Camelot",
 			"Slay The Dragon",
-			"King's Recognition",
-			"King's Call to Arms",
-			"Tournament at Camelot"
+			"King's Call to Arms"
 		};
 		List<string> RList2 = new List<string> {
 			"Test of the Green Knight",
@@ -44,18 +44,18 @@ public class StoryDeck : MonoBehaviour {
 			"Boar Hunt",
 			"Queen's Favor",
 			"Court Called to Camelot",
-			"Tournament at Tintagel"
 		};
 
 		List<string> RList3 = new List<string> {
 			"Defend the Queen's Honor",
 			"Tournament at York",
 			"Vanquish King Arthur's Enemies",
-			"Boar Hunt",
 			"King's Recognition",
 			"Pox",
+			"Search for the Holy Grail",
 			"Plague",
-			"Chivalrous Deed",
+			"Rescue the Fair Maiden",
+
 			"Tournament at Orkney"
 		};
 		List<string> RList4 = new List<string> {
@@ -63,7 +63,7 @@ public class StoryDeck : MonoBehaviour {
 			"Vanquish King Arthur's Enemies",
 			"Repel the Saxon Raiders",
 			"Court Called to Camelot",
-			"Prosperity Throughout the Realm"
+			"King's Recognition"
 		};
 
 		// int ranStart = 0;

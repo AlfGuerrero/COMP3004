@@ -1,0 +1,227 @@
+2018-04-13T00:53:49.6371310-04:00 [INFO]: GameManager.cs :: Initialzing Game Manager.
+2018-04-13T00:53:49.6608790-04:00 [INFO]: TournamentManager.cs :: Initialzing Tournament Manager.
+2018-04-13T00:53:49.6616340-04:00 [INFO]: QuestManager.cs :: Initialzing Quest Manager.
+2018-04-13T00:53:51.4187790-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Sword
+2018-04-13T00:53:51.8805580-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Sword
+2018-04-13T00:53:52.2458800-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Saxon Knight
+2018-04-13T00:53:52.4458150-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Battle-ax
+2018-04-13T00:53:52.6456160-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Dagger
+2018-04-13T00:53:52.8295620-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Dragon
+2018-04-13T00:53:53.0266220-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Sir Lancelot
+2018-04-13T00:53:53.1784850-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Lance
+2018-04-13T00:53:53.3633800-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Boar
+2018-04-13T00:53:53.5627310-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Horse
+2018-04-13T00:53:53.7457200-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Test of Valor
+2018-04-13T00:53:53.9459970-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Boar
+2018-04-13T00:53:54.5154400-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:53:54.5251850-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Boar Hunt
+2018-04-13T00:53:54.5255550-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 1 :: Calling Quest Manager... 
+2018-04-13T00:53:55.0455930-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:53:55.0491760-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Event Card :: Chivalrous Deed
+2018-04-13T00:53:55.5119680-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:53:55.5144480-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Event Card :: Prosperity Throughout the Realm
+2018-04-13T00:53:55.5459200-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Mordred
+2018-04-13T00:53:55.5466070-04:00 [INFO]: GameManager.cs :: RpcPickUpAdventureCards() :: Connection 1 :: Draws :: Black Knight
+2018-04-13T00:53:56.0121020-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:53:56.0159480-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Tournament Card :: Tournament at Camelot
+2018-04-13T00:53:56.0162260-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 1 :: Calling Tournament Manager... 
+2018-04-13T00:53:56.0165300-04:00 [INFO]: TournamentManager.cs :: tourniSetUp() :: Setting up tournament
+2018-04-13T00:53:56.0168540-04:00 [INFO]: TournamentManager.cs :: tourniSetUp() ::CurrentStoryCard(Clone) (Tournament)
+2018-04-13T00:53:56.5457300-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:53:56.5483600-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Slay The Dragon
+2018-04-13T00:53:56.5486080-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 1 :: Calling Quest Manager... 
+2018-04-13T00:54:00.5463530-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:54:00.5491040-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Event Card :: King's Call to Arms
+2018-04-13T00:54:01.1115780-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Picking up story card... 
+2018-04-13T00:54:01.1268160-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Quest Card :: Test of the Green Knight
+2018-04-13T00:54:01.1271980-04:00 [INFO]: GameManager.cs :: RpcPickUpStoryCard() :: Connection 1 :: Calling Quest Manager... 
+2018-04-13T00:54:03.3319020-04:00 [INFO]: QuestManager.cs :: Spawning stages for sponsor to submit.
+2018-04-13T00:54:03.3345090-04:00 [INFO]: QuestManager.cs :: RpcSponsorCurrentQuest() :: Initializing Stages 
+2018-04-13T00:54:14.5984240-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:14.5988470-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:14.6049570-04:00 [WARN]: SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible
+2018-04-13T00:54:14.6061630-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:15.3453110-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:15.3457150-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:15.3459410-04:00 [WARN]: SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible
+2018-04-13T00:54:15.3461720-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:15.5952960-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:15.5956650-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:15.5958980-04:00 [WARN]: SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible
+2018-04-13T00:54:15.5961300-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:30.7794820-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:30.7798710-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:30.7860690-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:30.7864160-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:30.7866880-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:30.7869030-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:30.7871490-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:30.7873560-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:30.7875690-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:30.7877810-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:30.7879910-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:30.7882000-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:30.7884080-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:30.7886440-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:30.7889990-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:30.7892070-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:30.7894950-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:30.7897350-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:30.7899480-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:30.7902890-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:30.7905770-04:00 [WARN]: SubmitCards.cs :: There are weapons of the same name. This submission is not eligible
+2018-04-13T00:54:30.7907940-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:31.5631860-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:31.5635320-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:31.5637210-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:31.5639010-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:31.5641000-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:31.5642980-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:31.5645040-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:31.5647000-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:31.5648940-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:31.5650880-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:31.5652920-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:31.5655000-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:31.5656940-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:31.5658880-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:31.5660830-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:31.5662740-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:31.5664880-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:31.5666830-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:31.5668710-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:31.5670640-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:31.5672500-04:00 [WARN]: SubmitCards.cs :: There are weapons of the same name. This submission is not eligible
+2018-04-13T00:54:31.5674630-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:31.7960520-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:31.7997470-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:31.7999960-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:31.8002040-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:31.8004090-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:31.8006260-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:31.8008500-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:31.8172470-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:31.8177710-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:31.8180740-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:31.8184130-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:31.8186600-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:31.8189080-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:31.8191450-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:31.8193950-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:31.8196630-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:31.8199780-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:31.8202650-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:31.8205310-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:31.8322210-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:31.8327180-04:00 [WARN]: SubmitCards.cs :: There are weapons of the same name. This submission is not eligible
+2018-04-13T00:54:31.8331650-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:32.0132190-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:32.0136100-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:32.0138290-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:32.0140400-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:32.0142520-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:32.0144520-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:32.0146580-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:32.0148610-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:32.0150650-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:32.0152690-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:32.0155560-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:32.0157840-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:32.0159970-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:32.0162030-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:32.0164110-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:32.0166150-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:32.0168170-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:32.0170230-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:32.0172260-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:32.0174280-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:32.0176300-04:00 [WARN]: SubmitCards.cs :: There are weapons of the same name. This submission is not eligible
+2018-04-13T00:54:32.0178470-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:35.9446860-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:35.9450850-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:35.9511510-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:35.9513890-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:35.9516060-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:35.9518070-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:35.9520150-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:35.9522180-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:35.9524210-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:35.9526230-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:35.9528230-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:35.9530250-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:35.9532290-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:35.9534310-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:35.9536370-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:35.9538370-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:35.9540380-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:35.9542390-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:35.9545170-04:00 [WARN]: SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible
+2018-04-13T00:54:35.9547380-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:36.6370520-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:36.6374680-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:36.6436970-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:36.6440650-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:36.6443480-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:36.6445470-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:36.6447790-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:36.6449800-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:36.6452820-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:36.6455310-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:36.6457400-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:36.6459490-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:36.6461560-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:36.6463570-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:36.6465650-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:36.6467660-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:36.6469670-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:36.6471670-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:36.6473640-04:00 [WARN]: SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible
+2018-04-13T00:54:36.6476890-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:36.8616060-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:36.8619960-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:36.8622170-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:36.8624280-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:36.8626730-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:36.8629040-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:36.8631420-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:36.8634080-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:36.8636390-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:36.8638690-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:36.8641060-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:36.8643340-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:36.8645620-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:36.8647930-04:00 [INFO]: SubmitCards.cs :: There is a Horse card
+2018-04-13T00:54:36.8650220-04:00 [INFO]: SubmitCards.cs :: Adding the card Horse to the current stage
+2018-04-13T00:54:36.8652990-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:36.8655680-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:36.8658670-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:36.8661350-04:00 [WARN]: SubmitCards.cs :: This stage does not contain a 'Foe' or 'Test' card. This submission is not elligible
+2018-04-13T00:54:36.8665370-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:43.0377200-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review
+2018-04-13T00:54:43.0381100-04:00 [INFO]: SubmitCards.cs :: Checking if stage 0 is eligible for submission
+2018-04-13T00:54:43.0383390-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:43.0385650-04:00 [INFO]: SubmitCards.cs :: There is a Boar card
+2018-04-13T00:54:43.0387750-04:00 [INFO]: SubmitCards.cs :: Adding the card Boar to the current stage
+2018-04-13T00:54:43.0390060-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:43.0392140-04:00 [INFO]: SubmitCards.cs :: Checking if stage 1 is eligible for submission
+2018-04-13T00:54:43.0394200-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:43.0396230-04:00 [INFO]: SubmitCards.cs :: There is a Saxon Knight card
+2018-04-13T00:54:43.0398230-04:00 [INFO]: SubmitCards.cs :: Adding the card Saxon Knight to the current stage
+2018-04-13T00:54:43.0400210-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:43.0402220-04:00 [INFO]: SubmitCards.cs :: Checking if stage 2 is eligible for submission
+2018-04-13T00:54:43.0404240-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Weapon
+2018-04-13T00:54:43.0406210-04:00 [INFO]: SubmitCards.cs :: There is a Sword card
+2018-04-13T00:54:43.0408250-04:00 [INFO]: SubmitCards.cs :: Adding the card Sword to the current stage
+2018-04-13T00:54:43.0410230-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:43.0412240-04:00 [INFO]: SubmitCards.cs :: There is a Mordred card
+2018-04-13T00:54:43.0414240-04:00 [INFO]: SubmitCards.cs :: Adding the card Mordred to the current stage
+2018-04-13T00:54:43.0416180-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:43.0418150-04:00 [INFO]: SubmitCards.cs :: Checking if stage 3 is eligible for submission
+2018-04-13T00:54:43.0420130-04:00 [INFO]: QuestManager.cs :: RpcSubmitCardQuest() :: Foe
+2018-04-13T00:54:43.0422110-04:00 [INFO]: SubmitCards.cs :: There is a Dragon card
+2018-04-13T00:54:43.0424160-04:00 [INFO]: SubmitCards.cs :: Adding the card Dragon to the current stage
+2018-04-13T00:54:43.0426160-04:00 [INFO]: SubmitCards.cs :: Adding the current stage to the quest
+2018-04-13T00:54:43.0433520-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest() ::  Adding Stages
+2018-04-13T00:54:43.0447790-04:00 [INFO]: QuestManager.cs :: RpcSubmitWeaponsQuest :: checking a participants submission 
+2018-04-13T00:54:43.0608660-04:00 [INFO]: QuestManager.cs :: RpcSetStages() ::Setting Stages! 
+2018-04-13T00:54:45.7135000-04:00 [INFO]: GameManager.cs :: Qutting Game Manager.
