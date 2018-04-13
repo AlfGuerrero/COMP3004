@@ -201,6 +201,9 @@ public class GameManager : NetworkBehaviour {
 				// Debug.Log();
 				eventsManager.Kings_Call_To_Arms(users);
 			}
+			questInfo.startSponsor = false;
+
+			tournamentHolder.tournamentInProgress = false;
 
 		}
 		else if (storyCard.GetComponent<Quest>() != null){

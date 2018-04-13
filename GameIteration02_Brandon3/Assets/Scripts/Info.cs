@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 public class Info : MonoBehaviour {
 	public bool questInProgress = false;
-	public bool sponsorRound = false;
+	public bool sponsorRound = true;
 	public bool participateRound = false;
 	public bool startParticipantQuest = false;
 	public bool endPlayerSubmit = false;

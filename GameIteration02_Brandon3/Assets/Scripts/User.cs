@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class User : NetworkBehaviour {
 	public int shields;
 	public int baseAttack;
-
+	public int bids;
 	public int totalBP;
 	public int AllyBattlePoints;
 
@@ -179,7 +179,12 @@ public class User : NetworkBehaviour {
 			//else 	{CmdSetBP((int)netId.Value,getAllyBattlePoints()+baseAttack));}
 		}//end of Setting total battle points
 
-
+		public void setbids(AdventureCard CurrentAlly){
+			AlliesInHand.Add(CurrentAlly);
+				foreach (AdventureCard CurrentCard in this.AlliesInHand){
+			bids+=CurrentCard.getBidPoints();
+			}
+		}
 
 		// [Command]
 		// public void CmdSetBP(int id, int score){

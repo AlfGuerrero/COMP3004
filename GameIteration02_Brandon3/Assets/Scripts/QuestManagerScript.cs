@@ -2,7 +2,7 @@
  using System.Collections.Generic;
  using UnityEngine;
  using UnityEngine.UI;
-using UnityEngine.Networking;
+ using UnityEngine.Networking;
 
  public class QuestManagerScript : NetworkBehaviour {
 	//Variables for sponsoring and participating
@@ -21,6 +21,7 @@ using UnityEngine.Networking;
 
 	GameObject stage;
 	GameObject submitButton;
+  public Logger logger;
 
 // 	string currentQuestCard = "";
 //
@@ -50,6 +51,9 @@ using UnityEngine.Networking;
 		stage = (GameObject)Resources.Load("PreFabs/QuestStage");
 		submitButton = (GameObject)Resources.Load("PreFabs/SubmitButton");
 		info = GameObject.Find("InfoHolder").GetComponent<Info>();
+    logger = GameObject.Find("LoggerManager").GetComponent<Logger>().logger;
+    logger.info ("QuestManager.cs :: Initialzing Quest Manager.");
+
 		//info = i;
 		//OnQuest ();
  	}
@@ -59,10 +63,10 @@ using UnityEngine.Networking;
 		int temp = int.Parse(GameObject.Find ("PlayerTurnTextUI").GetComponent<Text> ().text);
 		int temp2 = int.Parse(GameObject.Find ("PlayerTurnTextUI").GetComponent<Text> ().text)/4;
 		//might be ahead by 1
-		currentPlayerTurn = (temp+1) - temp2*4;
-		Debug.Log (currentPlayerTurn);
+		currentPlayerTurn = int.Parse(GameObject.Find ("PlayerTurnTextUI").GetComponent<Text> ().text);//(temp+1) - temp2*4;
+		// Debug.Log (currentPlayerTurn);
 
-		Debug.Log (info.stages.Length);
+		// Debug.Log (info.stages.Length);
 
 		/*if(info.startParticipantQuest){
 			info.startParticipantQuest = false;
@@ -90,13 +94,6 @@ using UnityEngine.Networking;
 		}
 		info.endPlayerSubmit = false;
 	}
-
-
-
-
-
-
-
 
 
 
@@ -181,8 +178,11 @@ using UnityEngine.Networking;
 //		}
 //	}
 	public void SpawnStagesForParticipants(){
+    logger.info ("QuestManager.cs :: SpawnStagesForParticipants() :: Spawning stages for Participants.");
+
 		foreach(int f in info.participants){
 			if(netId.Value == f){
+        logger.info ("QuestManager.cs :: SpawnStagesForParticipants() :: Player " + f + " is a participant.");
 				Instantiate (stage, GameObject.Find ("PlayerObject(Clone)" + f).transform.GetChild(0));
 			}
 		}
@@ -231,25 +231,29 @@ using UnityEngine.Networking;
 	public void RpcPass(){
 		if(info.sponsorRound){
 			if(info.trySponsor == netId.Value){
-				Debug.Log ("CurrentPLayerTurn Skipped Sponsoring");
+				// Debug.Log ("CurrentPLayerTurn Skipped Sponsoring");
+        logger.info ("QuestManager.cs :: RpcPass() :: CurrentPLayerTurn Skipped Sponsoring ");
+
 				info.trySponsor++;
 				if(info.trySponsor > GameObject.Find("UsersManager").GetComponent<Users>().totalUsers ){
 					info.trySponsor = 1;
 				}
 				info.sponsorPasses++;
 				if (info.sponsorPasses == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers) {
-					Debug.Log ("All Players Skipped Sponsoring");
+					// Debug.Log ("All Players Skipped Sponsoring");
+          logger.info ("QuestManager.cs :: RpcPass() :: ALL players Skipped Sponsoring ");
+
 					//resetQuestvalues
 					//then skip quest and next card/turn
 				}
 			}
 		}else if(info.participateRound){
-			Debug.Log ("Player Passed Participating");
+			// Debug.Log ("Player Passed Participating");
+      logger.info ("QuestManager.cs :: RpcPass() :: Player Passed Participating ");
 			info.participantPasses++;
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
 			this.gameObject.transform.GetChild(0).GetChild(6).GetComponent<Button>().interactable = false;
 			if(info.participantPasses == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers-1){
-				Debug.Log ("All Players Passed Participating");
 				//SPONSORDRAWS CARDS
 				//resetQuestvalues
 				//then skip quest and next card/turn
@@ -274,7 +278,7 @@ using UnityEngine.Networking;
 		Debug.Log ("called");
 		if(netId.Value == info.trySponsor && info.sponsorRound){
 			info.sponsor = (int)netId.Value;
-			Debug.Log ("The sponsor is: " + info.sponsor);
+			// Debug.Log ("The sponsor is: " + info.sponsor);
 			GameObject[] sponsorbuttons = GameObject.FindGameObjectsWithTag ("sponsorButton");
 			ChangeActive (sponsorbuttons, false);
 			this.gameObject.transform.GetChild(0).GetChild(5).GetComponent<Button>().interactable = false;
@@ -282,7 +286,9 @@ using UnityEngine.Networking;
 			this.gameObject.transform.GetChild(0).GetChild(6).GetComponent<Button>().interactable = false;
 			Debug.Log ("initializing stages");
 			InitializeStages (GameObject.Find ("PlayerObject(Clone)" + info.sponsor.ToString ()).transform.GetChild (0).gameObject);
-			Debug.Log ("stages initialized");
+      logger.info ("QuestManager.cs :: RpcSponsorCurrentQuest() :: Initializing Stages ");
+
+			// Debug.Log ("stages initialized");
 			//info.questInProgress = true;
 			info.sponsorRound = false;
 			info.participateRound = true;
@@ -305,11 +311,13 @@ using UnityEngine.Networking;
 		Debug.Log ("called1");
 		if(info.participateRound){
 			info.participants.Add((int)netId.Value);
-			Debug.Log ("Player "+ (int)netId.Value +"is participating.");
+      logger.info ("QuestManager.cs :: RpcParticipateInCurrentQuest() :: Player " + (int)netId.Value + "is participating.");
+
 			this.gameObject.transform.GetChild(0).GetChild(4).GetComponent<Button>().interactable = false;
 			Instantiate (stage, this.transform.GetChild (0));
 			if(info.participants.Count + info.participantPasses + 1 == GameObject.Find("UsersManager").GetComponent<Users>().totalUsers){
-				Debug.Log ("STARTING THE QUEST");
+        logger.info ("QuestManager.cs :: RpcParticipateInCurrentQuest() :: Starting The Quest");
+
 				info.participateRound = false;
 				info.startParticipantQuest = true;
 				info.tempNumParticipants = info.participants.Count;
@@ -320,7 +328,7 @@ using UnityEngine.Networking;
 
 	public void SetStages(){
 		if (!isLocalPlayer) {return;}
-		Debug.Log ("here1");
+
 		if (isServer) {RpcSetStages();}
 		else					{CmdSetStages();}
 
@@ -334,7 +342,8 @@ using UnityEngine.Networking;
 	public void RpcSetStages(){
 		info.SetStages (GameObject.FindGameObjectsWithTag ("Stage"));
 		info.SetStages (listOfStages);
-		Debug.Log ("Setting stages!");
+    logger.info ("QuestManager.cs :: RpcSetStages() ::Setting Stages! ");
+
 	}
 
 	void ChangeActive(GameObject[] array, bool tf){
@@ -372,7 +381,8 @@ using UnityEngine.Networking;
 
 						//check if duplicates of weapons
 						if (sameName (j.gameObject.GetComponent<AdventureCard> ().getName (), weaponsToSubmit)) {
-							Debug.Log ("Weapons of same name");
+logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Weapon of same name ");
+						//	Debug.Log ("Weapons of same name");
 							return;
 						}
 
@@ -380,17 +390,20 @@ using UnityEngine.Networking;
 
 					//if contains an ally then return
 					if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Ally") {
-						Debug.Log ("Theres an ally");
+            logger.info ("QuestManager.cs :: RpcSubmitWeaponsQueset() ::There is an ally ");
+				//		Debug.Log ("Theres an ally");
 						return;
 					}
 			//if contains a foe then return
 			else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Foe") {
-						Debug.Log ("Theres a Foe");
+        logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: There is a foe ");
+					//	Debug.Log ("Theres a Foe");
 						return;
 					}
 			//if contains a test then return
 			else if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Test") {
-						Debug.Log ("Theres a Test");
+        logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: There is a test ");
+				//		Debug.Log ("Theres a Test");
 						return;
 					}
 
@@ -409,33 +422,44 @@ using UnityEngine.Networking;
 					foreach (AdventureCard bp in weaponsToSubmit) {
 						userBP += bp.getBattlePoints ();
 					}
-					Debug.Log (participant.GetComponent<User> ().GetUsername () + "BP: " + userBP);
+          logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: " + participant.GetComponent<User> ().GetUsername () + " BP: " + userBP);
+
 
 					List<List<AdventureCard>> currentQuest = info.listOfStages;
 					List<AdventureCard> Stage = info.currentStage;
 
-					Debug.Log ("Foe BP: " + info.battlePointsPerStage [info.currentStageInt]);
+				//	Debug.Log ("Foe BP: " + info.battlePointsPerStage [info.currentStageInt]);
+          logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Foe BP: " + info.battlePointsPerStage [info.currentStageInt]);
 
 					if (info.battlePointsPerStage [info.currentStageInt] > userBP) {
-						Debug.Log ("Player: " + netId.Value + " has too little BP to pass");
+            logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Player: " + netId.Value + " has too little BP to pass");
+
+					//	Debug.Log ("Player: " + netId.Value + " has too little BP to pass");
 
 						RemoveParticipant ((int)netId.Value);
 
 					} else {
-						Debug.Log ("Player: " + netId.Value + " passed the stage");
+            logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Player: " + netId.Value + " passed the stage");
+
+						//Debug.Log ("Player: " + netId.Value + " passed the stage");
 					}
 
 					//NEED TO DESTROY SUB ZONE AND BUTTON
-					Debug.Log ("Destroying zones");
+				//	Debug.Log ("Destroying zones");
+          logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Destorying Zones");
 
 
 
 					//if all participants have submit something
 					if (info.submitsForStage == info.tempNumParticipants) {
-						Debug.Log ("hereos");
+            logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: Hereos");
+
+					//	Debug.Log ("hereos");
 						foreach (GameObject g in GameObject.FindGameObjectsWithTag("Stage")) {
 							Destroy (g);
-							Debug.Log ("destroyed a stagerino");
+              logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() ::  Destroyed a stage");
+
+				//			Debug.Log ("destroyed a stagerino");
 						}
 						info.tempNumParticipants = info.participants.Count;
 						info.endPlayerSubmit = true;
@@ -485,7 +509,9 @@ using UnityEngine.Networking;
 	[ClientRpc]
 	public void RpcSubmitCardsQuest(){
 		if(info.questInProgress == false){
-		Debug.Log ("Submitting stages for review");
+      logger.info ("QuestManager.cs :: RpcSubmitCardsQuest() :: Submitting stages for review");
+
+	//	Debug.Log ("Submitting stages for review");
 		//logger.info ("SubmitCards.cs :: Checking the current submission of cards for a quest");
 		listOfStages = new List<List<AdventureCard>> ();
 		//get num stages and stage objects
@@ -506,7 +532,9 @@ using UnityEngine.Networking;
 			List<AdventureCard> cards = new List<AdventureCard> ();
 			foreach (Transform j in stages[i].transform) {
 				//if contains a weapon
-				Debug.Log (j.gameObject.GetComponent<AdventureCard> ().getType ());
+        logger.info ("QuestManager.cs :: RpcSubmitCardQuest() :: " + (j.gameObject.GetComponent<AdventureCard> ().getType ()));
+
+		//		Debug.Log (j.gameObject.GetComponent<AdventureCard> ().getType ());
 				if (j.gameObject.GetComponent<AdventureCard> ().getType () == "Weapon") {
 					//check if duplicates of weapons
 					//	logger.info ("SubmitCards.cs :: There is a "+ j.gameObject.GetComponent<AdventureCard> ().getName() +" card");
@@ -594,7 +622,9 @@ using UnityEngine.Networking;
 					}
 				}
 			}
-			Debug.Log ("bpps = " + bpps [listOfStages.IndexOf (k)]);
+      // logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() :: bpps = " + bpps [listOfStages.IndexOf (k)]));
+
+			//Debug.Log ("bpps = " + bpps [listOfStages.IndexOf (k)]);
 		}
 
 		for (int t = 1; t < numStages + 1; t++) {
@@ -608,7 +638,9 @@ using UnityEngine.Networking;
 			}
 		}
 
-		Debug.Log ("adding stages");
+    logger.info ("QuestManager.cs :: RpcSubmitWeaponsQuest() ::  Adding Stages");
+
+	//	Debug.Log ("adding stages");
 		//		foreach(List<AdventureCard> s in listOfStages){
 		//			foreach(AdventureCard a in s){
 		//				GameObject.FindGameObjectWithTag ("GameController").GetComponent<GameManager> ().advDeck.GetComponent<AdventureDeck> ().adventureDeck.Add (a.getName ());

@@ -233,7 +233,8 @@ GameObject:
   - component: {fileID: 114962621118793494}
   - component: {fileID: 114219810572967362}
   - component: {fileID: 114190578079045452}
-  - component: {fileID: 114909731219777000}
+  - component: {fileID: 114732482007146014}
+  - component: {fileID: 114365808593954680}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -612,6 +613,7 @@ MonoBehaviour:
   PlayInTourni: 
   numberofpeople: 0
   counter: 0
+  logger: {fileID: 0}
 --- !u!114 &114213945720862252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -651,7 +653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114732482007146014}
         m_MethodName: Pass
         m_Mode: 1
         m_Arguments:
@@ -677,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shields: 0
   baseAttack: 0
+  bids: 0
   totalBP: 0
   AllyBattlePoints: 0
   rank: 
@@ -858,7 +861,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114732482007146014}
         m_MethodName: ParticipateInCurrentQuest
         m_Mode: 1
         m_Arguments:
@@ -958,6 +961,18 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
+--- !u!114 &114365808593954680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672854402560926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba770a16055ec41759d7f531bc9527dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logger: {fileID: 0}
 --- !u!114 &114397132635092832
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1029,8 +1044,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114909731219777000}
-        m_MethodName: SponsorQuest
+      - m_Target: {fileID: 114732482007146014}
+        m_MethodName: SponsorCurrentQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1075,6 +1090,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: End Turn
+--- !u!114 &114732482007146014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1672854402560926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4fcf07f66d56b47855c02cebb8a3c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sponsor: 0
+  spacing: 200
+  logger: {fileID: 0}
 --- !u!114 &114752631562997082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1212,8 +1241,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114909731219777000}
-        m_MethodName: SponsorSubmitCards
+      - m_Target: {fileID: 114732482007146014}
+        m_MethodName: SubmitCardsQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114732482007146014}
+        m_MethodName: SubmitWeaponsQuest
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1269,18 +1309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9ff17a412b24812a4bdb14f2f5cf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114909731219777000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1672854402560926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abf98f0e3bd5f449f909993270757792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sponsoringQuest: 1
 --- !u!114 &114950768644384826
 MonoBehaviour:
   m_ObjectHideFlags: 1

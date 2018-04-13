@@ -9,6 +9,8 @@ public class allyzone : MonoBehaviour, IDropHandler{
 		if(z.gameObject.GetComponent<AdventureCard>().getType() == "Ally"){
 			Debug.Log("Adding an Ally");
 			this.transform.parent.parent.GetComponent<User>().PlayAllies(z.gameObject.GetComponent<AdventureCard>());
+			this.transform.parent.parent.GetComponent<User>().setbids(z.gameObject.GetComponent<AdventureCard>());
+
 			Destroy(z.gameObject);
 		}
 	}
